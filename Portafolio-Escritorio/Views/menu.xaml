@@ -17,12 +17,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-            <Grid>
+        <materialDesign:ColorZone Mode="PrimaryMid" HorizontalAlignment="Stretch" Grid.Column="1" Margin="5,0,0,0">
+            <Grid Margin="-253,0,0,0">
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
             </Grid>
         </materialDesign:ColorZone>
-        <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="#FF5170DA">
+        <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="326*"/>

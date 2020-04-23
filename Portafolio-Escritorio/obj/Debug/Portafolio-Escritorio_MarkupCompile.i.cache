@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\App.xaml
-41688758396
+5-1815174844
 
-9987385892
+121462314792
 161524159
-MainWindow.xaml;Views\manuales.xaml;Views\menu.xaml;Views\soporte.xaml;
+MainWindow.xaml;UserControlMenuItem.xaml;Views\manuales.xaml;Views\menu.xaml;Views\soporte.xaml;
 
-False
+True
 

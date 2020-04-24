@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Portafolio_Escritorio.Views;
+
 
 namespace Portafolio_Escritorio
 {
@@ -21,14 +23,23 @@ namespace Portafolio_Escritorio
     /// </summary>
     public partial class UserControlMenuItem : UserControl
     {
-        public UserControlMenuItem(ItemMenu itemMenu)
+        Views.menu _context;
+
+        public UserControlMenuItem(ItemMenu itemMenu, Views.menu context)
         {
             InitializeComponent();
+
+            _context = context;
 
             ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
             ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
 
             this.DataContext = itemMenu;
+        }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
         }
     }
 }

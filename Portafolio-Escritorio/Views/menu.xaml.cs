@@ -26,9 +26,8 @@ namespace Portafolio_Escritorio.Views
             InitializeComponent();
 
             var menuUsuarios = new List<SubItem>();
-            menuUsuarios.Add(new SubItem("Nuevo Cliente"));
-            menuUsuarios.Add(new SubItem("Ver Clientes"));
-            menuUsuarios.Add(new SubItem("Roles de usuario"));
+            menuUsuarios.Add(new SubItem("Nuevo Cliente", new UserControlNuevoCliente()));
+            menuUsuarios.Add(new SubItem("Roles de usuario", new UserControlRoles()));
             var item6 = new ItemMenu("Usuarios", menuUsuarios, PackIconKind.Register);
 
             var menuProveedores = new List<SubItem>();
@@ -50,13 +49,29 @@ namespace Portafolio_Escritorio.Views
             menuEstadisticas.Add(new SubItem("Estadistica Pedidos"));
             var item4 = new ItemMenu("Estadisticas", menuEstadisticas, PackIconKind.ChartLine);
 
-            var item0 = new ItemMenu("Home", new UserControl(), PackIconKind.ViewDashboard);
+            var menuCodigo = new List<SubItem>();
+            menuCodigo.Add(new SubItem("Nuevo Código de barra"));
+            var item3 = new ItemMenu("Código de Barra", menuCodigo, PackIconKind.Barcode);
 
-            Menu.Children.Add(new UserControlMenuItem(item0));
-            Menu.Children.Add(new UserControlMenuItem(item6));
-            Menu.Children.Add(new UserControlMenuItem(item1));
-            Menu.Children.Add(new UserControlMenuItem(item2));
-            Menu.Children.Add(new UserControlMenuItem(item4));
+            //var item0 = new ItemMenu("Home", new UserControl(), PackIconKind.Home);
+
+           // Menu.Children.Add(new UserControlMenuItem(item0, this));
+            Menu.Children.Add(new UserControlMenuItem(item6, this));
+            Menu.Children.Add(new UserControlMenuItem(item1, this));
+            Menu.Children.Add(new UserControlMenuItem(item2, this));
+            Menu.Children.Add(new UserControlMenuItem(item4, this));
+            Menu.Children.Add(new UserControlMenuItem(item3, this));
+        }
+
+        internal void SwitchScreen(object sender)
+        {
+            var screen = ((UserControl)sender);
+
+            if (screen != null)
+            {
+                StackPanelMain.Children.Clear();
+                StackPanelMain.Children.Add(screen);
+            }
         }
     }
 }

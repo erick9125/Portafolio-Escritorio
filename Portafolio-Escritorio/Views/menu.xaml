@@ -19,7 +19,18 @@
 
         <materialDesign:ColorZone Mode="PrimaryMid" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
             <Grid>
-                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
+                        <StackPanel Width="150">
+                            <Button Content="Settings"/>
+                            <Button Content="Account"/>
+                            <Button Content="Help"/>
+                            <Separator/>
+                            <Button x:Name="btn_logout" Content="Logout" Click="btn_logout_Click"  />
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Foreground="White">Sistema de gestión Yuyitos</TextBlock>
             </Grid>
         </materialDesign:ColorZone>
         <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}">

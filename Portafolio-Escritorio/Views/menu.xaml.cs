@@ -31,8 +31,7 @@ namespace Portafolio_Escritorio.Views
             var item6 = new ItemMenu("Usuarios", menuUsuarios, PackIconKind.Register);
 
             var menuProveedores = new List<SubItem>();
-            menuProveedores.Add(new SubItem("Nuevo Proveedor"));
-            menuProveedores.Add(new SubItem("Ver Proveedores"));
+            menuProveedores.Add(new SubItem("Nuevo Proveedor", new UserControlNuevoProveedor()));
             var item1 = new ItemMenu("Proveedores", menuProveedores, PackIconKind.AccountHardHat);
 
             var menuReportes = new List<SubItem>();
@@ -72,6 +71,11 @@ namespace Portafolio_Escritorio.Views
                 StackPanelMain.Children.Clear();
                 StackPanelMain.Children.Add(screen);
             }
+        }
+
+        private void btn_logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

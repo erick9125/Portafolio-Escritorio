@@ -81,6 +81,9 @@
     <Compile Include="Views\UserControlNuevoCliente.xaml.cs">
       <DependentUpon>UserControlNuevoCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControlNuevoProveedor.xaml.cs">
+      <DependentUpon>UserControlNuevoProveedor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControlRoles.xaml.cs">
       <DependentUpon>UserControlRoles.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\UserControlNuevoCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlNuevoProveedor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

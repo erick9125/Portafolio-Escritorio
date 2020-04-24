@@ -1,24 +1,30 @@
-﻿<UserControl x:Class="Portafolio_Escritorio.Views.UserControlNuevoCliente"
+﻿<UserControl x:Name="uc_cliente" x:Class="Portafolio_Escritorio.Views.UserControlNuevoCliente"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White" Margin="0,0,-114,0">
-        <Label Content="Nuevo Cliente" HorizontalAlignment="Left" Margin="321,50,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <TextBox materialDesign:HintAssist.Hint="Rut" HorizontalAlignment="Left" Height="23" Margin="78,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
-        <TextBox materialDesign:HintAssist.Hint="Nombre" HorizontalAlignment="Left" Height="23" Margin="78,205,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
-        <TextBox materialDesign:HintAssist.Hint="Correo" HorizontalAlignment="Left" Height="23" Margin="78,248,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
-        <TextBox materialDesign:HintAssist.Hint="Estado" HorizontalAlignment="Left" Height="23" Margin="78,294,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
-        <Button x:Name="btn_nuevo_cli" Content="Guardar" HorizontalAlignment="Left" Margin="78,336,0,0" VerticalAlignment="Top" Width="276" Height="33" Background="#FF4688D8" Foreground="#FFF9F9F9" FontSize="20"/>
-        <DataGrid HorizontalAlignment="Left" Height="217" Margin="409,205,0,0" VerticalAlignment="Top" Width="358"/>
-        <Button x:Name="btn_editar_cli" Content="Editar" HorizontalAlignment="Left" Margin="806,205,0,0" VerticalAlignment="Top" Width="75" Background="#FF4688D8" FontSize="14" Foreground="White"/>
-        <Button x:Name="btn_eliminar_cli" Content="Eliminar" HorizontalAlignment="Left" Margin="806,254,0,0" VerticalAlignment="Top" Width="75" Background="#FF4688D8" FontSize="14" Foreground="White"/>
-        <TextBox materialDesign:HintAssist.Hint="Ingrese un nombre" HorizontalAlignment="Left" Height="23" Margin="409,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255"/>
-        <Button x:Name="btn_buscar_cli" Content="Buscar" HorizontalAlignment="Left" Margin="692,162,0,0" VerticalAlignment="Top" Width="75" Background="#FF719EEF" FontSize="14" Foreground="#FFFFFDFD" Height="26"/>
+             mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White" Margin="0,0,-114,-47">
+        <Label Content="Nuevo Cliente" HorizontalAlignment="Left" Margin="332,51,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <StackPanel>
+            <Label Content="Agregar nuevo cliente" HorizontalAlignment="Left" Margin="120,162,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <TextBox materialDesign:HintAssist.Hint="Rut" HorizontalAlignment="Left" Height="23" Margin="72,18,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+            <TextBox materialDesign:HintAssist.Hint="Nombre" HorizontalAlignment="Left" Height="23" Margin="72,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+            <TextBox materialDesign:HintAssist.Hint="Correo" HorizontalAlignment="Left" Height="23" Margin="72,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+            <TextBox materialDesign:HintAssist.Hint="Estado" HorizontalAlignment="Left" Height="23" Margin="72,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+            <Button x:Name="btn_nuevo_cli" Content="Guardar" HorizontalAlignment="Left" Margin="72,20,0,0" VerticalAlignment="Top" Width="276" Height="33" Background="#FF007BFF" Foreground="#FFF9F9F9" FontSize="20" BorderBrush="{x:Null}"/>
+        </StackPanel>
+        <StackPanel>
+            <DataGrid HorizontalAlignment="Left" Height="217" Margin="389,205,0,0" VerticalAlignment="Top" Width="358"/>
+            <Button x:Name="btn_editar_cli" Content="Editar" HorizontalAlignment="Left" Margin="780,-218,0,0" VerticalAlignment="Top" Width="88" Background="#FFFFC107" FontSize="14" Foreground="White" Height="36" BorderBrush="{x:Null}"/>
+            <Button x:Name="btn_eliminar_cli" Content="Eliminar" HorizontalAlignment="Left" Margin="780,-171,0,0" VerticalAlignment="Top" Width="88" Background="#FFDC3545" FontSize="14" Foreground="White" Height="36" BorderBrush="{x:Null}"/>
+            <TextBox materialDesign:HintAssist.Hint="Ingrese un nombre" HorizontalAlignment="Left" Height="23" Margin="389,-252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255"/>
+            <Button x:Name="btn_buscar_cli" Content="Buscar" HorizontalAlignment="Left" Margin="672,-252,0,0" VerticalAlignment="Top" Width="75" Background="#FF007BFF" FontSize="14" Foreground="#FFFFFDFD" Height="26" BorderBrush="{x:Null}"/>
+        </StackPanel>
+
+
 
     </Grid>
 </UserControl>

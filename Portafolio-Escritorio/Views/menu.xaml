@@ -22,9 +22,9 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
                         <StackPanel Width="150">
-                            <Button Content="Settings"/>
-                            <Button Content="Account"/>
-                            <Button Content="Help"/>
+                            <Button x:Name="btn_herramienta" Content="Herramientas"/>
+                            <Button x:Name="btn_cuenta" Content="Cuenta"/>
+                            <Button x:Name="btn_ayuda" Content="Ayuda"/>
                             <Separator/>
                             <Button x:Name="btn_logout" Content="Logout" Click="btn_logout_Click"  />
                         </StackPanel>
@@ -45,7 +45,9 @@
                 <StackPanel x:Name="Menu" Margin="10"/>
             </ScrollViewer>
         </Grid>
-        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"/>
+        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+            <Image Source="/Assets/logo.PNG" Height="309" Margin="268,202,282,0"/>
+        </StackPanel>
 
     </Grid>
 </Window>

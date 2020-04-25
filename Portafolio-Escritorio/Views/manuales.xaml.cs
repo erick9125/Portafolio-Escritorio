@@ -23,5 +23,10 @@ namespace Portafolio_Escritorio.Views
         {
             InitializeComponent();
         }
+
+        private void Btn_salir_man_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

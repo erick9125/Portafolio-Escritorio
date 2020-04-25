@@ -48,9 +48,9 @@ namespace Portafolio_Escritorio.Views
             menuEstadisticas.Add(new SubItem("Estadistica Pedidos"));
             var item4 = new ItemMenu("Estadisticas", menuEstadisticas, PackIconKind.ChartLine);
 
-            var menuCodigo = new List<SubItem>();
-            menuCodigo.Add(new SubItem("Nuevo Código de barra"));
-            var item3 = new ItemMenu("Código de Barra", menuCodigo, PackIconKind.Barcode);
+            var menuDeuda = new List<SubItem>();
+            menuDeuda.Add(new SubItem("Agregar nueva deuda"));
+            var item3 = new ItemMenu("Deudas", menuDeuda, PackIconKind.Money);
 
             //var item0 = new ItemMenu("Home", new UserControl(), PackIconKind.Home);
 

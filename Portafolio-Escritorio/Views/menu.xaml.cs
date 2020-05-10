@@ -31,30 +31,35 @@ namespace Portafolio_Escritorio.Views
             var item6 = new ItemMenu("Usuarios", menuUsuarios, PackIconKind.Register);
 
             var menuProveedores = new List<SubItem>();
-            menuProveedores.Add(new SubItem("Nuevo Proveedor", new UserControlNuevoProveedor()));
+            menuProveedores.Add(new SubItem("Registrar Proveedor", new UserControlNuevoProveedor()));
+            menuProveedores.Add(new SubItem("Registrar nuevo producto", new UserControlNuevoProducto()));
+            menuProveedores.Add(new SubItem("Recepcionar pedido", new UserControlRecepcionarPedido()));
+            menuProveedores.Add(new SubItem("Nuevo código de barra", new UserControlCodigoBarra()));
             var item1 = new ItemMenu("Proveedores", menuProveedores, PackIconKind.AccountHardHat);
 
             var menuReportes = new List<SubItem>();
-            menuReportes.Add(new SubItem("Deudas"));
-            menuReportes.Add(new SubItem("Proveedores"));
-            menuReportes.Add(new SubItem("Productos"));
-            menuReportes.Add(new SubItem("Stock"));
-            menuReportes.Add(new SubItem("Ventas"));
+            menuReportes.Add(new SubItem("Deudas", new UserControlReporteDeudas()));
+            menuReportes.Add(new SubItem("Proveedores", new UserControlReporteProveedores()));
+            menuReportes.Add(new SubItem("Stock", new UserControlReporteStock()));
+            menuReportes.Add(new SubItem("Ventas", new UserControlReporteVentas()));
             var item2 = new ItemMenu("Reportes", menuReportes, PackIconKind.FileReport);
 
 
             var menuEstadisticas = new List<SubItem>();
-            menuEstadisticas.Add(new SubItem("Estadistica Ventas"));
-            menuEstadisticas.Add(new SubItem("Estadistica Pedidos"));
+            menuEstadisticas.Add(new SubItem("Estadistica Ventas", new UserControlEstadisticaVenta()));
+            menuEstadisticas.Add(new SubItem("Estadistica Pedidos", new UserControlEstadisticaPedido()));
+            menuEstadisticas.Add(new SubItem("Estadistica Pagos", new UserControlEstadisticaPago()));
             var item4 = new ItemMenu("Estadisticas", menuEstadisticas, PackIconKind.ChartLine);
 
             var menuDeuda = new List<SubItem>();
-            menuDeuda.Add(new SubItem("Agregar nueva deuda"));
+            menuDeuda.Add(new SubItem("Ver estado deuda", new UserControlEstadoDeuda()));
             var item3 = new ItemMenu("Deudas", menuDeuda, PackIconKind.Money);
+
+            
 
             //var item0 = new ItemMenu("Home", new UserControl(), PackIconKind.Home);
 
-           // Menu.Children.Add(new UserControlMenuItem(item0, this));
+            // Menu.Children.Add(new UserControlMenuItem(item0, this));
             Menu.Children.Add(new UserControlMenuItem(item6, this));
             Menu.Children.Add(new UserControlMenuItem(item1, this));
             Menu.Children.Add(new UserControlMenuItem(item2, this));

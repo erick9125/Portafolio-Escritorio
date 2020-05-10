@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\App.xaml
-8546317097
+191545911176
 
-141167906373
-161524159
-MainWindow.xaml;UserControlMenuItem.xaml;Views\manuales.xaml;Views\menu.xaml;Views\soporte.xaml;Views\UserControlNuevoCliente.xaml;Views\UserControlNuevoProveedor.xaml;Views\UserControlRoles.xaml;
+25-98085830
+231479992744
+MainWindow.xaml;UserControlMenuItem.xaml;Views\manuales.xaml;Views\menu.xaml;Views\soporte.xaml;Views\UserControlCodigoBarra.xaml;Views\UserControlEstadisticaPago.xaml;Views\UserControlEstadisticaPedido.xaml;Views\UserControlEstadisticaVenta.xaml;Views\UserControlEstadoDeuda.xaml;Views\UserControlNuevoCliente.xaml;Views\UserControlNuevoProducto.xaml;Views\UserControlNuevoProveedor.xaml;Views\UserControlRecepcionarPedido.xaml;Views\UserControlReporteDeudas.xaml;Views\UserControlReporteProveedores.xaml;Views\UserControlReporteStock.xaml;Views\UserControlReporteVentas.xaml;Views\UserControlRoles.xaml;
 
 False
 

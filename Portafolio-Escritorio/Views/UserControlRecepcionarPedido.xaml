@@ -5,8 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" d:DesignWidth="800" Width="950" Height="671">
+    <Grid Background="White">
+        <StackPanel>
+            <Label HorizontalAlignment="Center" Margin="0,40,0,0" FontSize="36">Recepcionar Pedido</Label>
+        </StackPanel>
+        <StackPanel Margin="95,140,505,94">
+            <Rectangle Height="437" Stroke="Black" />
+            <Label HorizontalAlignment="Center" Margin="102,-750,102,0" FontSize="18" Height="40">Datos del pedido</Label>
+            <TextBox Margin="30,-650,34,0" Height="35" />
+            <TextBox Margin="30,-550,34,0" Height="39" />
+            <TextBox Margin="30,-440,34,0" Height="40" />
+            <TextBox Margin="30,-262,34,0" Height="110" />
+            <Button Margin="30,-97,184,0" Height="40" Background="#FF28A745" BorderBrush="{x:Null}" Foreground="White" FontWeight="Bold" FontSize="18">Registrar</Button>
+            <Button Margin="189,-97,34,0" Height="40" Background="#FFFFC107" BorderBrush="{x:Null}" Foreground="White" FontWeight="Bold" FontSize="18">Devolver</Button>
+        </StackPanel>
+        <StackPanel Margin="472,140,39,94">
+            <TextBox Margin="41,40,135,0" Height="36" />
+            <Button Height="35" Margin="322,-34,24,0" Background="#FF007BFF" Foreground="#FFFFF9F9" FontWeight="Bold" FontSize="16">Buscar</Button>
+            <DataGrid Height="316" Margin="41,18,24,0" />
+        </StackPanel>
+
     </Grid>
 </UserControl>

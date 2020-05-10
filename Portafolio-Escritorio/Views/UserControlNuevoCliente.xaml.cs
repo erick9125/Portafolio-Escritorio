@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.OracleClient;
 using System.Data;
-using System.Data.OracleClient;
+
 
 namespace Portafolio_Escritorio.Views
 {

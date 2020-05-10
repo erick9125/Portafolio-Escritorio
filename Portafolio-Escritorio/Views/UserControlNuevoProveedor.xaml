@@ -6,17 +6,17 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="uc_proveedor_Loaded">
     <Grid Background="White" Margin="0,0,-114,-47">
         <Label Content="Nuevo Proveedor" HorizontalAlignment="Left" Margin="332,51,0,0" VerticalAlignment="Top" FontSize="36"/>
         <StackPanel>
             <Label Content="Agregar nuevo Proveedor" HorizontalAlignment="Left" Margin="105,162,0,0" VerticalAlignment="Top" FontSize="18"/>
             <TextBox x:Name="txt_nombre_prov" materialDesign:HintAssist.Hint="Nombre" HorizontalAlignment="Left" Height="23" Margin="72,18,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
             <TextBox x:Name="txt_prov_razon" materialDesign:HintAssist.Hint="Razon Social" HorizontalAlignment="Left" Height="23" Margin="72,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
-            <Button x:Name="btn_nuevo_prov" Content="Guardar" HorizontalAlignment="Left" Margin="72,20,0,0" VerticalAlignment="Top" Width="276" Height="33" Background="#FF007BFF" Foreground="#FFF9F9F9" FontSize="20" BorderBrush="{x:Null}"/>
+            <Button x:Name="btn_nuevo_prov" Content="Guardar" HorizontalAlignment="Left" Margin="72,20,0,0" VerticalAlignment="Top" Width="276" Height="33" Background="#FF007BFF" Foreground="#FFF9F9F9" FontSize="20" BorderBrush="{x:Null}" Click="btn_nuevo_prov_Click"/>
         </StackPanel>
         <StackPanel>
-            <DataGrid x:Name="dt_prov" HorizontalAlignment="Left" Height="217" Margin="389,205,0,0" VerticalAlignment="Top" Width="358"/>
+            <DataGrid x:Name="dg_prov" HorizontalAlignment="Left" Height="217" Margin="389,205,0,0" VerticalAlignment="Top" Width="358"/>
             <Button x:Name="btn_editar_prov" Content="Editar" HorizontalAlignment="Left" Margin="780,-218,0,0" VerticalAlignment="Top" Width="88" Background="#FFFFC107" FontSize="14" Foreground="White" Height="36" BorderBrush="{x:Null}"/>
             <Button x:Name="btn_eliminar_prov" Content="Eliminar" HorizontalAlignment="Left" Margin="780,-171,0,0" VerticalAlignment="Top" Width="88" Background="#FFDC3545" FontSize="14" Foreground="White" Height="36" BorderBrush="{x:Null}"/>
             <TextBox x:Name="txt_buscar_prov" materialDesign:HintAssist.Hint="Ingrese un nombre" HorizontalAlignment="Left" Height="23" Margin="389,-252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255"/>

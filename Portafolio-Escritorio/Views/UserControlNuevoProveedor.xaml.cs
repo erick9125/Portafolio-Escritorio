@@ -54,12 +54,78 @@ namespace Portafolio_Escritorio.Views
                 comando.Parameters.Add("p_razon_social", OracleType.VarChar).Value = txt_prov_razon.Text;
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Proveedor Agregado Correctamente");
+                this.resetAll();
             }
             catch (Exception)
             {
                 MessageBox.Show("Error al guardar el nuevo proveedor");
             }
 
+            conexion.Close();
+        }
+
+        private void btn_editar_prov_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                conexion.Open();
+                OracleCommand comando = new OracleCommand("actualizarProveedor", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idProv", OracleType.VarChar).Value = txt_id_prov.Text;
+                comando.Parameters.Add("nomProv", OracleType.VarChar).Value = txt_nombre_prov.Text;
+                comando.Parameters.Add("razonProv", OracleType.VarChar).Value = txt_prov_razon.Text;
+                
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Proveedor Actualizado Correctamente");
+                this.resetAll();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al actualizar el Proveedor");
+            }
+
+            conexion.Close();
+        }
+
+        private void resetAll()
+        {
+            txt_id_prov.Text = "";
+            txt_nombre_prov.Text = "";
+            txt_prov_razon.Text = "";
+            
+        }
+
+        private void btn_refresh_prov_Click(object sender, RoutedEventArgs e)
+        {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("seleccionarProveedores", conexion);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            dg_prov.ItemsSource = tabla.DefaultView;
+            conexion.Close();
+        }
+
+        private void btn_eliminar_prov_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                conexion.Open();
+                OracleCommand comando = new OracleCommand("eliminarProveedor", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idProv", OracleType.VarChar).Value = txt_id_prov.Text;
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Proveedor Eliminado Correctamente");
+                this.resetAll();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al eliminar el proveedor");
+            }
             conexion.Close();
         }
     }

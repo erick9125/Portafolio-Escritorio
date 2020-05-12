@@ -249,6 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Views\alertas\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\logo.PNG" />

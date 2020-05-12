@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.OracleClient;
+using MaterialDesignThemes.Wpf;
 
 namespace Portafolio_Escritorio
 {
@@ -49,7 +50,8 @@ namespace Portafolio_Escritorio
             }
             else
             {
-                MessageBox.Show("Datos Incorrectos", "El usuario o la contraseña son incorrectos");
+              
+               MessageBox.Show("Datos Incorrectos", "El usuario o la contraseña son incorrectos");
                 conexion.Close();
             }
         }

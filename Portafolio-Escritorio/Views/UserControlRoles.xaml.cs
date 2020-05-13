@@ -58,5 +58,15 @@ namespace Portafolio_Escritorio.Views
             cb_roles.SelectedValuePath = "ID_ROL";
             conexion.Close();
         }
+
+        private void btn_buscar_cli_rol_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_guardar_rol_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

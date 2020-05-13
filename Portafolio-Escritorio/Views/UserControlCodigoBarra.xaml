@@ -8,11 +8,13 @@
     <Grid Background="White">
         <StackPanel>
             <Rectangle Margin="91,213,69,0" Height="391" Stroke="#FF0F0C0C"/>
+            <Border BorderThickness="0" Height="142" BorderBrush="YellowGreen" Margin="153,-550,144,0">
+                <Image Name="meraControl" />
+            </Border>
             <Label Margin="227,-978,220,1" HorizontalAlignment="Center" FontSize="36" Height="66">Nuevo Código de barra</Label>
             <Button x:Name="btnGenerar" Height="39" Margin="153,-189,144,0" Background="#FF007BFF" Foreground="White" FontSize="18" Click="btnGenerar_Click">Generar</Button>
             <Button x:Name="btnGuardar" Margin="153,-93,144,0" Height="39" Background="#FF28A745" Foreground="#FFFBFBFB" FontSize="18" IsEnabled="False">Guardar</Button>
             <TextBox x:Name="txtCodigo" Height="38" TextWrapping="Wrap" Margin="153,-302,144,0"/>
-            <Image x:Name="panelCodigo" Height="167" Margin="153,-550,144,0"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -116,7 +116,7 @@ namespace Portafolio_Escritorio.Views
 
         private void btn_buscar_cli_Click(object sender, RoutedEventArgs e)
         {
-           
+            
         }
 
         private void resetAll()

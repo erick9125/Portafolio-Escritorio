@@ -254,6 +254,7 @@
     <Resource Include="Assets\principal.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\barcode\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\alertas\" />
   </ItemGroup>

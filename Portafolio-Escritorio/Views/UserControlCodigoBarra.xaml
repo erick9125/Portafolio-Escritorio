@@ -13,7 +13,7 @@
             </Border>
             <Label Margin="227,-978,220,1" HorizontalAlignment="Center" FontSize="36" Height="66">Nuevo Código de barra</Label>
             <Button x:Name="btnGenerar" Height="39" Margin="153,-189,144,0" Background="#FF007BFF" Foreground="White" FontSize="18" Click="btnGenerar_Click">Generar</Button>
-            <Button x:Name="btnGuardar" Margin="153,-93,144,0" Height="39" Background="#FF28A745" Foreground="#FFFBFBFB" FontSize="18" IsEnabled="False">Guardar</Button>
+            <Button x:Name="btnGuardar" Margin="153,-93,144,0" Height="39" Background="#FF28A745" Foreground="#FFFBFBFB" FontSize="18" IsEnabled="False" Click="btnGuardar_Click">Guardar</Button>
             <TextBox x:Name="txtCodigo" Height="38" TextWrapping="Wrap" Margin="153,-302,144,0"/>
         </StackPanel>
     </Grid>

@@ -38,6 +38,7 @@ namespace Portafolio_Escritorio.Views
             {
                 MessageBox.Show("favor ingresar minimo 12 caracteres");
                 return;
+                
             }
             CreateBarCode();
             btnGuardar.IsEnabled = true;
@@ -45,7 +46,7 @@ namespace Portafolio_Escritorio.Views
         }
 
         private void CreateBarCode()
-        {  //Create BarCode Image
+        {  //se crea imagen de código de barras
             BarcodeLib.Barcode b = new BarcodeLib.Barcode();
             b.IncludeLabel = true;
             System.Drawing.Image img = b.Encode(BarcodeLib.TYPE.CODE128,
@@ -54,26 +55,26 @@ namespace Portafolio_Escritorio.Views
                                         System.Drawing.Color.White,
                                         300,
                                         65);
-            //To show image on Window
-            //Create image source from Memory
+            //Para mostrar la imagen en la ventana
+            //Creaamos la fuente de imagen desde la memoria
             MemoryStream ms = new MemoryStream();
-            img.Save(ms, ImageFormat.Bmp);//save image in memory
+            img.Save(ms, ImageFormat.Bmp);//guarda la imagen en memoria
             //my buffer byte
             byte[] buffer = ms.GetBuffer();
-            //Create new MemoryStream that has the contents of buffer
+            //Crea un nuevo MemoryStream que tenga el contenido del búfer
             MemoryStream bufferPasser = new MemoryStream(buffer);
 
-            //I create a new BitmapImage to work with
+            //Creo una nueva imagen de mapa de bits para trabajar
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
             bitmap.StreamSource = bufferPasser;
             bitmap.EndInit();
-            meraControl.Source = bitmap;//I set the source of the image control type as the new //BitmapImage created earlier.            
+            meraControl.Source = bitmap;//establecer la fuente del tipo de control de imagen como el nuevo BitmapImage creado anteriormente.            
         }
 
         private static bool IsTextAllowed(string text)
         {
-            Regex regex = new Regex("[^0-9]"); //regex that matches disallowed text
+            Regex regex = new Regex("[^0-9]"); //expresión regular que coincide con el texto no permitido
             return !regex.IsMatch(text);
         }
 
@@ -81,6 +82,11 @@ namespace Portafolio_Escritorio.Views
         {
             if (IsTextAllowed(e.Text)) { }
             else { e.Handled = true; }
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

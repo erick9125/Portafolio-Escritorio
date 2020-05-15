@@ -5,8 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" d:DesignWidth="800" Width="950" Height="668">
+    <Grid Background="White">
+        <StackPanel Margin="111,68,55,463">
+            <Rectangle Height="132" RenderTransformOrigin="0.5,0.5" Stroke="Black" />
+            <Label Content="Reporte Deudas" Margin="250,-135,245,0" Height="61" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Width="289"/>
+        </StackPanel>
+        <StackPanel Margin="111,224,55,124">
+            <DataGrid x:Name="dgv_reporte_deuda" Height="321" Margin="0,-2,0,0" />
+        </StackPanel>
+        <StackPanel Margin="0,544,0,0">
+            <Rectangle Height="88" Margin="112,7,55,0" Stroke="Black" />
+            <Label Content="EXPORTAR A :" Margin="134,-93,622,0" Height="37" FontSize="20"/>
+            <Button x:Name="btn_word_deuda" Content="WORD" Height="54" Margin="357,-97,450,0" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FF007BFF"/>
+            <Button x:Name="btn_excel_deuda" Content="EXCEL" Height="54" Margin="539,-97,268,0" Foreground="White" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Background="#FF28A745"/>
+            <Button x:Name="btn_pdf_deuda" Content="PDF" Height="54" Margin="708,-94,99,0" Foreground="White" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Background="#FFDC3545"/>
+        </StackPanel>
     </Grid>
 </UserControl>

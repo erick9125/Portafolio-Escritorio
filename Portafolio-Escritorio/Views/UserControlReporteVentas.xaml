@@ -5,8 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" d:DesignWidth="800" Width="950" Height="671">
+    <Grid Background="White">
+        <StackPanel Margin="111,68,55,463">
+            <Rectangle Height="132" RenderTransformOrigin="0.5,0.5" Stroke="Black" />
+            <Label Content="Reporte Ventas" Margin="266,-135,202,0" Height="61" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Width="316"/>
+        </StackPanel>
+        <StackPanel Margin="111,213,55,145">
+            <DataGrid Height="311" />
+        </StackPanel>
+        <StackPanel Margin="111,531,55,29">
+            <Rectangle Height="88" Stroke="Black" Margin="0,2,0,0" />
+            <Label Content="EXPORTAR A :" Margin="10,-97,624,0" Height="32" FontSize="20"/>
+            <Button Content="WORD" Foreground="White" Background="#FF007BFF" Margin="294,-97,347,0" Height="50" FontSize="16" FontWeight="Bold" />
+            <Button Content="EXCEL" Foreground="White" BorderBrush="{x:Null}" Background="#FF28A745" Margin="447,-97,193,0" Height="50" FontSize="16" FontWeight="Bold" />
+            <Button Content="PDF" BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545" Margin="603,-97,38,0" Height="52" FontSize="16" FontWeight="Bold"/>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -100,6 +100,8 @@ namespace Portafolio_Escritorio.Views
 
                 doc.Add(table);
                 doc.Close();
+
+                MessageBox.Show(" Se ha generado el archivo PDF Stock.pdf con exito");
             }
         }
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)
@@ -133,6 +135,21 @@ namespace Portafolio_Escritorio.Views
 
             return null;
         }
-        // fin metodo para exportar a PDF
+// fin metodo para exportar a PDF
+
+        private void btn_word_stock_Click(object sender, RoutedEventArgs e)
+        {
+            dgv_reporte_stock.SelectAllCells();
+            dgv_reporte_stock.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+            ApplicationCommands.Copy.Execute(null, dgv_reporte_stock);
+            String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+            String result = (string)Clipboard.GetData(DataFormats.Text);
+            dgv_reporte_stock.UnselectAllCells();
+            System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Stock.doc");
+            file1.WriteLine(result.Replace(',', ' '));
+            file1.Close();
+            MessageBox.Show(" Se ha generado el archivo WORD Stock.doc con exito");
+        }
+        
     }
 }

@@ -3,23 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="950" Height="671" Background="White">
     <Grid>
         <StackPanel Margin="111,68,55,463">
-            <Rectangle Height="132" RenderTransformOrigin="0.5,0.5" Stroke="Black" />
-            <Label Content="Reporte Stock" Margin="285,-135,245,0" Height="61" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Width="254"/>
+            <Rectangle Height="132" RenderTransformOrigin="0.5,0.5" Stroke="Black" Fill="#FF004581" />
+            <Label Content="Reporte Stock" Margin="285,-135,245,0" Height="61" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Width="254" Foreground="White"/>
         </StackPanel>
         <StackPanel Margin="111,213,55,149">
-            <DataGrid x:Name="dgv_reporte_stock" Height="309" />
+            <DataGrid x:Name="dgv_reporte_stock" Height="309" Loaded="dgv_reporte_stock_Loaded" />
         </StackPanel>
         <StackPanel Margin="111,538,55,36">
             <Rectangle Height="88" Stroke="#FF0A0A0A" />
             <Label Content="EXPORTAR A :" Margin="10,-97,503,0" Height="35" FontSize="20" />
-            <Button x:Name="btn_word_stock" Content="WORD" Height="51" Margin="305,-97,335,0" FontSize="16" FontWeight="Bold" Background="#FF007BFF" Foreground="White" BorderBrush="{x:Null}" />
-            <Button x:Name="btn_stock_excel" Content="EXCEL" Margin="462,-96,179,0" Height="50" FontSize="16" FontWeight="Bold" Background="#FF28A745" BorderBrush="{x:Null}" Foreground="White" />
-            <Button x:Name="btn_pdf_stock" Content="PDF" Margin="621,-97,24,0" Height="50" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545"/>
+            <Button x:Name="btn_word_stock"  Height="51" Margin="305,-97,335,0" FontSize="16" FontWeight="Bold" Background="#FF007BFF" Foreground="White" BorderBrush="{x:Null}" >
+                <materialDesign:PackIcon Kind="FileWord" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />
+            </Button>
+            <Button x:Name="btn_stock_excel"  Margin="462,-96,179,0" Height="50" FontSize="16" FontWeight="Bold" Background="#FF28A745" BorderBrush="{x:Null}" Foreground="White" Click="btn_stock_excel_Click" >
+                <materialDesign:PackIcon Kind="FileExcel" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />
+            </Button>
+            <Button x:Name="btn_pdf_stock"  Margin="621,-97,24,0" Height="50" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545" >
+                <materialDesign:PackIcon Kind="FilePdf" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>

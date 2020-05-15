@@ -16,6 +16,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.OracleClient;
 using System.Data;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using System.Collections;
+using System.Windows.Controls.Primitives;
 
 namespace Portafolio_Escritorio.Views
 {
@@ -59,5 +64,75 @@ namespace Portafolio_Escritorio.Views
             dgv_reporte_stock.ItemsSource = tabla.DefaultView;
             conexion.Close();
         }
+
+        // inicio metodo para exportar a pdf
+        private void btn_pdf_stock_Click(object sender, RoutedEventArgs e)
+        {
+            PdfPTable table = new PdfPTable(dgv_reporte_stock.Columns.Count);
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            PdfWriter writer = PdfWriter.GetInstance(doc, new System.IO.FileStream(@"C:\Users\Emy&Tamy\Desktop\Stock.pdf", System.IO.FileMode.Create));
+            doc.Open();
+            for (int j = 0; j < dgv_reporte_stock.Columns.Count; j++)
+            {
+                table.AddCell(new Phrase(dgv_reporte_stock.Columns[j].Header.ToString()));
+            }
+            table.HeaderRows = 1;
+            IEnumerable itemsSource = dgv_reporte_stock.ItemsSource as IEnumerable;
+            if (itemsSource != null)
+            {
+                foreach (var item in itemsSource)
+                {
+                    DataGridRow row = dgv_reporte_stock.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
+                    if (row != null)
+                    {
+                        DataGridCellsPresenter presenter = FindVisualChild<DataGridCellsPresenter>(row);
+                        for (int i = 0; i < dgv_reporte_stock.Columns.Count; ++i)
+                        {
+                            DataGridCell cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(i);
+                            TextBlock txt = cell.Content as TextBlock;
+                            if (txt != null)
+                            {
+                                table.AddCell(new Phrase(txt.Text));
+                            }
+                        }
+                    }
+                }
+
+                doc.Add(table);
+                doc.Close();
+            }
+        }
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)
+       where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
+
+        public static childItem FindVisualChild<childItem>(DependencyObject obj)
+            where childItem : DependencyObject
+        {
+            foreach (childItem child in FindVisualChildren<childItem>(obj))
+            {
+                return child;
+            }
+
+            return null;
+        }
+        // fin metodo para exportar a PDF
     }
 }

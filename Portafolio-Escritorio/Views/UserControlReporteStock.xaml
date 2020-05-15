@@ -24,7 +24,7 @@
             <Button x:Name="btn_stock_excel"  Margin="462,-96,179,0" Height="50" FontSize="16" FontWeight="Bold" Background="#FF28A745" BorderBrush="{x:Null}" Foreground="White" Click="btn_stock_excel_Click" >
                 <materialDesign:PackIcon Kind="FileExcel" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />
             </Button>
-            <Button x:Name="btn_pdf_stock"  Margin="621,-97,24,0" Height="50" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545" >
+            <Button x:Name="btn_pdf_stock"  Margin="621,-97,24,0" Height="50" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545" Click="btn_pdf_stock_Click" >
                 <materialDesign:PackIcon Kind="FilePdf" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />
             </Button>
         </StackPanel>

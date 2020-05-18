@@ -34,7 +34,7 @@ namespace Portafolio_Escritorio
         private void Btn_ingresar_Click(object sender, RoutedEventArgs e)
         {
             conexion.Open();
-            OracleCommand comando = new OracleCommand("SELECT * from PERSONA WHERE MAIL = :usuario AND PASSWORD = :pass", conexion);
+            OracleCommand comando = new OracleCommand("SELECT P.MAIL ,U.PASSWORD from PERSONA P JOIN USUARIO U ON U.PERSONA_ID_PERSONA = P.ID_PERSONA WHERE P.MAIL = :usuario AND U.PASSWORD = :pass", conexion);
 
             comando.Parameters.AddWithValue(":usuario", txt_user.Text);
             comando.Parameters.AddWithValue(":pass", txt_pass.Password);

@@ -14,6 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.OracleClient;
 using MaterialDesignThemes.Wpf;
+using SweetAlertSharp;
+using SweetAlertSharp.Enums;
+
 
 namespace Portafolio_Escritorio
 {
@@ -50,8 +53,8 @@ namespace Portafolio_Escritorio
             }
             else
             {
-              
-               MessageBox.Show("Datos Incorrectos", "El usuario o la contraseña son incorrectos");
+
+                SweetAlert.Show("Datos Incorrectos", "El usuario o la contraseña son incorrectos");
                 conexion.Close();
             }
         }

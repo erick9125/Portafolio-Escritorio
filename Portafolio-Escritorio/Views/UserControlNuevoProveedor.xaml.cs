@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.OracleClient;
 using System.Data;
+using SweetAlertSharp;
+using SweetAlertSharp.Enums;
 
 namespace Portafolio_Escritorio.Views
 {
@@ -53,12 +55,12 @@ namespace Portafolio_Escritorio.Views
                 comando.Parameters.Add("p_nombre", OracleType.VarChar).Value = txt_nombre_prov.Text;
                 comando.Parameters.Add("p_razon_social", OracleType.VarChar).Value = txt_prov_razon.Text;
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Proveedor Agregado Correctamente");
+                SweetAlert.Show("Operación Realizada", "El nuevo proveedor fue registrado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
                 this.resetAll();
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al guardar el nuevo proveedor");
+                SweetAlert.Show("Error", "Error al registrar el nuevo proveedor", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
 
             conexion.Close();
@@ -76,12 +78,12 @@ namespace Portafolio_Escritorio.Views
                 comando.Parameters.Add("razonProv", OracleType.VarChar).Value = txt_prov_razon.Text;
                 
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Proveedor Actualizado Correctamente");
+                SweetAlert.Show("Operación Realizada", "El proveedor fue modificado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
                 this.resetAll();
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al actualizar el Proveedor");
+                SweetAlert.Show("Error", "Error al modificar los datos del proveedor", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
 
             conexion.Close();
@@ -119,12 +121,12 @@ namespace Portafolio_Escritorio.Views
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idProv", OracleType.VarChar).Value = txt_id_prov.Text;
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Proveedor Eliminado Correctamente");
+                SweetAlert.Show("Operación Realizada", "El proveedor fue eliminado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
                 this.resetAll();
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al eliminar el proveedor");
+                SweetAlert.Show("Error", "No fue posible eliminar el proveedor", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
             conexion.Close();
         }

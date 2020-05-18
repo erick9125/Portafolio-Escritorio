@@ -16,6 +16,8 @@ using System.Data.OracleClient;
 using System.Data;
 using System.Timers;
 using System.Threading;
+using SweetAlertSharp;
+using SweetAlertSharp.Enums;
 
 namespace Portafolio_Escritorio.Views
 {
@@ -59,12 +61,12 @@ namespace Portafolio_Escritorio.Views
                 comando.Parameters.Add("p_mail", OracleType.VarChar).Value = txt_correo_cli.Text;
                 comando.Parameters.Add("p_estado", OracleType.Char).Value = txt_estado_cli.Text;
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Cliente Insertada Correctamente");
+                SweetAlert.Show("Operación Realizada", "El cliente fue registrado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
                 this.resetAll();
             }
             catch(Exception)
             {
-                MessageBox.Show("Error al insertar el nuevo cliente");
+                SweetAlert.Show("Error", "Error al registrar cliente" , SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
 
             conexion.Close();
@@ -83,12 +85,12 @@ namespace Portafolio_Escritorio.Views
             comando.Parameters.Add("mailCli", OracleType.VarChar).Value = txt_correo_cli.Text;
             comando.Parameters.Add("estCli", OracleType.Char).Value = txt_estado_cli.Text;
             comando.ExecuteNonQuery();
-            MessageBox.Show("Cliente Actualizado Correctamente");
-            this.resetAll();
+                SweetAlert.Show("Operación Realizada", "El cliente fue modificado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+                this.resetAll();
         }
             catch(Exception)
             {
-                MessageBox.Show("Error al actualizar el cliente");
+                SweetAlert.Show("Error", "Error al modificar los datos del cliente", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
 
             conexion.Close();
@@ -103,12 +105,12 @@ namespace Portafolio_Escritorio.Views
             comando.CommandType = System.Data.CommandType.StoredProcedure;
             comando.Parameters.Add("idCli", OracleType.VarChar).Value = txt_id.Text;
             comando.ExecuteNonQuery();
-            MessageBox.Show("Cliente Eliminado Correctamente");
-            this.resetAll();
+                SweetAlert.Show("Operación Realizada", "El cliente fue eliminado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+                this.resetAll();
             }
             catch(Exception)
             {
-                MessageBox.Show("Error al Eliminar el cliente");
+                SweetAlert.Show("Error", "No fue posible eliminar el cliente", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
             conexion.Close();
 

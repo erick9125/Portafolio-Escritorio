@@ -19,6 +19,8 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.html;
 using System.Collections;
 using System.Windows.Controls.Primitives;
+using SweetAlertSharp;
+using SweetAlertSharp.Enums;
 
 namespace Portafolio_Escritorio.Views
 {
@@ -35,31 +37,47 @@ namespace Portafolio_Escritorio.Views
 
         private void btn_word_deuda_Click(object sender, RoutedEventArgs e)
         {
-            dgv_reporte_deuda.SelectAllCells();
-            dgv_reporte_deuda.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
-            ApplicationCommands.Copy.Execute(null, dgv_reporte_deuda);
-            String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
-            String result = (string)Clipboard.GetData(DataFormats.Text);
-            dgv_reporte_deuda.UnselectAllCells();
-            System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Deuda.doc");
-            file1.WriteLine(result.Replace(',', ' '));
-            file1.Close();
-            MessageBox.Show(" Se ha generado el archivo WORD Deuda.doc con exito");
+            try
+            {
+                dgv_reporte_deuda.SelectAllCells();
+                dgv_reporte_deuda.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+                ApplicationCommands.Copy.Execute(null, dgv_reporte_deuda);
+                String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+                String result = (string)Clipboard.GetData(DataFormats.Text);
+                dgv_reporte_deuda.UnselectAllCells();
+                System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Deuda.doc");
+                file1.WriteLine(result.Replace(',', ' '));
+                file1.Close();
+                SweetAlert.Show("Operación Realizada", "Se ha generado el archivo WORD Deuda.doc con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+            }
+            catch (Exception)
+            {
+                SweetAlert.Show("Error", "Ocurrio un problema mientras se generaba el documento WORD", SweetAlertButton.OK, SweetAlertImage.ERROR);
+            }
+           
         }
 
         private void btn_excel_deuda_Click(object sender, RoutedEventArgs e)
         {
-            dgv_reporte_deuda.SelectAllCells();
-            dgv_reporte_deuda.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
-            ApplicationCommands.Copy.Execute(null, dgv_reporte_deuda);
-            String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
-            String result = (string)Clipboard.GetData(DataFormats.Text);
-            dgv_reporte_deuda.UnselectAllCells();
-            System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Deuda.xls");
-            file1.WriteLine(result.Replace(',', ' '));
-            file1.Close();
+            try
+            {
+                dgv_reporte_deuda.SelectAllCells();
+                dgv_reporte_deuda.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+                ApplicationCommands.Copy.Execute(null, dgv_reporte_deuda);
+                String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+                String result = (string)Clipboard.GetData(DataFormats.Text);
+                dgv_reporte_deuda.UnselectAllCells();
+                System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Deuda.xls");
+                file1.WriteLine(result.Replace(',', ' '));
+                file1.Close();
 
-            MessageBox.Show(" Se ha generado el archivo excel Deuda.xls con exito");
+                SweetAlert.Show("Operación Realizada", " Se ha generado el archivo excel Deuda.xls con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+            }
+            catch(Exception)
+            {
+                SweetAlert.Show("Error", "Ocurrio un problema mientras se generaba el documento EXCEL", SweetAlertButton.OK, SweetAlertImage.ERROR);
+            }
+            
         }
 
         // inicio metodo para exportar a pdf
@@ -98,7 +116,8 @@ namespace Portafolio_Escritorio.Views
                 doc.Add(table);
                 doc.Close();
 
-                MessageBox.Show(" Se ha generado el archivo PDF Stock.pdf con exito");
+                SweetAlert.Show("Operación Realizada", "  Se ha generado el archivo PDF Deuda.pdf con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+                
             }
         }
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)

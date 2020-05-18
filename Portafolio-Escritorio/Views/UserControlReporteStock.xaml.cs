@@ -21,6 +21,8 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.html;
 using System.Collections;
 using System.Windows.Controls.Primitives;
+using SweetAlertSharp;
+using SweetAlertSharp.Enums;
 
 namespace Portafolio_Escritorio.Views
 {
@@ -37,17 +39,26 @@ namespace Portafolio_Escritorio.Views
 
         private void btn_stock_excel_Click(object sender, RoutedEventArgs e)
         {
-            dgv_reporte_stock.SelectAllCells();
-            dgv_reporte_stock.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
-            ApplicationCommands.Copy.Execute(null, dgv_reporte_stock);
-            String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
-            String result = (string)Clipboard.GetData(DataFormats.Text);
-            dgv_reporte_stock.UnselectAllCells();
-            System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Stock.xls");
-            file1.WriteLine(result.Replace(',', ' '));
-            file1.Close();
+            try
+            {
+                dgv_reporte_stock.SelectAllCells();
+                dgv_reporte_stock.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+                ApplicationCommands.Copy.Execute(null, dgv_reporte_stock);
+                String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+                String result = (string)Clipboard.GetData(DataFormats.Text);
+                dgv_reporte_stock.UnselectAllCells();
+                System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Stock.xls");
+                file1.WriteLine(result.Replace(',', ' '));
+                file1.Close();
 
-            MessageBox.Show(" Se ha generado el archivo excel Stock.xls con exito");
+                SweetAlert.Show("Operación Realizada", "Se ha generado el archivo excel Stock.xls con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+                
+            }
+            catch (Exception)
+            {
+                SweetAlert.Show("Error", "Ocurrio un problema mientras se generaba el documento EXCEL", SweetAlertButton.OK, SweetAlertImage.ERROR);
+            }
+            
         }
 
         private void dgv_reporte_stock_Loaded(object sender, RoutedEventArgs e)
@@ -101,7 +112,7 @@ namespace Portafolio_Escritorio.Views
                 doc.Add(table);
                 doc.Close();
 
-                MessageBox.Show(" Se ha generado el archivo PDF Stock.pdf con exito");
+                SweetAlert.Show("Operación Realizada", "  Se ha generado el archivo PDF Stock.pdf con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
             }
         }
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)
@@ -139,16 +150,24 @@ namespace Portafolio_Escritorio.Views
 
         private void btn_word_stock_Click(object sender, RoutedEventArgs e)
         {
-            dgv_reporte_stock.SelectAllCells();
-            dgv_reporte_stock.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
-            ApplicationCommands.Copy.Execute(null, dgv_reporte_stock);
-            String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
-            String result = (string)Clipboard.GetData(DataFormats.Text);
-            dgv_reporte_stock.UnselectAllCells();
-            System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Stock.doc");
-            file1.WriteLine(result.Replace(',', ' '));
-            file1.Close();
-            MessageBox.Show(" Se ha generado el archivo WORD Stock.doc con exito");
+            try
+            {
+                dgv_reporte_stock.SelectAllCells();
+                dgv_reporte_stock.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+                ApplicationCommands.Copy.Execute(null, dgv_reporte_stock);
+                String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+                String result = (string)Clipboard.GetData(DataFormats.Text);
+                dgv_reporte_stock.UnselectAllCells();
+                System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Stock.doc");
+                file1.WriteLine(result.Replace(',', ' '));
+                file1.Close();
+                SweetAlert.Show("Operación Realizada", "Se ha generado el archivo WORD Stock.doc con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+            }
+            catch (Exception)
+            {
+                SweetAlert.Show("Error", "Ocurrio un problema mientras se generaba el documento WORD", SweetAlertButton.OK, SweetAlertImage.ERROR);
+            }
+           
         }
         
     }

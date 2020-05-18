@@ -19,6 +19,8 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.html;
 using System.Collections;
 using System.Windows.Controls.Primitives;
+using SweetAlertSharp;
+using SweetAlertSharp.Enums;
 
 namespace Portafolio_Escritorio.Views
 {
@@ -50,31 +52,47 @@ namespace Portafolio_Escritorio.Views
 
         private void btn_word_prov_Click(object sender, RoutedEventArgs e)
         {
-            dgv_reporte_prov.SelectAllCells();
-            dgv_reporte_prov.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
-            ApplicationCommands.Copy.Execute(null, dgv_reporte_prov);
-            String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
-            String result = (string)Clipboard.GetData(DataFormats.Text);
-            dgv_reporte_prov.UnselectAllCells();
-            System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Proveedores.doc");
-            file1.WriteLine(result.Replace(',', ' '));
-            file1.Close();
-            MessageBox.Show(" Se ha generado el archivo WORD Proveedores.doc con exito");
+            try
+            {
+                dgv_reporte_prov.SelectAllCells();
+                dgv_reporte_prov.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+                ApplicationCommands.Copy.Execute(null, dgv_reporte_prov);
+                String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+                String result = (string)Clipboard.GetData(DataFormats.Text);
+                dgv_reporte_prov.UnselectAllCells();
+                System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Proveedores.doc");
+                file1.WriteLine(result.Replace(',', ' '));
+                file1.Close();
+                SweetAlert.Show("Operación Realizada", "Se ha generado el archivo WORD Proveedores.doc con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+            }
+            catch (Exception)
+            {
+                SweetAlert.Show("Error", "Ocurrio un problema mientras se generaba el documento WORD", SweetAlertButton.OK, SweetAlertImage.ERROR);
+            }
+            
         }
 
         private void btn_excel_prov_Click(object sender, RoutedEventArgs e)
         {
-            dgv_reporte_prov.SelectAllCells();
-            dgv_reporte_prov.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
-            ApplicationCommands.Copy.Execute(null, dgv_reporte_prov);
-            String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
-            String result = (string)Clipboard.GetData(DataFormats.Text);
-            dgv_reporte_prov.UnselectAllCells();
-            System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Proveedores.xls");
-            file1.WriteLine(result.Replace(',', ' '));
-            file1.Close();
+            try
+            {
+                dgv_reporte_prov.SelectAllCells();
+                dgv_reporte_prov.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+                ApplicationCommands.Copy.Execute(null, dgv_reporte_prov);
+                String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+                String result = (string)Clipboard.GetData(DataFormats.Text);
+                dgv_reporte_prov.UnselectAllCells();
+                System.IO.StreamWriter file1 = new System.IO.StreamWriter(@"C:\Users\Emy&Tamy\Desktop\Proveedores.xls");
+                file1.WriteLine(result.Replace(',', ' '));
+                file1.Close();
 
-            MessageBox.Show(" Se ha generado el archivo EXCEL Proveedores.xls con exito");
+                SweetAlert.Show("Operación Realizada", " Se ha generado el archivo excel Proveedores.xls con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+            }
+            catch (Exception)
+            {
+                SweetAlert.Show("Error", "Ocurrio un problema mientras se generaba el documento EXCEL", SweetAlertButton.OK, SweetAlertImage.ERROR);
+            }
+            
         }
 
         // inicio metodo para exportar a pdf
@@ -113,7 +131,7 @@ namespace Portafolio_Escritorio.Views
                 doc.Add(table);
                 doc.Close();
 
-                MessageBox.Show(" Se ha generado el archivo PDF Stock.pdf con exito");
+                SweetAlert.Show("Operación Realizada", "  Se ha generado el archivo PDF Proveedores.pdf con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
             }
         }
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)

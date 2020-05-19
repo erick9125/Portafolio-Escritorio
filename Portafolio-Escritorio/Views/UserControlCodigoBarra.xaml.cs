@@ -19,6 +19,8 @@ using System.Drawing.Imaging;
 using Color = System.Drawing.Color;
 using System.IO;
 using System.Text.RegularExpressions;
+using SweetAlertSharp;
+using SweetAlertSharp.Enums;
 
 namespace Portafolio_Escritorio.Views
 {
@@ -36,7 +38,7 @@ namespace Portafolio_Escritorio.Views
         {
             if (txtCodigo.Text.Trim().Length < 12)
             {
-                MessageBox.Show("favor ingresar minimo 12 caracteres");
+                SweetAlert.Show("Error", "Favor ingresar minimo 12 caracteres para el código", SweetAlertButton.OK, SweetAlertImage.ERROR);
                 return;
                 
             }

@@ -18,7 +18,7 @@
 
         </StackPanel>
         <StackPanel>
-            <DataGrid x:Name="dgNuevoCliente" HorizontalAlignment="Left" Height="272" Margin="389,205,0,0" VerticalAlignment="Top" Width="369"/>
+            <DataGrid x:Name="dgNuevoCliente" HorizontalAlignment="Left" Height="272" Margin="389,205,0,0" VerticalAlignment="Top" Width="369" SelectionChanged="dgNuevoCliente_SelectionChanged"/>
             <Button x:Name="btn_editar_cli" Content="Editar" HorizontalAlignment="Left" Margin="778,-80,0,0" VerticalAlignment="Top" Width="126" Background="#FFFFC107" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" Click="btn_editar_cli_Click" FontWeight="Bold"/>
             <Button x:Name="btn_eliminar_cli" Content="Eliminar" HorizontalAlignment="Left" Margin="778,-35,0,0" VerticalAlignment="Top" Width="126" Background="#FFDC3545" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" Click="btn_eliminar_cli_Click" FontWeight="Bold"/>
             <Button x:Name="btn_refrescar"  Content="Refrescar" HorizontalAlignment="Left" Margin="778,-272,0,0" VerticalAlignment="Top" Width="126" Background="#FF17A2B8" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}"  FontWeight="Bold" Click="btn_refrescar_Click_1"/>

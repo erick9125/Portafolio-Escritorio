@@ -118,7 +118,28 @@ namespace Portafolio_Escritorio.Views
 
         private void btn_buscar_cli_Click(object sender, RoutedEventArgs e)
         {
-            
+            try
+
+            {
+                conexion.Open();
+                OracleCommand comando = new OracleCommand("buscarPersonas", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idCli", OracleType.VarChar).Value = txt_buscar.Text;
+                comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+                comando.ExecuteNonQuery();
+
+                OracleDataAdapter adaptador = new OracleDataAdapter();
+                adaptador.SelectCommand = comando;
+                DataTable tabla = new DataTable();
+                adaptador.Fill(tabla);
+                dgNuevoCliente.ItemsSource = tabla.DefaultView;
+
+            }
+            catch
+            {
+                SweetAlert.Show("Error al buscar", "Hubo un problema al buscar el cliente", SweetAlertButton.YesNo, SweetAlertImage.INFORMATION);
+            }
+            conexion.Close();
         }
 
         private void resetAll()
@@ -143,31 +164,26 @@ namespace Portafolio_Escritorio.Views
             adaptador.Fill(tabla);
             dgNuevoCliente.ItemsSource = tabla.DefaultView;
             conexion.Close();
+            btn_nuevo_cli.IsEnabled = true;
         }
 
-
-
-
-
-        /*private void dgNuevoCliente_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dgNuevoCliente_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataGrid dg = sender as DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
             {
-                txt_rut_cli.Text = dr["rutCli"].ToString();
-                txt_nombre_cli.Text = dr["nomCli"].ToString();
-                txt_correo_cli.Text = dr["mailCli"].ToString();
-                txt_estado_cli.Text = dr["estCli"].ToString();
-
-
+                txt_id.Text = dr.Row.ItemArray[0].ToString();
+                txt_rut_cli.Text = dr.Row.ItemArray[1].ToString();
+                txt_nombre_cli.Text = dr.Row.ItemArray[2].ToString();
+                txt_correo_cli.Text = dr.Row.ItemArray[3].ToString();
+             
                 btn_nuevo_cli.IsEnabled = false;
                 btn_eliminar_cli.IsEnabled = true;
                 btn_editar_cli.IsEnabled = true;
 
             }
+        }
 
-
-        }*/
     }
 }

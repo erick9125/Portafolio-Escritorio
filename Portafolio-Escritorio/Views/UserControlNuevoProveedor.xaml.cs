@@ -110,6 +110,7 @@ namespace Portafolio_Escritorio.Views
             adaptador.Fill(tabla);
             dg_prov.ItemsSource = tabla.DefaultView;
             conexion.Close();
+            btn_nuevo_prov.IsEnabled = true;
         }
 
         private void btn_eliminar_prov_Click(object sender, RoutedEventArgs e)
@@ -129,6 +130,48 @@ namespace Portafolio_Escritorio.Views
                 SweetAlert.Show("Error", "No fue posible eliminar el proveedor", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
             conexion.Close();
+        }
+
+        private void btn_buscar_prov_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                conexion.Open();
+                OracleCommand comando = new OracleCommand("buscarProveedor", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idProv", OracleType.VarChar).Value = txt_buscar_prov.Text;
+                comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+                comando.ExecuteNonQuery();
+
+                OracleDataAdapter adaptador = new OracleDataAdapter();
+                adaptador.SelectCommand = comando;
+                DataTable tabla = new DataTable();
+                adaptador.Fill(tabla);
+                dg_prov.ItemsSource = tabla.DefaultView;
+
+            }
+            catch
+            {
+                SweetAlert.Show("Error al buscar", "Hubo un problema al buscar el proveedor", SweetAlertButton.YesNo, SweetAlertImage.INFORMATION);
+            }
+            conexion.Close();
+        }
+
+        private void dg_prov_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid dg = sender as DataGrid;
+            DataRowView dr = dg.SelectedItem as DataRowView;
+            if (dr != null)
+            {
+                txt_id_prov.Text = dr.Row.ItemArray[0].ToString();
+                txt_nombre_prov.Text = dr.Row.ItemArray[1].ToString();
+                txt_prov_razon.Text = dr.Row.ItemArray[2].ToString();
+
+                btn_nuevo_prov.IsEnabled = false;
+                btn_eliminar_prov.IsEnabled = true;
+                btn_editar_prov.IsEnabled = true;
+
+            }
         }
     }
 }

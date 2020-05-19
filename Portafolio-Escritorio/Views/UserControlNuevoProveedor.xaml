@@ -17,12 +17,12 @@
 
         </StackPanel>
         <StackPanel>
-            <DataGrid x:Name="dg_prov" HorizontalAlignment="Left" Height="240" Margin="357,205,0,0" VerticalAlignment="Top" Width="379"/>
+            <DataGrid x:Name="dg_prov" HorizontalAlignment="Left" Height="240" Margin="357,205,0,0" VerticalAlignment="Top" Width="379" SelectionChanged="dg_prov_SelectionChanged"/>
             <Button x:Name="btn_editar_prov" Content="Editar" HorizontalAlignment="Left" Margin="763,-78,0,0" VerticalAlignment="Top" Width="141" Background="#FFFFC107" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_editar_prov_Click"/>
             <Button x:Name="btn_eliminar_prov" Content="Eliminar" HorizontalAlignment="Left" Margin="763,-34,0,0" VerticalAlignment="Top" Width="141" Background="#FFDC3545" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_eliminar_prov_Click"/>
             <Button x:Name="btn_refresh_prov"  Content="Refrescar" HorizontalAlignment="Left" Margin="763,-239,0,0" VerticalAlignment="Top" Width="141" Background="#FF17A2B8" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_refresh_prov_Click"/>
             <TextBox x:Name="txt_buscar_prov" materialDesign:HintAssist.Hint="Ingrese un nombre" HorizontalAlignment="Left" Height="34" Margin="357,-286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="379"/>
-            <Button x:Name="btn_buscar_prov" Content="Buscar" HorizontalAlignment="Left" Margin="763,-287,0,0" VerticalAlignment="Top" Width="141" Background="#FF007BFF" FontSize="20" Foreground="#FFFFFDFD" Height="37" BorderBrush="{x:Null}" FontWeight="Bold"/>
+            <Button x:Name="btn_buscar_prov" Content="Buscar" HorizontalAlignment="Left" Margin="763,-287,0,0" VerticalAlignment="Top" Width="141" Background="#FF007BFF" FontSize="20" Foreground="#FFFFFDFD" Height="37" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_buscar_prov_Click"/>
             <TextBox x:Name="txt_id_prov"  materialDesign:HintAssist.Hint="Ingrese un ID" HorizontalAlignment="Left" Height="34" Margin="763,-125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
         </StackPanel>
     </Grid>

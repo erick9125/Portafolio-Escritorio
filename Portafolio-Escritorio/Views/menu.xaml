@@ -25,6 +25,7 @@
                             <Button x:Name="btn_herramienta" Content="Herramientas"/>
                             <Button x:Name="btn_cuenta" Content="Cuenta"/>
                             <Button x:Name="btn_ayuda" Content="Ayuda"/>
+                            <Button x:Name="btn_minimizar" Content="Minimizar" Click="btn_minimizar_Click" />
                             <Separator/>
                             <Button x:Name="btn_logout" Content="Logout" Click="btn_logout_Click"  />
                         </StackPanel>

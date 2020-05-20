@@ -28,6 +28,7 @@ namespace Portafolio_Escritorio.Views
             var menuUsuarios = new List<SubItem>();
             menuUsuarios.Add(new SubItem("Nuevo Cliente", new UserControlNuevoCliente()));
             menuUsuarios.Add(new SubItem("Roles de usuario", new UserControlRoles()));
+            menuUsuarios.Add(new SubItem("Asignar contraseña", new UserControlAsignarPass()));
             var item6 = new ItemMenu("Usuarios", menuUsuarios, PackIconKind.Register);
 
             var menuProveedores = new List<SubItem>();
@@ -81,6 +82,11 @@ namespace Portafolio_Escritorio.Views
         private void btn_logout_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_minimizar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

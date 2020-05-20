@@ -26,7 +26,7 @@
             </StackPanel>
             <StackPanel Margin="0,15" Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070" Margin="9,0,0,0"/>
-                <TextBox x:Name="txt_user" materialDesign:HintAssist.Hint="Usuario" Width="250" Margin="7,5,5,5" Text="{Binding Email}" />
+                <TextBox x:Name="txt_user" materialDesign:HintAssist.Hint="Usuario (usuario@dominio.cl)" Width="250" Margin="7,5,5,5" Text="{Binding Email}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center" Foreground="#707070" Margin="10,0,0,0"/>

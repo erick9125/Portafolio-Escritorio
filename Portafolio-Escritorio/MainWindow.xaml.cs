@@ -36,27 +36,44 @@ namespace Portafolio_Escritorio
         [Obsolete]
         private void Btn_ingresar_Click(object sender, RoutedEventArgs e)
         {
-            conexion.Open();
-            OracleCommand comando = new OracleCommand("SELECT P.MAIL ,U.PASSWORD from PERSONA P JOIN USUARIO U ON U.PERSONA_ID_PERSONA = P.ID_PERSONA WHERE P.MAIL = :usuario AND U.PASSWORD = :pass", conexion);
-
-            comando.Parameters.AddWithValue(":usuario", txt_user.Text);
-            comando.Parameters.AddWithValue(":pass", txt_pass.Password);
-
-            OracleDataReader lector = comando.ExecuteReader();
-
-            if (lector.Read())
+            if (txt_user.Text.Contains("@") & txt_user.Text.Contains('.'))
             {
-                Views.menu formulario = new Views.menu();
-                conexion.Close();
-                formulario.Show();
-                this.Close();
+              if (txt_pass.Password.Length >= 8)
+                {
+                    conexion.Open();
+                    OracleCommand comando = new OracleCommand("SELECT P.MAIL ,U.PASSWORD from PERSONA P JOIN USUARIO U ON U.PERSONA_ID_PERSONA = P.ID_PERSONA WHERE P.MAIL = :usuario AND U.PASSWORD = :pass", conexion);
+
+                    comando.Parameters.AddWithValue(":usuario", txt_user.Text);
+                    comando.Parameters.AddWithValue(":pass", txt_pass.Password);
+
+                    OracleDataReader lector = comando.ExecuteReader();
+
+                    if (lector.Read())
+                    {
+                        Views.menu formulario = new Views.menu();
+                        conexion.Close();
+                        formulario.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+
+                        SweetAlert.Show("Datos Incorrectos", "El usuario o la contraseña son incorrectos", SweetAlertButton.OK, SweetAlertImage.ERROR);
+                        conexion.Close();
+                    }
+                }
+              else
+                {
+                    SweetAlert.Show("Datos Incorrectos", "La contraseña debe tener un minimo de 8 digitos", SweetAlertButton.OK, SweetAlertImage.ERROR);
+                }
+                    
+                
             }
             else
             {
-
-                SweetAlert.Show("Datos Incorrectos", "El usuario o la contraseña son incorrectos");
-                conexion.Close();
+                SweetAlert.Show("Datos Incorrectos", "Ingrese un usuario valido", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
+            
         }
 
         private void Btn_soporte_Click(object sender, RoutedEventArgs e)

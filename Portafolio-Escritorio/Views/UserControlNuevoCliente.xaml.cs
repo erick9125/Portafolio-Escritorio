@@ -177,6 +177,7 @@ namespace Portafolio_Escritorio.Views
                 txt_rut_cli.Text = dr.Row.ItemArray[1].ToString();
                 txt_nombre_cli.Text = dr.Row.ItemArray[2].ToString();
                 txt_correo_cli.Text = dr.Row.ItemArray[3].ToString();
+                txt_estado_cli.Text = dr.Row.ItemArray[4].ToString();
              
                 btn_nuevo_cli.IsEnabled = false;
                 btn_eliminar_cli.IsEnabled = true;

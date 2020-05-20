@@ -114,6 +114,9 @@
     <Compile Include="Views\soporte.xaml.cs">
       <DependentUpon>soporte.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControlAsignarPass.xaml.cs">
+      <DependentUpon>UserControlAsignarPass.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControlCodigoBarra.xaml.cs">
       <DependentUpon>UserControlCodigoBarra.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
     <Page Include="Views\soporte.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\UserControlAsignarPass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControlCodigoBarra.xaml">
       <SubType>Designer</SubType>
@@ -274,7 +281,6 @@
   <ItemGroup>
     <Folder Include="Assets\barcode\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Views\alertas\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\logo.PNG" />

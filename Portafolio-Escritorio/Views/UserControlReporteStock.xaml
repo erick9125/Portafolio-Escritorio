@@ -13,10 +13,22 @@
             <Label Content="Reporte Stock" Margin="285,-135,245,0" Height="61" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Width="254" Foreground="White"/>
         </StackPanel>
         <StackPanel Margin="111,213,55,149">
-            <DataGrid x:Name="dgv_reporte_stock" Height="309" Loaded="dgv_reporte_stock_Loaded" />
+            <DataGrid x:Name="dgv_reporte_stock" AutoGenerateColumns="False" Height="309" Loaded="dgv_reporte_stock_Loaded" >
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PRODU}" />
+                    <materialDesign:DataGridTextColumn Header="PRODUCTO" Binding="{Binding DESCRIPCION}"/>
+                    <materialDesign:DataGridTextColumn Header="CANTIDAD DISPONIBLE" Binding="{Binding STOCK}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
         <StackPanel Margin="111,538,55,36">
-            <Rectangle Height="88" Stroke="#FF0A0A0A" />
+            <Rectangle Height="88" Stroke="#FF004581" />
             <Label Content="EXPORTAR A :" Margin="10,-97,503,0" Height="35" FontSize="20" />
             <Button x:Name="btn_word_stock"  Height="51" Margin="305,-97,335,0" FontSize="16" FontWeight="Bold" Background="#FF007BFF" Foreground="White" BorderBrush="{x:Null}" Click="btn_word_stock_Click" >
                 <materialDesign:PackIcon Kind="FileWord" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />

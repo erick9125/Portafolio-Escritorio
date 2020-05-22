@@ -8,13 +8,31 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="950" Height="672" Background="White">
     <Grid>
-        <StackPanel>
-            <Label Content="Deudas" FontSize="48" HorizontalAlignment="Center" Margin="0,47,0,0" />
-            <Rectangle Height="463" Margin="74,25,54,0" Stroke="Black" />
-            <Label Content="Buscar Deudor" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="388,-829,388,0" Height="45"/>
-            <TextBox x:Name="txt_buscar_deuda" materialDesign:HintAssist.Hint="Rut" Margin="148,-692,356,0" Height="30" />
-            <Button x:Name="btn_buscar_deuda" Content="Buscar" Margin="626,-692,124,0" Height="30" Foreground="White" FontWeight="Bold" FontSize="16" BorderBrush="{x:Null}" Background="#FF007BFF" Click="btn_buscar_deuda_Click"/>
-            <DataGrid x:Name="dgv_buscar_deuda" Height="294" Margin="148,-350,124,0" Loaded="dgv_buscar_deuda_Loaded" />
+        <StackPanel Margin="79,33,55,543">
+            <Rectangle Height="100" Fill="#FF01D3F6" />
+            <Label Content="Deudas" FontSize="48" HorizontalAlignment="Center" Margin="0,-93,0,0" Foreground="White" />
+        </StackPanel>
+        <StackPanel Margin="79,134,55,41">
+
+            <Rectangle Height="439" Margin="0,25,0,0" Stroke="#FF01D3F6" />
+            <Label Content="Buscar Deudor" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="331,-829,266,0" Height="45" Width="219"/>
+            <TextBox x:Name="txt_buscar_deuda" materialDesign:HintAssist.Hint="Rut" Margin="34,-692,266,0" Height="30" />
+            <Button x:Name="btn_buscar_deuda" Content="Buscar" Margin="581,-692,38,0" Height="30" Foreground="White" FontWeight="Bold" FontSize="16" BorderBrush="{x:Null}" Background="#FF007BFF" Click="btn_buscar_deuda_Click"/>
+            <DataGrid x:Name="dgv_buscar_deuda" AutoGenerateColumns="False" Height="284" Margin="34,-350,38,0" Loaded="dgv_buscar_deuda_Loaded" >
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PERSONA}" />
+                    <materialDesign:DataGridTextColumn Header="RUT" Binding="{Binding RUT}"/>
+                    <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
+                    <materialDesign:DataGridTextColumn Header="CORREO" Binding="{Binding MAIL}"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
 
     </Grid>

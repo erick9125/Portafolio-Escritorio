@@ -15,7 +15,21 @@
         <StackPanel Margin="83,166,93,38">
             <TextBox x:Name="txt_buscar_pass" Height="37" materialDesign:HintAssist.Hint="Ingrese un nombre o ID" Margin="45,8,281,0" />
             <Button x:Name="btn_buscar_pass" Content="Buscar" Margin="512,-38,38,0" Height="37" Foreground="#FFFDFDFD" BorderBrush="{x:Null}" Background="#FF007BFF" FontSize="20" FontWeight="Bold" Click="btn_buscar_pass_Click" />
-            <DataGrid x:Name="dgv_pass" Height="331" Margin="45,12,38,0" Loaded="dgv_pass_Loaded" SelectionChanged="dgv_pass_SelectionChanged" />
+            <DataGrid x:Name="dgv_pass" AutoGenerateColumns="False" Height="331" Margin="45,12,38,0" Loaded="dgv_pass_Loaded" SelectionChanged="dgv_pass_SelectionChanged" >
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PERSONA}" />
+                    <materialDesign:DataGridTextColumn Header="RUT" Binding="{Binding RUT}"/>
+                    <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
+                    <materialDesign:DataGridTextColumn Header="CORREO" Binding="{Binding MAIL}"/>
+                    <materialDesign:DataGridTextColumn Header="ESTADO" Binding="{Binding ESTADO}"/>
+                </DataGrid.Columns>
+            </DataGrid>
             <TextBox x:Name="txt_id_pass" Height="36" materialDesign:HintAssist.Hint="ID" Margin="45,16,629,0" />
             <TextBox x:Name="txt_nueva_pass" Height="36" materialDesign:HintAssist.Hint="Ingrese la contraseña" Margin="285,-36,207,0" />
             <TextBox x:Name="txt_estado_pass" Height="36" materialDesign:HintAssist.Hint="Estado" Margin="150,-36,494,0" />

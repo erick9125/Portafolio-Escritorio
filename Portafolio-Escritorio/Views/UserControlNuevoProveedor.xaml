@@ -6,24 +6,46 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Loaded="uc_proveedor_Loaded">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="uc_proveedor_Loaded" Width="950" Height="671">
     <Grid Background="White" Margin="0,0,-114,-47">
-        <Label Content="Nuevo Proveedor" HorizontalAlignment="Left" Margin="332,51,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <StackPanel>
-            <Label Content="Agregar nuevo Proveedor" HorizontalAlignment="Left" Margin="82,162,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <TextBox x:Name="txt_nombre_prov" materialDesign:HintAssist.Hint="Nombre" HorizontalAlignment="Left" Height="23" Margin="72,18,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="247"/>
-            <TextBox x:Name="txt_prov_razon" materialDesign:HintAssist.Hint="Razon Social" HorizontalAlignment="Left" Height="23" Margin="72,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="247"/>
-            <Button x:Name="btn_nuevo_prov" Content="Guardar" HorizontalAlignment="Left" Margin="72,20,0,0" VerticalAlignment="Top" Width="247" Height="36" Background="#FF007BFF" Foreground="#FFF9F9F9" FontSize="20" BorderBrush="{x:Null}" Click="btn_nuevo_prov_Click" FontWeight="Bold"/>
+
+        <StackPanel Margin="86,32,162,582">
+            <Rectangle Height="104" Fill="#FF00BEF2" />
+            <Label Content="Nuevo Proveedor" HorizontalAlignment="Left" Margin="256,-80,0,0" VerticalAlignment="Top" FontSize="36" Width="299" Foreground="#FFFDFDFD"/>
+        </StackPanel>
+        <StackPanel Margin="86,166,698,363">
+            <Label Content="Agregar nuevo Proveedor" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <TextBox x:Name="txt_nombre_prov" materialDesign:HintAssist.Hint="Nombre" HorizontalAlignment="Left" Height="23" Margin="15,18,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="247"/>
+            <TextBox x:Name="txt_prov_razon" materialDesign:HintAssist.Hint="Razon Social" HorizontalAlignment="Left" Height="23" Margin="15,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="247"/>
+            <Button x:Name="btn_nuevo_prov" Content="Guardar" HorizontalAlignment="Left" Margin="14,13,0,0" VerticalAlignment="Top" Width="247" Height="36" Background="#FF007BFF" Foreground="#FFF9F9F9" FontSize="20" BorderBrush="{x:Null}" Click="btn_nuevo_prov_Click" FontWeight="Bold"/>
+            <Rectangle Height="185" Margin="0,-170,0,0" Stroke="#FF00BEF2" />
+        </StackPanel>
+        <StackPanel Margin="393,166,162,78">
+            <DataGrid x:Name="dg_prov" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="422" Margin="10,50,0,0" VerticalAlignment="Top" Width="489" SelectionChanged="dg_prov_SelectionChanged">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PROV}" />
+                    <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
+                    <materialDesign:DataGridTextColumn Header="RAZÓN SOCIAL" Binding="{Binding RAZON_SOCIAL}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <TextBox x:Name="txt_buscar_prov" materialDesign:HintAssist.Hint="Ingrese un nombre" HorizontalAlignment="Left" Height="34" Margin="10,-473,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338"/>
+            <Button x:Name="btn_buscar_prov" Content="Buscar" HorizontalAlignment="Left" Margin="368,-476,0,0" VerticalAlignment="Top" Width="131" Background="#FF007BFF" FontSize="20" Foreground="#FFFFFDFD" Height="37" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_buscar_prov_Click"/>
 
         </StackPanel>
-        <StackPanel>
-            <DataGrid x:Name="dg_prov" HorizontalAlignment="Left" Height="240" Margin="357,205,0,0" VerticalAlignment="Top" Width="379" SelectionChanged="dg_prov_SelectionChanged"/>
-            <Button x:Name="btn_editar_prov" Content="Editar" HorizontalAlignment="Left" Margin="763,-78,0,0" VerticalAlignment="Top" Width="141" Background="#FFFFC107" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_editar_prov_Click"/>
-            <Button x:Name="btn_eliminar_prov" Content="Eliminar" HorizontalAlignment="Left" Margin="763,-34,0,0" VerticalAlignment="Top" Width="141" Background="#FFDC3545" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_eliminar_prov_Click"/>
-            <Button x:Name="btn_refresh_prov"  Content="Refrescar" HorizontalAlignment="Left" Margin="763,-239,0,0" VerticalAlignment="Top" Width="141" Background="#FF17A2B8" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_refresh_prov_Click"/>
-            <TextBox x:Name="txt_buscar_prov" materialDesign:HintAssist.Hint="Ingrese un nombre" HorizontalAlignment="Left" Height="34" Margin="357,-286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="379"/>
-            <Button x:Name="btn_buscar_prov" Content="Buscar" HorizontalAlignment="Left" Margin="763,-287,0,0" VerticalAlignment="Top" Width="141" Background="#FF007BFF" FontSize="20" Foreground="#FFFFFDFD" Height="37" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_buscar_prov_Click"/>
-            <TextBox x:Name="txt_id_prov"  materialDesign:HintAssist.Hint="Ingrese un ID" HorizontalAlignment="Left" Height="34" Margin="763,-125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+        <StackPanel Margin="86,375,698,78">
+            <Rectangle Height="261" Stroke="#FF00BEF2" />
+            <Label Content="Editar-Elimiar-Actualizar" Margin="40,-479,38,0" HorizontalAlignment="Center" Height="34" FontSize="18" Width="202" />
+            <TextBox x:Name="txt_id_prov"  materialDesign:HintAssist.Hint="Ingrese un ID" HorizontalAlignment="Left" Height="34" Margin="19,-202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
+            <Button x:Name="btn_editar_prov" Content="Editar" HorizontalAlignment="Left" Margin="19,-103,0,0" VerticalAlignment="Top" Width="247" Background="#FFFFC107" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_editar_prov_Click"/>
+            <Button x:Name="btn_eliminar_prov" Content="Eliminar" HorizontalAlignment="Left" Margin="19,-54,0,0" VerticalAlignment="Top" Width="247" Background="#FFDC3545" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_eliminar_prov_Click"/>
+            <Button x:Name="btn_refresh_prov"  Content="Refrescar" HorizontalAlignment="Left" Margin="19,-151,0,0" VerticalAlignment="Top" Width="247" Background="#FF17A2B8" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_refresh_prov_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -24,5 +24,40 @@ namespace Portafolio_Escritorio.Views
         {
             InitializeComponent();
         }
+
+        private void cd_prod_marca_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cb_prod_tipo_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cb_prod_barra_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_editar_prod_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_eliminar_prod_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

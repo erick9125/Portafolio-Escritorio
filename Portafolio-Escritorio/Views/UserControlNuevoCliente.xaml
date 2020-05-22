@@ -5,28 +5,50 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
-             mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800" Width="950" Height="671">
     <Grid Background="White" Margin="0,0,-114,-47">
-        <Label Content="Nuevo Cliente" HorizontalAlignment="Left" Margin="332,51,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <StackPanel>
-            <Label Content="Agregar nuevo cliente" HorizontalAlignment="Left" Margin="120,162,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <TextBox x:Name="txt_rut_cli" materialDesign:HintAssist.Hint="Rut" HorizontalAlignment="Left" Height="23" Margin="72,18,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
-            <TextBox x:Name="txt_nombre_cli" materialDesign:HintAssist.Hint="Nombre" HorizontalAlignment="Left" Height="23" Margin="72,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
-            <TextBox x:Name="txt_correo_cli" materialDesign:HintAssist.Hint="Correo" HorizontalAlignment="Left" Height="23" Margin="72,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
-            <TextBox x:Name="txt_estado_cli" materialDesign:HintAssist.Hint="Estado" HorizontalAlignment="Left" Height="23" Margin="72,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276" Loaded="TextBox_Loaded"/>
-            <Button x:Name="btn_nuevo_cli" Content="Guardar" HorizontalAlignment="Left" Margin="72,20,0,0" VerticalAlignment="Top" Width="276" Height="35" Background="#FF007BFF" Foreground="#FFF9F9F9" FontSize="20" BorderBrush="{x:Null}" Click="btn_nuevo_cli_Click" FontWeight="Bold"/>
-
-        </StackPanel>
-        <StackPanel>
-            <DataGrid x:Name="dgNuevoCliente" HorizontalAlignment="Left" Height="272" Margin="389,205,0,0" VerticalAlignment="Top" Width="369" SelectionChanged="dgNuevoCliente_SelectionChanged"/>
-            <Button x:Name="btn_editar_cli" Content="Editar" HorizontalAlignment="Left" Margin="778,-80,0,0" VerticalAlignment="Top" Width="126" Background="#FFFFC107" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" Click="btn_editar_cli_Click" FontWeight="Bold"/>
-            <Button x:Name="btn_eliminar_cli" Content="Eliminar" HorizontalAlignment="Left" Margin="778,-35,0,0" VerticalAlignment="Top" Width="126" Background="#FFDC3545" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" Click="btn_eliminar_cli_Click" FontWeight="Bold"/>
-            <Button x:Name="btn_refrescar"  Content="Refrescar" HorizontalAlignment="Left" Margin="778,-272,0,0" VerticalAlignment="Top" Width="126" Background="#FF17A2B8" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}"  FontWeight="Bold" Click="btn_refrescar_Click_1"/>
-            <TextBox x:Name="txt_buscar" materialDesign:HintAssist.Hint="Ingrese un nombre" HorizontalAlignment="Left" Height="28" Margin="389,-317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="369"/>
-            <Button x:Name="btn_buscar_cli" Content="Buscar" HorizontalAlignment="Left" Margin="778,-320,0,0" VerticalAlignment="Top" Width="126" Background="#FF007BFF" FontSize="20" Foreground="#FFFFFDFD" Height="34" BorderBrush="{x:Null}" Click="btn_buscar_cli_Click" FontWeight="Bold"/>
-            <TextBox x:Name="txt_id" materialDesign:HintAssist.Hint="Ingrese un ID" HorizontalAlignment="Left" Height="28" Margin="778,-117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
+        <StackPanel Margin="39,42,153,365">
+            <Rectangle Height="105" Fill="#FF00BDF1" />
+            <Label Content="Nuevo Cliente" HorizontalAlignment="Left" Margin="314,-87,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FFFDF7F7" Width="265"/>
         </StackPanel>
 
+        <StackPanel Margin="39,158,693,307">
+            <Label Content="Agregar nuevo cliente" HorizontalAlignment="Left" Margin="79,-1,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <TextBox x:Name="txt_rut_cli" materialDesign:HintAssist.Hint="Rut" HorizontalAlignment="Left" Height="23" Margin="31,18,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+            <TextBox x:Name="txt_nombre_cli" materialDesign:HintAssist.Hint="Nombre" HorizontalAlignment="Left" Height="23" Margin="30,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+            <TextBox x:Name="txt_correo_cli" materialDesign:HintAssist.Hint="Correo" HorizontalAlignment="Left" Height="23" Margin="30,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+            <TextBox x:Name="txt_estado_cli" materialDesign:HintAssist.Hint="Estado" HorizontalAlignment="Left" Height="23" Margin="30,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276" Loaded="TextBox_Loaded"/>
+            <Button x:Name="btn_nuevo_cli" Content="Guardar" HorizontalAlignment="Left" Margin="31,20,0,0" VerticalAlignment="Top" Width="275" Height="35" Background="#FF007BFF" Foreground="#FFF9F9F9" FontSize="20" BorderBrush="{x:Null}" Click="btn_nuevo_cli_Click" FontWeight="Bold"/>
+            <Rectangle Stroke="#FF00BDF1" Height="251" Margin="0,-238,0,0" />
+        </StackPanel>
+        <StackPanel>
+            <DataGrid x:Name="dgNuevoCliente" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="419" Margin="389,205,0,0" VerticalAlignment="Top" Width="523" SelectionChanged="dgNuevoCliente_SelectionChanged">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PERSONA}" />
+                    <materialDesign:DataGridTextColumn Header="RUT" Binding="{Binding RUT}"/>
+                    <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
+                    <materialDesign:DataGridTextColumn Header="CORREO" Binding="{Binding MAIL}"/>
+                    <materialDesign:DataGridTextColumn Header="ESTADO" Binding="{Binding ESTADO}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="txt_buscar" materialDesign:HintAssist.Hint="Ingrese un nombre" HorizontalAlignment="Left" Height="28" Margin="389,-457,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317"/>
+            <Button x:Name="btn_buscar_cli" Content="Buscar" HorizontalAlignment="Left" Margin="726,-462,0,0" VerticalAlignment="Top" Width="186" Background="#FF007BFF" FontSize="20" Foreground="#FFFFFDFD" Height="34" BorderBrush="{x:Null}" Click="btn_buscar_cli_Click" FontWeight="Bold"/>
+
+        </StackPanel>
+        <StackPanel Margin="39,416,693,87">
+            <Rectangle Stroke="#FF00BDF1" Height="211" />
+            <Label Content="Editar-Eliminar-Actualizar" Margin="60,-393,60,0" Height="32" FontSize="18" HorizontalAlignment="Center"/>
+            <Button x:Name="btn_refrescar"  Content="Refrescar" HorizontalAlignment="Left" Margin="34,-141,0,0" VerticalAlignment="Top" Width="262" Background="#FF17A2B8" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}"  FontWeight="Bold" Click="btn_refrescar_Click_1"/>
+            <TextBox x:Name="txt_id" materialDesign:HintAssist.Hint="Ingrese un ID" HorizontalAlignment="Left" Height="28" Margin="34,-179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262"/>
+            <Button x:Name="btn_editar_cli" Content="Editar" HorizontalAlignment="Left" Margin="34,-96,0,0" VerticalAlignment="Top" Width="262" Background="#FFFFC107" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" Click="btn_editar_cli_Click" FontWeight="Bold"/>
+            <Button x:Name="btn_eliminar_cli" Content="Eliminar" HorizontalAlignment="Left" Margin="34,-48,0,0" VerticalAlignment="Top" Width="262" Background="#FFDC3545" FontSize="20" Foreground="White" Height="36" BorderBrush="{x:Null}" Click="btn_eliminar_cli_Click" FontWeight="Bold"/>
+        </StackPanel>
 
 
     </Grid>

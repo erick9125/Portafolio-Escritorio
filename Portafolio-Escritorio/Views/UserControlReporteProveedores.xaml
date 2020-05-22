@@ -9,14 +9,27 @@
              d:DesignHeight="450" d:DesignWidth="800" Width="950" Height="671">
     <Grid Background="White">
         <StackPanel Margin="111,68,55,463">
-            <Rectangle Height="132" RenderTransformOrigin="0.5,0.5" Stroke="Black" Fill="#FF97CBDC" />
+            <Rectangle Height="132" RenderTransformOrigin="0.5,0.5" Fill="#FF97CBDC" />
             <Label Content="Reporte Proveedores" Margin="212,-135,202,0" Height="61" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Width="370" Foreground="White"/>
         </StackPanel>
         <StackPanel Margin="111,213,55,134">
-            <DataGrid x:Name="dgv_reporte_prov" Height="323" Loaded="dgv_reporte_prov_Loaded"/>
+            <DataGrid x:Name="dgv_reporte_prov" AutoGenerateColumns="False" Height="323" Loaded="dgv_reporte_prov_Loaded">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PROV}" />
+                    <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
+                    <materialDesign:DataGridTextColumn Header="RAZÓN SOCIAL" Binding="{Binding RAZON_SOCIAL}"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
         <StackPanel Margin="111,542,55,33">
-            <Rectangle Height="88" Stroke="Black" />
+            <Rectangle Height="88" Stroke="#FF97CBDC" />
             <Label Content="EXPORTAR A :" Margin="10,-97,503,0" Height="36" FontSize="20"/>
             <Button x:Name="btn_word_prov"  Margin="283,-97,357,0" Height="54" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="White" Background="#FF007BFF" Click="btn_word_prov_Click">
                 <materialDesign:PackIcon Kind="FileWord" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />

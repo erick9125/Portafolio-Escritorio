@@ -4,18 +4,37 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
+    xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="950" Height="671">
     <Grid Background="White">
-        <StackPanel>
-            <Label Content="Roles de usuario" HorizontalAlignment="Left" Margin="354,44,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <StackPanel Margin="119,10,85,547">
+            <Rectangle Height="112" Fill="#FF024CAD" />
+            <Label Content="Roles de usuario" HorizontalAlignment="Left" Margin="233,-88,0,0" VerticalAlignment="Top" FontSize="36" Foreground="#FFFBFBFB" Width="293" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Margin="0,124,0,0">
+
             <Button x:Name="btn_buscar_cli_rol" Content="Buscar" HorizontalAlignment="Left" Margin="405,28,0,-7" VerticalAlignment="Top" Width="95" Height="31" Background="#FF007BFF" Foreground="White" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold" Click="btn_buscar_cli_rol_Click"/>
             <TextBox x:Name="txt_buscar_rol" materialDesign:HintAssist.Hint="Buscar usuario" HorizontalAlignment="Left" Height="29" Margin="112,-21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275"/>
-            <DataGrid x:Name="dgvRoles" HorizontalAlignment="Left" Height="345" Margin="112,30,0,0" VerticalAlignment="Top" Width="753" Loaded="dgvRoles_Loaded"/>
-            <ComboBox x:Name="cb_roles" HorizontalAlignment="Left" Margin="549,-402,0,0" VerticalAlignment="Top" Width="316" Height="29" Loaded="cb_roles_Loaded"/>
+            <DataGrid x:Name="dgvRoles" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="345" Margin="112,30,0,0" VerticalAlignment="Top" Width="753" Loaded="dgvRoles_Loaded" SelectionChanged="dgvRoles_SelectionChanged" >
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PERSONA}" />
+                    <materialDesign:DataGridTextColumn Header="RUT" Binding="{Binding RUT}"/>
+                    <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
+                    <materialDesign:DataGridTextColumn Header="CORREO" Binding="{Binding MAIL}"/>
+                    <materialDesign:DataGridTextColumn Header="ESTADO" Binding="{Binding ESTADO}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <ComboBox x:Name="cb_roles" HorizontalAlignment="Left" Margin="549,-402,0,0" VerticalAlignment="Top" Width="316" Height="29" Loaded="cb_roles_Loaded" SelectionChanged="cb_roles_SelectionChanged"/>
             <Button x:Name="btn_guardar_rol" Content="Guardar" HorizontalAlignment="Left" Margin="585,19,0,-7" VerticalAlignment="Top" Width="280" Height="38" Background="#FF28A745" Foreground="White" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="btn_guardar_rol_Click"/>
-            <TextBox x:Name="txt_id_rol" materialDesign:HintAssist.Hint="Ingresa un ID" Height="34" Margin="354,-29,386,0" />
+            <TextBox x:Name="txt_id_rol" materialDesign:HintAssist.Hint="Ingresa un ID de Rol" Height="34" Margin="354,-29,386,0" />
+            <TextBox x:Name="txt_id_rol_user" materialDesign:HintAssist.Hint="Ingresa un ID" Height="34" Margin="112,-33,623,0" />
         </StackPanel>
 
 

@@ -13,10 +13,24 @@
             <Label Content="Reporte Deudas" Margin="250,-135,245,0" Height="61" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Width="289" Foreground="White"/>
         </StackPanel>
         <StackPanel Margin="111,224,55,124">
-            <DataGrid x:Name="dgv_reporte_deuda" Height="321" Margin="0,-2,0,0" Loaded="dgv_reporte_deuda_Loaded" />
+            <DataGrid x:Name="dgv_reporte_deuda" AutoGenerateColumns="False" Height="321" Margin="0,-2,0,0" Loaded="dgv_reporte_deuda_Loaded" >
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PERSONA}" />
+                    <materialDesign:DataGridTextColumn Header="RUT" Binding="{Binding RUT}"/>
+                    <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
+                    <materialDesign:DataGridTextColumn Header="CORREO" Binding="{Binding MAIL}"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
         <StackPanel Margin="0,544,0,0">
-            <Rectangle Height="88" Margin="112,7,55,0" Stroke="Black" />
+            <Rectangle Height="88" Margin="112,7,55,0" Stroke="#FF018ABD" />
             <Label Content="EXPORTAR A :" Margin="134,-93,622,0" Height="37" FontSize="20"/>
             <Button x:Name="btn_word_deuda"  Height="54" Margin="357,-97,450,0" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FF007BFF" Click="btn_word_deuda_Click">
                 <materialDesign:PackIcon Kind="FileWord" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />

@@ -139,22 +139,7 @@ namespace Portafolio_Escritorio.Views
             txt_correlativo.Text = "";
         }
 
-        private void cb_id_marca_Loaded(object sender, RoutedEventArgs e)
-        {
-            conexion.Open();
-            OracleCommand comando = new OracleCommand("select ID_MARCA,DESCRIPCION from MARCA order by ID_MARCA asc", conexion);
-            comando.CommandType = System.Data.CommandType.Text;
-
-            OracleDataAdapter oda = new OracleDataAdapter(comando);
-
-            DataTable dt = new DataTable();
-            oda.Fill(dt);
-            cb_id_marca.ItemsSource = dt.AsDataView();
-            cb_id_marca.DisplayMemberPath = "DESCRIPCION";
-            cb_id_marca.SelectedValuePath = "ID_MARCA";
-            conexion.Close();
-        }
-
+       
         private void cb_tipo_prod_Loaded(object sender, RoutedEventArgs e)
         {
             conexion.Open();
@@ -171,12 +156,6 @@ namespace Portafolio_Escritorio.Views
             conexion.Close();
         }
 
-        private void cb_id_marca_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string valor = ((System.Data.DataRowView)cb_id_marca.SelectedItem).Row.ItemArray[0].ToString();
-            txt_id_marca.Text = valor;
-            
-        }
 
         private void cb_tipo_prod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -205,6 +184,28 @@ namespace Portafolio_Escritorio.Views
         {
             string valor = ((System.Data.DataRowView)cb_proveedor.SelectedItem).Row.ItemArray[0].ToString();
             txt_proveedor.Text = valor;
+        }
+
+        private void ListBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("select ID_MARCA,DESCRIPCION from MARCA order by ID_MARCA asc", conexion);
+            comando.CommandType = System.Data.CommandType.Text;
+
+            OracleDataAdapter oda = new OracleDataAdapter(comando);
+
+            DataTable dt = new DataTable();
+            oda.Fill(dt);
+            cb_id_marca.ItemsSource = dt.AsDataView();
+            cb_id_marca.DisplayMemberPath = "DESCRIPCION";
+            cb_id_marca.SelectedValuePath = "ID_MARCA";
+            conexion.Close();
+        }
+
+        private void cb_id_marca_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            string valor = ((System.Data.DataRowView)cb_id_marca.SelectedItem).Row.ItemArray[0].ToString();
+            txt_id_marca.Text = valor;
         }
     }
 }

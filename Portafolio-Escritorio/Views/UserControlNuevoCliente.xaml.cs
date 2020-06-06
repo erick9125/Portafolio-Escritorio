@@ -26,7 +26,7 @@ namespace Portafolio_Escritorio.Views
     /// </summary>
     public partial class UserControlNuevoCliente : UserControl
     {
-
+        [Obsolete]
         OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= 1234; USER ID= ERICK;");
         public UserControlNuevoCliente()
         {
@@ -137,7 +137,7 @@ namespace Portafolio_Escritorio.Views
             }
             catch
             {
-                SweetAlert.Show("Error al buscar", "Hubo un problema al buscar el cliente", SweetAlertButton.YesNo, SweetAlertImage.INFORMATION);
+                SweetAlert.Show("Error al buscar", "Hubo un problema al buscar el cliente", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
             conexion.Close();
         }

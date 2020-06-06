@@ -22,7 +22,7 @@
             <Rectangle Stroke="#FF00BDF1" Height="251" Margin="0,-238,0,0" />
         </StackPanel>
         <StackPanel>
-            <DataGrid x:Name="dgNuevoCliente" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="419" Margin="389,205,0,0" VerticalAlignment="Top" Width="523" SelectionChanged="dgNuevoCliente_SelectionChanged">
+            <DataGrid x:Name="dgNuevoCliente"   AutoGenerateColumns="False" HorizontalAlignment="Left" Height="419" Margin="389,205,0,0" VerticalAlignment="Top" Width="523" SelectionChanged="dgNuevoCliente_SelectionChanged">
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FF0071CA" />
@@ -36,7 +36,10 @@
                     <materialDesign:DataGridTextColumn Header="CORREO" Binding="{Binding MAIL}"/>
                     <materialDesign:DataGridTextColumn Header="ESTADO" Binding="{Binding ESTADO}"/>
                 </DataGrid.Columns>
+                
             </DataGrid>
+            
+            
             <TextBox x:Name="txt_buscar" materialDesign:HintAssist.Hint="Ingrese un nombre" HorizontalAlignment="Left" Height="28" Margin="389,-457,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317"/>
             <Button x:Name="btn_buscar_cli" Content="Buscar" HorizontalAlignment="Left" Margin="726,-462,0,0" VerticalAlignment="Top" Width="186" Background="#FF007BFF" FontSize="20" Foreground="#FFFFFDFD" Height="34" BorderBrush="{x:Null}" Click="btn_buscar_cli_Click" FontWeight="Bold"/>
 

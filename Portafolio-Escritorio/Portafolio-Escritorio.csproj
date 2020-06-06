@@ -117,6 +117,9 @@
     <Compile Include="Views\UserControlAsignarPass.xaml.cs">
       <DependentUpon>UserControlAsignarPass.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControlAsignarPrecio.xaml.cs">
+      <DependentUpon>UserControlAsignarPrecio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControlCodigoBarra.xaml.cs">
       <DependentUpon>UserControlCodigoBarra.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,10 @@
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\UserControlAsignarPass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlAsignarPrecio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

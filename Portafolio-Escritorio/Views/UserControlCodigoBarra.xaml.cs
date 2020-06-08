@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BarcodeLib;
-using System.Drawing;
 using System.Drawing.Imaging;
 using Color = System.Drawing.Color;
 using System.IO;
@@ -25,6 +24,9 @@ using System.Data.OracleClient;
 using System.Data;
 using Oracle.DataAccess.Types;
 using Microsoft.Win32;
+using Portafolio_Escritorio.Models;
+using System.Runtime.CompilerServices;
+
 
 namespace Portafolio_Escritorio.Views
 {
@@ -53,14 +55,26 @@ namespace Portafolio_Escritorio.Views
             
         }
 
+        public class codigo
+        {
+            public codigo(string codigoBarra)
+            {
+                this.codigoBarra = codigoBarra;
+            }
+
+            public string codigoBarra { get; set; }
+        }
+
+        String barra { get; set; }
         
-        private void CreateBarCode()
+
+        public void CreateBarCode()
         {  //se crea imagen de código de barras
-            var cod = txt_proveedor.Text + txt_id_marca.Text + txt_tipo_produc.Text+ txt_fecha_v.Text + txt_correlativo.Text;
+            barra = txt_proveedor.Text + txt_id_marca.Text + txt_tipo_produc.Text+ txt_fecha_v.Text + txt_correlativo.Text;
             BarcodeLib.Barcode b = new BarcodeLib.Barcode();
             b.IncludeLabel = true;
             System.Drawing.Image img = b.Encode(BarcodeLib.TYPE.CODE128,
-                                        cod,
+                                        barra,
                                         System.Drawing.Color.Black,
                                         System.Drawing.Color.White,
                                         300,
@@ -69,6 +83,7 @@ namespace Portafolio_Escritorio.Views
             //Creaamos la fuente de imagen desde la memoria
             MemoryStream ms = new MemoryStream();
             img.Save(ms, ImageFormat.Bmp);//guarda la imagen en memoria
+            img.Save("C:/Users/Emy&Tamy/Desktop/cb/"+barra+".jpg");
             //my buffer byte
             byte[] buffer = ms.GetBuffer();
             //Crea un nuevo MemoryStream que tenga el contenido del búfer
@@ -80,7 +95,8 @@ namespace Portafolio_Escritorio.Views
             bitmap.BeginInit();
             bitmap.StreamSource = bufferPasser;
             bitmap.EndInit();
-            meraControl.Source = bitmap;//establecer la fuente del tipo de control de imagen como el nuevo BitmapImage creado anteriormente.            
+            meraControl.Source = bitmap;//establecer la fuente del tipo de control de imagen como el nuevo BitmapImage creado anteriormente.  
+            
         }
 
         private static bool IsTextAllowed(string text)
@@ -99,22 +115,19 @@ namespace Portafolio_Escritorio.Views
         {
             try
             {
-
+                
                 //bloque para insertar los datos
                 conexion.Open();
                 OracleCommand comando = new OracleCommand("insertarCodigo", conexion);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("p_codigo_b", OracleType.VarChar).Value = txt_proveedor.Text;
+                comando.Parameters.Add("p_codigo_b", OracleType.VarChar).Value = barra;
                 comando.Parameters.Add("p_id_m", OracleType.VarChar).Value = txt_id_marca.Text;
                 comando.Parameters.Add("p_id_prod_t", OracleType.VarChar).Value = txt_tipo_produc.Text;
+                var param = comando.Parameters.Add("p_foto_c", OracleType.Blob);
 
-                OracleParameter blobParameter = new OracleParameter();
-                blobParameter.OracleType = OracleType.Blob;
-                blobParameter.ParameterName = "p_foto_c";
-               // blobParameter.Value = blob;
+                param.Direction = ParameterDirection.Input;
+                param.Value = "C:/Users/Emy&Tamy/Desktop/cb/" + barra + ".jpg" ;
 
-                comando.Parameters.Add(blobParameter);
-               
                 comando.ExecuteNonQuery();
                 SweetAlert.Show("Operación Realizada", "El código fue registrado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
                 this.resetAll();
@@ -143,7 +156,7 @@ namespace Portafolio_Escritorio.Views
         private void cb_tipo_prod_Loaded(object sender, RoutedEventArgs e)
         {
             conexion.Open();
-            OracleCommand comando = new OracleCommand("select ID_TIPO,NOMBRE from TIPO_PRODUC order by ID_TIPO asc", conexion);
+            OracleCommand comando = new OracleCommand("select ID_TIPO,NOMBRE from TIPO_PRODUC order by NOMBRE asc", conexion);
             comando.CommandType = System.Data.CommandType.Text;
 
             OracleDataAdapter oda = new OracleDataAdapter(comando);
@@ -167,7 +180,7 @@ namespace Portafolio_Escritorio.Views
         private void cb_proveedor_Loaded(object sender, RoutedEventArgs e)
         {
             conexion.Open();
-            OracleCommand comando = new OracleCommand("SELECT ID_PROV, NOMBRE FROM PROVEEDOR ORDER BY ID_PROV ASC", conexion);
+            OracleCommand comando = new OracleCommand("SELECT ID_PROV, NOMBRE FROM PROVEEDOR ORDER BY NOMBRE ASC", conexion);
             comando.CommandType = System.Data.CommandType.Text;
 
             OracleDataAdapter oda = new OracleDataAdapter(comando);
@@ -189,7 +202,7 @@ namespace Portafolio_Escritorio.Views
         private void ListBox_Loaded(object sender, RoutedEventArgs e)
         {
             conexion.Open();
-            OracleCommand comando = new OracleCommand("select ID_MARCA,DESCRIPCION from MARCA order by ID_MARCA asc", conexion);
+            OracleCommand comando = new OracleCommand("select ID_MARCA,DESCRIPCION from MARCA order by DESCRIPCION asc", conexion);
             comando.CommandType = System.Data.CommandType.Text;
 
             OracleDataAdapter oda = new OracleDataAdapter(comando);
@@ -207,5 +220,7 @@ namespace Portafolio_Escritorio.Views
             string valor = ((System.Data.DataRowView)cb_id_marca.SelectedItem).Row.ItemArray[0].ToString();
             txt_id_marca.Text = valor;
         }
+
+        
     }
 }

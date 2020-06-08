@@ -124,7 +124,7 @@ namespace Portafolio_Escritorio.Views
                 conexion.Open();
                 OracleCommand comando = new OracleCommand("buscarPersonas", conexion);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idCli", OracleType.VarChar).Value = txt_buscar.Text;
+                comando.Parameters.Add("buscarPer", OracleType.VarChar).Value = txt_buscar.Text;
                 comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
                 comando.ExecuteNonQuery();
 

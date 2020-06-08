@@ -35,7 +35,6 @@ namespace Portafolio_Escritorio.Views
             menuProveedores.Add(new SubItem("Registrar Proveedor", new UserControlNuevoProveedor()));
             menuProveedores.Add(new SubItem("Registrar nuevo producto", new UserControlNuevoProducto()));
             menuProveedores.Add(new SubItem("Asignar Precio Producto", new UserControlAsignarPrecio()));
-            menuProveedores.Add(new SubItem("Recepcionar pedido", new UserControlRecepcionarPedido()));
             menuProveedores.Add(new SubItem("Nuevo código de barra", new UserControlCodigoBarra()));
             var item1 = new ItemMenu("Proveedores", menuProveedores, PackIconKind.AccountHardHat);
 

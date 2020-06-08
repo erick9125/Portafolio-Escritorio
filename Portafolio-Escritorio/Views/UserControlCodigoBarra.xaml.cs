@@ -115,7 +115,12 @@ namespace Portafolio_Escritorio.Views
         {
             try
             {
-                
+                String SourceLoc = "C:/Users/Emy&Tamy/Desktop/cb/" + barra + ".jpg";
+                FileStream fs = new FileStream(SourceLoc, FileMode.Open, FileAccess.Read);
+                byte[] ImageData = new byte[fs.Length];
+                fs.Read(ImageData, 0, System.Convert.ToInt32(fs.Length));
+                fs.Close();
+
                 //bloque para insertar los datos
                 conexion.Open();
                 OracleCommand comando = new OracleCommand("insertarCodigo", conexion);
@@ -126,7 +131,7 @@ namespace Portafolio_Escritorio.Views
                 var param = comando.Parameters.Add("p_foto_c", OracleType.Blob);
 
                 param.Direction = ParameterDirection.Input;
-                param.Value = "C:/Users/Emy&Tamy/Desktop/cb/" + barra + ".jpg" ;
+                param.Value = ImageData;
 
                 comando.ExecuteNonQuery();
                 SweetAlert.Show("Operación Realizada", "El código fue registrado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);

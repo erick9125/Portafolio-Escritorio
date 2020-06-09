@@ -24,6 +24,7 @@
             <ListBox x:Name="cb_id_marca" Height="218" Margin="15,-316,10,0" Loaded="ListBox_Loaded" SelectionChanged="cb_id_marca_SelectionChanged_1" />
             <ComboBox x:Name="cb_fecha_v" Margin="15,14,10,0" Height="32" />
             <ComboBox x:Name="cb_proveedor" Margin="15,-689,10,0" Height="32" Loaded="cb_proveedor_Loaded" SelectionChanged="cb_proveedor_SelectionChanged" />
+            <Button x:Name="btn_correlativo" Height="32" Margin="15,12,10,0" Content="Correlativo" BorderBrush="{x:Null}" Foreground="White" Background="#FF007BFF" FontSize="16" FontWeight="Bold" Click="Button_Click" />
         </StackPanel>
         <StackPanel Margin="91,146,253,25">
             <Rectangle Margin="10,6,10,0" Height="476" Stroke="#FF0071CA"/>
@@ -31,8 +32,8 @@
             <Border BorderThickness="0" Height="209" BorderBrush="YellowGreen" Margin="42,-728,36,0">
                 <Image Name="meraControl" />
             </Border>
-            <Button x:Name="btnGenerar" Height="39" Margin="42,-189,36,0" Background="#FF007BFF" Foreground="White" FontSize="18" Click="btnGenerar_Click">Generar</Button>
-            <Button x:Name="btnGuardar" Margin="42,-93,36,0" Height="39" Background="#FF28A745" Foreground="#FFFBFBFB" FontSize="18" IsEnabled="False" Click="btnGuardar_Click">Guardar</Button>
+            <Button x:Name="btnGenerar" Height="39" Margin="42,-189,36,0" Background="#FF007BFF" Foreground="White" FontSize="18" Click="btnGenerar_Click" FontWeight="Bold">Generar</Button>
+            <Button x:Name="btnGuardar" Margin="42,-93,36,0" Height="39" Background="#FF28A745" Foreground="#FFFBFBFB" FontSize="18" IsEnabled="False" Click="btnGuardar_Click" FontWeight="Bold">Guardar</Button>
             <TextBox x:Name="txt_proveedor" Height="32" TextWrapping="Wrap" Margin="42,-397,414,0"/>
             <TextBox x:Name="txt_tipo_produc" Height="32" Margin="420,-397,36,0" />
             <TextBox x:Name="txt_fecha_v" Height="32" Margin="42,-297,313,0" />

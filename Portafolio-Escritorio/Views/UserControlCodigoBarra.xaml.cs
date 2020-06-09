@@ -226,6 +226,16 @@ namespace Portafolio_Escritorio.Views
             txt_id_marca.Text = valor;
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int cant = 0;
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("SELECT max(substr(codigo_barra,-18,3))  from CODIGO_BARRA", conexion);
+
+            cant = Convert.ToInt32(comando.ExecuteScalar());
+            txt_correlativo.Text = Convert.ToString(cant + 1);
+            conexion.Close();
+
+        }
     }
 }

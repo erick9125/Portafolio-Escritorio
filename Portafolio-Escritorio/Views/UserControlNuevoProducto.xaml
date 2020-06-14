@@ -13,24 +13,45 @@
             <Label HorizontalAlignment="Center" Margin="0,-68,0,0" FontSize="36" Foreground="White">Registrar Nuevo Producto</Label>
         </StackPanel>
         <StackPanel Margin="84,137,59,254">
-            <Rectangle Height="278" Stroke="Black" Margin="2,0,0,0"/>
+            <Rectangle Height="278" Stroke="#FF02BDF0" Margin="2,0,0,0"/>
+            <ComboBox x:Name="cb_prod_barra" Margin="282,-99,279,0" Height="36" Loaded="cb_prod_barra_Loaded" />
             <Label Margin="10,-519,571,0" Height="36" FontSize="16">Nuevo Producto</Label>
-            <TextBox x:Name="txt_prod_descrip" materialDesign:HintAssist.Hint="Descripción" Margin="29,-411,480,0" Height="36" />
-            <TextBox x:Name="txt_prod_stock" materialDesign:HintAssist.Hint="Stock" Margin="29,-274,480,0" Height="36" />
-            
-            <Label Margin="357,-485,298,0" Height="30" FontSize="16" Content="Marca" />
-            <ComboBox x:Name="cd_prod_marca" Margin="357,-415,86,0" Height="36" Loaded="cd_prod_marca_Loaded" />
-            <Label Margin="357,-331,224,0" Height="38" FontSize="16" Content="Tipo de producto"/>
-            <ComboBox x:Name="cb_prod_tipo" Margin="357,-251,86,0" Height="36" Loaded="cb_prod_tipo_Loaded" />
-            <Label Height="36" Margin="357,-172,224,0" FontSize="16" Content="Codigo de barra" />
-            <ComboBox x:Name="cb_prod_barra" Margin="357,-96,86,0" Height="36" Loaded="cb_prod_barra_Loaded" />
-            <Button x:Name="btn_registrar_prod" Height="46" Margin="29,-103,480,0" FontSize="20" Foreground="#FFFDFDFD" Background="#FF28A745" BorderBrush="{x:Null}" FontWeight="Bold" Click="Button_Click">Registrar</Button>
+            <TextBox x:Name="txt_prod_descrip" materialDesign:HintAssist.Hint="Descripción" Margin="29,-411,549,0" Height="36" />
+            <TextBox x:Name="txt_prod_stock" materialDesign:HintAssist.Hint="Stock" Margin="29,-306,549,0" Height="36" />
+            <TextBox x:Name="txt_prod_id_mar" Height="36" materialDesign:HintAssist.Hint="ID Marca" Margin="29,-203,549,0" RenderTransformOrigin="0.5,0.5" IsEnabled="False"/>
+            <TextBox x:Name="txt_prod_id_tip" Height="36" materialDesign:HintAssist.Hint="ID Tipo Producto" Margin="29,-100,549,0" IsEnabled="False" />
+            <DatePicker x:Name="dp_prod_ven" Margin="282,-408,279,0" Height="36" />
+
+
+
+            <Label Margin="546,-475,10,0" Height="31" FontSize="16" Content="Marca" />
+            <ListBox x:Name="lb_prod_marca" Margin="546,-325,10,0" Height="115" Loaded="lb_prod_marca_Loaded" SelectionChanged="lb_prod_marca_SelectionChanged" />
+            <Label Margin="282,-326,279,0" Height="33" FontSize="16" Content="Tipo de producto"/>
+            <ComboBox x:Name="cb_prod_tipo" Margin="282,-255,279,0" Height="36" Loaded="cb_prod_tipo_Loaded" SelectionChanged="cb_prod_tipo_SelectionChanged" />
+            <Label Height="36" Margin="282,-171,279,0" FontSize="16" Content="Codigo de barra" />
+            <Button x:Name="btn_registrar_prod" Height="62" Margin="546,-122,10,0" FontSize="20" Foreground="#FFFDFDFD" Background="#FF28A745" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_registrar_prod_Click">Registrar</Button>
         </StackPanel>
 
         <StackPanel Margin="84,422,59,42">
-            <DataGrid  Height="208" Margin="0,0,186,0" />
-            <TextBox materialDesign:HintAssist.Hint="ID" Height="35" Margin="645,-346,17,0" />
-            <Button x:Name="btn_buscar_prod" Content="Buscar" Height="40" Margin="645,-250,17,0" FontSize="18" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFF9F3F3" Background="#FF007BFF" Click="Button_Click_1" />
+            <DataGrid x:Name="dg_productos"  AutoGenerateColumns="False"  Height="208" Margin="0,0,186,0" Loaded="dg_productos_Loaded" >
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PRODU}" />
+                    <materialDesign:DataGridTextColumn Header="DESCRIPCIÓN" Binding="{Binding DESCRIPCION}"/>
+                    <materialDesign:DataGridTextColumn Header="STOCK" Binding="{Binding STOCK}"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="txt_id_prod" materialDesign:HintAssist.Hint="ID" Height="34" Margin="645,-346,93,0" />
+            <Button x:Name="btn_actualizar_prod" Height="38" Margin="719,-346,17,0" BorderBrush="{x:Null}" Background="#FF17A2B8" Foreground="White" Click="btn_actualizar_prod_Click">
+                <materialDesign:PackIcon Kind="Update"/>
+            </Button>
+            <Button x:Name="btn_buscar_prod" Content="Buscar" Height="40" Margin="645,-250,17,0" FontSize="18" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFF9F3F3" Background="#FF007BFF" Click="btn_buscar_prod_Click" />
             <Button x:Name="btn_editar_prod" Content="Editar" Height="40" Margin="645,-150,17,0" FontSize="18" FontWeight="Bold" Background="#FFFFC107" BorderBrush="{x:Null}" Foreground="White" Click="btn_editar_prod_Click" />
             <Button x:Name="btn_eliminar_prod" Content="Eliminar" Height="40" Margin="645,-51,17,0" FontSize="18" FontWeight="Bold" Background="#FFDC3545" BorderBrush="{x:Null}" Foreground="#FFFFF9F9" Click="btn_eliminar_prod_Click" />
         </StackPanel>

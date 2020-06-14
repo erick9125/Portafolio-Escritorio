@@ -228,6 +228,7 @@ namespace Portafolio_Escritorio.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //numero correlativo
             int cant = 0;
             conexion.Open();
             OracleCommand comando = new OracleCommand("SELECT max(substr(codigo_barra,-18,3))  from CODIGO_BARRA", conexion);

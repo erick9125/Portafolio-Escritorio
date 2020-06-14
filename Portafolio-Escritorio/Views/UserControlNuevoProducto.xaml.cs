@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SweetAlertSharp;
+using SweetAlertSharp.Enums;
+using System.Data.OracleClient;
+using System.Data;
 
 namespace Portafolio_Escritorio.Views
 {
@@ -20,35 +24,49 @@ namespace Portafolio_Escritorio.Views
     /// </summary>
     public partial class UserControlNuevoProducto : UserControl
     {
+        [Obsolete]
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= 1234; USER ID= ERICK;");
         public UserControlNuevoProducto()
         {
             InitializeComponent();
         }
 
-        private void cd_prod_marca_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void cb_prod_tipo_Loaded(object sender, RoutedEventArgs e)
         {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("select ID_TIPO,NOMBRE from TIPO_PRODUC order by NOMBRE asc", conexion);
+            comando.CommandType = System.Data.CommandType.Text;
 
+            OracleDataAdapter oda = new OracleDataAdapter(comando);
+
+            DataTable dt = new DataTable();
+            oda.Fill(dt);
+            cb_prod_tipo.ItemsSource = dt.AsDataView();
+            cb_prod_tipo.DisplayMemberPath = "NOMBRE";
+            cb_prod_tipo.SelectedValuePath = "ID_TIPO";
+            conexion.Close();
         }
 
         private void cb_prod_barra_Loaded(object sender, RoutedEventArgs e)
         {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("select ID_CODIGO,CODIGO_BARRA from CODIGO_BARRA order by CODIGO_BARRA asc", conexion);
+            comando.CommandType = System.Data.CommandType.Text;
 
+            OracleDataAdapter oda = new OracleDataAdapter(comando);
+
+            DataTable dt = new DataTable();
+            oda.Fill(dt);
+            cb_prod_barra.ItemsSource = dt.AsDataView();
+            cb_prod_barra.DisplayMemberPath = "CODIGO_BARRA";
+            cb_prod_barra.SelectedValuePath = "ID_TIPO";
+            conexion.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+       
 
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void btn_editar_prod_Click(object sender, RoutedEventArgs e)
         {
@@ -58,6 +76,104 @@ namespace Portafolio_Escritorio.Views
         private void btn_eliminar_prod_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void lb_prod_marca_Loaded(object sender, RoutedEventArgs e)
+        {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("select ID_MARCA,DESCRIPCION from MARCA order by DESCRIPCION asc", conexion);
+            comando.CommandType = System.Data.CommandType.Text;
+
+            OracleDataAdapter oda = new OracleDataAdapter(comando);
+
+            DataTable dt = new DataTable();
+            oda.Fill(dt);
+            lb_prod_marca.ItemsSource = dt.AsDataView();
+            lb_prod_marca.DisplayMemberPath = "DESCRIPCION";
+            lb_prod_marca.SelectedValuePath = "ID_MARCA";
+            conexion.Close();
+        }
+
+        private void cb_prod_tipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string valor = ((System.Data.DataRowView)cb_prod_tipo.SelectedItem).Row.ItemArray[0].ToString();
+            txt_prod_id_tip.Text = valor;
+        }
+
+        private void lb_prod_marca_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string valor = ((System.Data.DataRowView)lb_prod_marca.SelectedItem).Row.ItemArray[0].ToString();
+            txt_prod_id_mar.Text = valor;
+        }
+
+        private void btn_registrar_prod_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                conexion.Open();
+                OracleCommand comando = new OracleCommand("insertarProducto", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("p_descripcion", OracleType.VarChar).Value = txt_prod_descrip.Text;
+                comando.Parameters.Add("p_id_tipo", OracleType.VarChar).Value = txt_prod_id_tip.Text;
+                comando.Parameters.Add("p_stock", OracleType.Number).Value = txt_prod_stock.Text;
+                comando.Parameters.Add("p_codigo", OracleType.Char).Value = cb_prod_barra.Text;
+                comando.Parameters.Add("p_id_marca", OracleType.VarChar).Value = txt_prod_id_mar.Text;
+                comando.Parameters.Add("p_fecha_v", OracleType.DateTime).Value = dp_prod_ven.SelectedDate;
+                comando.ExecuteNonQuery();
+                SweetAlert.Show("Operación Realizada", "El Producto fue registrado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+                this.resetAll();
+            }
+            catch (Exception ex)
+            {
+                SweetAlert.Show("Error", "Error al registrar Producto", SweetAlertButton.OK, SweetAlertImage.ERROR);
+                MessageBox.Show(ex.ToString());
+            }
+
+            conexion.Close();
+        }
+
+        private void btn_buscar_prod_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void resetAll()
+        {
+            txt_id_prod.Text = "";
+            txt_prod_descrip.Text = "";
+            txt_prod_id_mar.Text = "";
+            txt_prod_id_tip.Text = "";
+            txt_prod_stock.Text = "";
+        }
+
+        private void dg_productos_Loaded(object sender, RoutedEventArgs e)
+        {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("seleccionarProductos", conexion);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            dg_productos.ItemsSource = tabla.DefaultView;
+            conexion.Close();
+        }
+
+        private void btn_actualizar_prod_Click(object sender, RoutedEventArgs e)
+        {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("seleccionarProductos", conexion);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            dg_productos.ItemsSource = tabla.DefaultView;
+            conexion.Close();
         }
     }
 }

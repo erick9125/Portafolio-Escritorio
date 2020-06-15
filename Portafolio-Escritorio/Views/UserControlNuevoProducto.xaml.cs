@@ -70,12 +70,48 @@ namespace Portafolio_Escritorio.Views
 
         private void btn_editar_prod_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                conexion.Open();
+                OracleCommand comando = new OracleCommand("actualizarProducto", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idPro", OracleType.VarChar).Value = txt_id_prod.Text;
+                comando.Parameters.Add("desPro", OracleType.VarChar).Value = txt_prod_descrip.Text;
+                comando.Parameters.Add("tipPro", OracleType.VarChar).Value = txt_prod_id_tip.Text;
+                comando.Parameters.Add("sto", OracleType.Number).Value = txt_prod_stock.Text;
+                comando.Parameters.Add("cbPro", OracleType.VarChar).Value = cb_prod_barra.Text;
+                comando.Parameters.Add("marPro", OracleType.VarChar).Value = txt_prod_id_mar.Text;
+                comando.Parameters.Add("fvPro", OracleType.DateTime).Value = dp_prod_ven.SelectedDate;
+                comando.ExecuteNonQuery();
+                SweetAlert.Show("Operación Realizada", "El Producto fue modificado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+                this.resetAll();
+            }
+            catch (Exception ex)
+            {
+                SweetAlert.Show("Error", "Error al modificar los datos del Producto", SweetAlertButton.OK, SweetAlertImage.ERROR);
+                MessageBox.Show(ex.ToString());
+            }
 
+            conexion.Close();
         }
 
         private void btn_eliminar_prod_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                conexion.Open();
+                OracleCommand comando = new OracleCommand("eliminarProducto", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idPro", OracleType.VarChar).Value = txt_id_prod.Text;
+                comando.ExecuteNonQuery();
+                SweetAlert.Show("Operación Realizada", "El producto fue eliminado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+                this.resetAll();
+            }
+            catch (Exception)
+            {
+                SweetAlert.Show("Error", "No fue posible eliminar el producto", SweetAlertButton.OK, SweetAlertImage.ERROR);
+            }
+            conexion.Close();
         }
 
         private void lb_prod_marca_Loaded(object sender, RoutedEventArgs e)
@@ -149,7 +185,7 @@ namespace Portafolio_Escritorio.Views
         private void dg_productos_Loaded(object sender, RoutedEventArgs e)
         {
             conexion.Open();
-            OracleCommand comando = new OracleCommand("seleccionarProductos", conexion);
+            OracleCommand comando = new OracleCommand("seleccionarProductosCompleto", conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
             comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
@@ -164,7 +200,7 @@ namespace Portafolio_Escritorio.Views
         private void btn_actualizar_prod_Click(object sender, RoutedEventArgs e)
         {
             conexion.Open();
-            OracleCommand comando = new OracleCommand("seleccionarProductos", conexion);
+            OracleCommand comando = new OracleCommand("seleccionarProductosCompleto", conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
             comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
@@ -174,6 +210,27 @@ namespace Portafolio_Escritorio.Views
             adaptador.Fill(tabla);
             dg_productos.ItemsSource = tabla.DefaultView;
             conexion.Close();
+        }
+
+        private void dg_productos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid dg = sender as DataGrid;
+            DataRowView dr = dg.SelectedItem as DataRowView;
+            if (dr != null)
+            {
+                txt_id_prod.Text = dr.Row.ItemArray[0].ToString();
+                txt_prod_descrip.Text = dr.Row.ItemArray[1].ToString();
+                txt_prod_id_tip.Text = dr.Row.ItemArray[2].ToString();
+                txt_prod_stock.Text = dr.Row.ItemArray[3].ToString();
+                cb_prod_barra.Text = dr.Row.ItemArray[4].ToString();
+                txt_prod_id_mar.Text = dr.Row.ItemArray[5].ToString();
+                dp_prod_ven.Text = dr.Row.ItemArray[6].ToString();
+
+                btn_registrar_prod.IsEnabled = false;
+                btn_editar_prod.IsEnabled = true;
+                btn_eliminar_prod.IsEnabled = true;
+
+            }
         }
     }
 }

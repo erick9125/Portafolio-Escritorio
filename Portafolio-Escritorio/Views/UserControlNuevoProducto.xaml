@@ -33,7 +33,7 @@
         </StackPanel>
 
         <StackPanel Margin="84,422,59,42">
-            <DataGrid x:Name="dg_productos"  AutoGenerateColumns="False"  Height="208" Margin="0,0,186,0" Loaded="dg_productos_Loaded" >
+            <DataGrid x:Name="dg_productos"  AutoGenerateColumns="False"  Height="208" Margin="0,0,186,0" Loaded="dg_productos_Loaded" SelectionChanged="dg_productos_SelectionChanged" >
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FF0071CA" />
@@ -43,15 +43,20 @@
                 <DataGrid.Columns>
                     <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PRODU}" />
                     <materialDesign:DataGridTextColumn Header="DESCRIPCIÓN" Binding="{Binding DESCRIPCION}"/>
+                    <materialDesign:DataGridTextColumn Header="ID TIPO PRODUCTO" Binding="{Binding TIPO_PRODUC_ID_TIPO}"/>
                     <materialDesign:DataGridTextColumn Header="STOCK" Binding="{Binding STOCK}"/>
-                    
+                    <materialDesign:DataGridTextColumn Header="CÓDIGO" Binding="{Binding CODIGO_BARRA}"/>
+                    <materialDesign:DataGridTextColumn Header="ID MARCA" Binding="{Binding MARCA_ID_MARCA}"/>
+                    <materialDesign:DataGridTextColumn Header="FECHA VENCIMIENTO" Binding="{Binding FECHA_VENCIMIENTO}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBox x:Name="txt_id_prod" materialDesign:HintAssist.Hint="ID" Height="34" Margin="645,-346,93,0" />
-            <Button x:Name="btn_actualizar_prod" Height="38" Margin="719,-346,17,0" BorderBrush="{x:Null}" Background="#FF17A2B8" Foreground="White" Click="btn_actualizar_prod_Click">
+            <TextBox x:Name="txt_id_prod" materialDesign:HintAssist.Hint="ID" Height="34" Margin="645,-346,17,0" />
+            <Button x:Name="btn_actualizar_prod" Height="40" Margin="719,-248,17,0" BorderBrush="{x:Null}" Background="#FF17A2B8" Foreground="White" Click="btn_actualizar_prod_Click">
                 <materialDesign:PackIcon Kind="Update"/>
             </Button>
-            <Button x:Name="btn_buscar_prod" Content="Buscar" Height="40" Margin="645,-250,17,0" FontSize="18" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFF9F3F3" Background="#FF007BFF" Click="btn_buscar_prod_Click" />
+            <Button x:Name="btn_buscar_prod" Height="40" Margin="645,-250,93,0" FontSize="18" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFF9F3F3" Background="#FF007BFF" Click="btn_buscar_prod_Click" >
+                <materialDesign:PackIcon Kind="Search"/>
+            </Button>
             <Button x:Name="btn_editar_prod" Content="Editar" Height="40" Margin="645,-150,17,0" FontSize="18" FontWeight="Bold" Background="#FFFFC107" BorderBrush="{x:Null}" Foreground="White" Click="btn_editar_prod_Click" />
             <Button x:Name="btn_eliminar_prod" Content="Eliminar" Height="40" Margin="645,-51,17,0" FontSize="18" FontWeight="Bold" Background="#FFDC3545" BorderBrush="{x:Null}" Foreground="#FFFFF9F9" Click="btn_eliminar_prod_Click" />
         </StackPanel>

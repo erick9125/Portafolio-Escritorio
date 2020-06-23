@@ -80,3 +80,12 @@ C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritor
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlAsignarPass.baml
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlAsignarPrecio.g.cs
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlAsignarPrecio.baml
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.Compression.Base.dll
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.Licensing.dll
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.Pdf.Base.dll
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.PdfViewer.WPF.dll
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.Shared.WPF.dll
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.Compression.Base.xml
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.Pdf.Base.xml
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.PdfViewer.WPF.xml
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.Shared.WPF.xml

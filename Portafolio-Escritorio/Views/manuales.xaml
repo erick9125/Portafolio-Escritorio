@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.PdfViewer;assembly=Syncfusion.PdfViewer.WPF"
         xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
         mc:Ignorable="d"
         Title="manuales" Height="800" Width="1024" WindowStyle="None" WindowStartupLocation="CenterScreen">
@@ -13,7 +14,7 @@
             <Button x:Name="Btn_salir_man"  VerticalAlignment="Center" Margin="109,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"  Height="26" HorizontalAlignment="Center" Width="35" Click="Btn_salir_man_Click">
                 <materialDesign:PackIcon  Kind="Logout" Foreground="#707070" Height="19" Width="26" Margin="-10,0,-11,0" HorizontalAlignment="Center" Padding="0,0,1,0"/>
             </Button>
-            <Button HorizontalAlignment="Left" Margin="35,71,1,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}">
+            <Button x:Name="bt_man_user" HorizontalAlignment="Left" Margin="35,71,1,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}" Click="bt_man_user_Click">
                 <materialDesign:PackIcon  Kind="Pdf" Foreground="#707070" Height="30" Width="30" Margin="-10,0,-11,0" HorizontalAlignment="Center" Padding="0,0,1,0"/>
             </Button>
             <Button  HorizontalAlignment="Left" Margin="37,44,0,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}">
@@ -22,33 +23,30 @@
             <Button HorizontalAlignment="Left" Margin="37,48,0,0" VerticalAlignment="Top" Width="98" Height="66" Background="{x:Null}">
                 <materialDesign:PackIcon  Kind="Pdf" Foreground="#707070" Height="30" Width="30" Margin="-10,0,-11,0" HorizontalAlignment="Center" Padding="0,0,1,0"/>
             </Button>
-            <Button HorizontalAlignment="Left" Margin="37,144,0,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}">
+            <Button HorizontalAlignment="Left" Margin="37,50,0,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}">
                 <materialDesign:PackIcon  Kind="Pdf" Foreground="#707070" Height="30" Width="30" Margin="-10,0,-11,0" HorizontalAlignment="Center" Padding="0,0,1,0"/>
             </Button>
-            <Button  HorizontalAlignment="Left" Margin="83,281,0,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}">
+            <Button  HorizontalAlignment="Left" Margin="40,44,0,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}">
                 <materialDesign:PackIcon  Kind="Pdf" Foreground="#707070" Height="30" Width="30" Margin="-10,0,-11,0" HorizontalAlignment="Center" Padding="0,0,1,0"/>
             </Button>
             <Button  HorizontalAlignment="Left" Margin="251,281,0,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}">
                 <materialDesign:PackIcon  Kind="Pdf" Foreground="#707070" Height="30" Width="30" Margin="-10,0,-11,0" HorizontalAlignment="Center" Padding="0,0,1,0"/>
             </Button>
-            <Button  HorizontalAlignment="Left" Margin="417,281,0,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}">
-                <materialDesign:PackIcon  Kind="Pdf" Foreground="#707070" Height="30" Width="30" Margin="-10,0,-11,0" HorizontalAlignment="Center" Padding="0,0,1,0"/>
-            </Button>
-            <Button  HorizontalAlignment="Left" Margin="592,281,0,0" VerticalAlignment="Top" Width="98" Height="70" Background="{x:Null}">
-                <materialDesign:PackIcon  Kind="Pdf" Foreground="#707070" Height="30" Width="30" Margin="-10,0,-11,0" HorizontalAlignment="Center" Padding="0,0,1,0"/>
-            </Button>
 
-            <Label Content="Registrar Usuario" HorizontalAlignment="Left" Margin="10,-1950,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <Label Content="Asignar un Rol" HorizontalAlignment="Left" Margin="25,-1837,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <Label Content="Registrar Proveedor" HorizontalAlignment="Left" Margin="2,-1719,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <Label Content="Registrar Ventas" HorizontalAlignment="Left" Margin="583,106,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <Label Content="Registrar Deudas" HorizontalAlignment="Left" Margin="65,244,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <Label Content="Registrar Producto" HorizontalAlignment="Left" Margin="222,244,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="0.535,0.662"/>
-            <Label Content="Generar Informes" HorizontalAlignment="Left" Margin="403,244,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <Label Content="Generar Código barra" HorizontalAlignment="Left" Margin="556,244,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+            <Label Content="Usuarios" HorizontalAlignment="Left" Margin="43,-918,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Content="Proveedores" HorizontalAlignment="Left" Margin="32,-801,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Content="Reportes" HorizontalAlignment="Left" Margin="46,-685,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Content="Estadisticas" HorizontalAlignment="Left" Margin="36,-571,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Content="Deudas" HorizontalAlignment="Left" Margin="54,-454,0,0" VerticalAlignment="Top" FontSize="18"/>
+            
+            
         </StackPanel>
         <StackPanel Margin="0,0,160,677">
             <Label Content="Manuales de usuario" HorizontalAlignment="Left" Margin="292,32,0,0" VerticalAlignment="Top" FontSize="36"/>
+        </StackPanel>
+        <StackPanel Margin="0,115,179,0">
+            <Syncfusion:PdfViewerControl x:Name="PdfViewerControl" Height="670" Margin="10,0,0,0"/>
         </StackPanel>
     </Grid>
 </Window>

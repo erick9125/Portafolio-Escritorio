@@ -28,5 +28,10 @@ namespace Portafolio_Escritorio.Views
         {
             this.Close();
         }
+
+        private void bt_man_user_Click(object sender, RoutedEventArgs e)
+        {
+            PdfViewerControl.Load(@"C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\Assets\Manuales\Erick Morales Severino CV-naranjo.pdf");
+        }
     }
 }

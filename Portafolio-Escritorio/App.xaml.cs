@@ -13,5 +13,10 @@ namespace Portafolio_Escritorio
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            //Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjc1MTE0QDMxMzgyZTMxMmUzMGYyYXJLNlVqb2ZvVExibzliNXVpaFZyaWhQN2tVR1JkbGhNQWUrM1Q0dFk9");
+        }
     }
 }

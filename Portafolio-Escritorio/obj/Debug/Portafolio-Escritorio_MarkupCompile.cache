@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\App.xaml
 21-191218933
 
-27227983083
+281250784609
 31-1265865061
 MainWindow.xaml;UserControlMenuItem.xaml;Views\manuales.xaml;Views\menu.xaml;Views\soporte.xaml;Views\UserControlAsignarPass.xaml;Views\UserControlAsignarPrecio.xaml;Views\UserControlCodigoBarra.xaml;Views\UserControlEstadisticaPago.xaml;Views\UserControlEstadisticaPedido.xaml;Views\UserControlEstadisticaVenta.xaml;Views\UserControlEstadoDeuda.xaml;Views\UserControlNuevoCliente.xaml;Views\UserControlNuevoProducto.xaml;Views\UserControlNuevoProveedor.xaml;Views\UserControlRecepcionarPedido.xaml;Views\UserControlReporteDeudas.xaml;Views\UserControlReporteProveedores.xaml;Views\UserControlReporteStock.xaml;Views\UserControlReporteVentas.xaml;Views\UserControlRoles.xaml;
 
-False
+True
 

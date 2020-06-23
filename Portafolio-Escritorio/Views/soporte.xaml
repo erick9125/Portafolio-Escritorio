@@ -8,11 +8,10 @@
         mc:Ignorable="d"
         Title="soporte" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="119,67,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Nombre" VerticalAlignment="Top" Width="246"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="119,110,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Correo" VerticalAlignment="Top" Width="246"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="119,158,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Problema" VerticalAlignment="Top" Width="246"/>
-        <Button Content="Enviar" HorizontalAlignment="Left" Margin="119,350,0,0" VerticalAlignment="Top" Width="246" Height="31" Background="#FF28A745" Foreground="White" FontSize="18" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="130" Margin="119,202,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Descripción" VerticalAlignment="Top" Width="246"/>
+        <TextBox x:Name="txt_correo" HorizontalAlignment="Left" Height="23" Margin="119,86,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="246" IsEnabled="False">negocio.yuyitos@gmail.com</TextBox>
+        <TextBox x:Name="txt_asunto" HorizontalAlignment="Left" Height="23" Margin="119,128,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Problema" VerticalAlignment="Top" Width="246"/>
+        <Button x:Name="btn_enviar_pro" Content="Enviar" HorizontalAlignment="Left" Margin="119,350,0,0" VerticalAlignment="Top" Width="246" Height="31" Background="#FF28A745" Foreground="White" FontSize="18" FontWeight="Bold" Click="btn_enviar_pro_Click"/>
+        <TextBox x:Name="txt_descripcion" HorizontalAlignment="Left" Height="160" Margin="119,172,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" materialDesign:HintAssist.Hint="Descripción" VerticalAlignment="Top" Width="246"/>
         <Rectangle HorizontalAlignment="Left" Height="450" Margin="450,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="350">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

@@ -14,21 +14,19 @@
         </StackPanel>
         <StackPanel Margin="84,137,59,254">
             <Rectangle Height="278" Stroke="#FF02BDF0" Margin="2,0,0,0"/>
-            <ComboBox x:Name="cb_prod_barra" Margin="282,-99,279,0" Height="36" Loaded="cb_prod_barra_Loaded" />
             <Label Margin="10,-519,571,0" Height="36" FontSize="16">Nuevo Producto</Label>
             <TextBox x:Name="txt_prod_descrip" materialDesign:HintAssist.Hint="Descripción" Margin="29,-411,549,0" Height="36" />
             <TextBox x:Name="txt_prod_stock" materialDesign:HintAssist.Hint="Stock" Margin="29,-306,549,0" Height="36" />
             <TextBox x:Name="txt_prod_id_mar" Height="36" materialDesign:HintAssist.Hint="ID Marca" Margin="29,-203,549,0" RenderTransformOrigin="0.5,0.5" IsEnabled="False"/>
             <TextBox x:Name="txt_prod_id_tip" Height="36" materialDesign:HintAssist.Hint="ID Tipo Producto" Margin="29,-100,549,0" IsEnabled="False" />
-            <DatePicker x:Name="dp_prod_ven" Margin="282,-408,279,0" Height="36" />
+            <DatePicker x:Name="dp_prod_ven" Margin="546,-415,10,0" Height="36" />
 
 
 
-            <Label Margin="546,-475,10,0" Height="31" FontSize="16" Content="Marca" />
-            <ListBox x:Name="lb_prod_marca" Margin="546,-325,10,0" Height="115" Loaded="lb_prod_marca_Loaded" SelectionChanged="lb_prod_marca_SelectionChanged" />
-            <Label Margin="282,-326,279,0" Height="33" FontSize="16" Content="Tipo de producto"/>
-            <ComboBox x:Name="cb_prod_tipo" Margin="282,-255,279,0" Height="36" Loaded="cb_prod_tipo_Loaded" SelectionChanged="cb_prod_tipo_SelectionChanged" />
-            <Label Height="36" Margin="282,-171,279,0" FontSize="16" Content="Codigo de barra" />
+            <Label Margin="282,-475,315,0" Height="31" FontSize="16" Content="Marca" />
+            <ListBox x:Name="lb_prod_marca" Margin="282,-253,279,0" Height="194" Loaded="lb_prod_marca_Loaded" SelectionChanged="lb_prod_marca_SelectionChanged" />
+            <Label Margin="546,-338,10,0" Height="34" FontSize="16" Content="Tipo de producto"/>
+            <ComboBox x:Name="cb_prod_tipo" Margin="546,-269,10,0" Height="36" Loaded="cb_prod_tipo_Loaded" SelectionChanged="cb_prod_tipo_SelectionChanged" />
             <Button x:Name="btn_registrar_prod" Height="62" Margin="546,-122,10,0" FontSize="20" Foreground="#FFFDFDFD" Background="#FF28A745" BorderBrush="{x:Null}" FontWeight="Bold" Click="btn_registrar_prod_Click">Registrar</Button>
         </StackPanel>
 
@@ -45,7 +43,6 @@
                     <materialDesign:DataGridTextColumn Header="DESCRIPCIÓN" Binding="{Binding DESCRIPCION}"/>
                     <materialDesign:DataGridTextColumn Header="ID TIPO PRODUCTO" Binding="{Binding TIPO_PRODUC_ID_TIPO}"/>
                     <materialDesign:DataGridTextColumn Header="STOCK" Binding="{Binding STOCK}"/>
-                    <materialDesign:DataGridTextColumn Header="CÓDIGO" Binding="{Binding CODIGO_BARRA}"/>
                     <materialDesign:DataGridTextColumn Header="ID MARCA" Binding="{Binding MARCA_ID_MARCA}"/>
                     <materialDesign:DataGridTextColumn Header="FECHA VENCIMIENTO" Binding="{Binding FECHA_VENCIMIENTO}"/>
                 </DataGrid.Columns>

@@ -3,10 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" d:DesignWidth="800" Width="950" Height="674" Background="White">
+    <Grid >
+        <StackPanel Margin="80,48,83,531">
+            <Rectangle Height="95" Fill="#FF00A0EC"/>
+            <Label Content="Asignar Precio" Foreground="#FFFBF9F9" Margin="275,-98,275,0" HorizontalAlignment="Center" FontSize="36" Height="57" />
+        </StackPanel>
+        <StackPanel Margin="80,161,83,44">
+            <Rectangle Height="467" Stroke="#FF00A0EC" />
+            <DataGrid x:Name="dg_asignar_prec" AutoGenerateColumns="False" Margin="31,-692,34,0" Height="204" Loaded="dg_asignar_prec_Loaded" SelectionChanged="dg_asignar_prec_SelectionChanged" >
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PRODU}" />
+                    <materialDesign:DataGridTextColumn Header="DESCRIPCIÓN" Binding="{Binding DESCRIPCION}"/>
+                    <materialDesign:DataGridTextColumn Header="PRECIO" Binding="{Binding PRECIO}"/>
+                    <materialDesign:DataGridTextColumn Header="FECHA INICIO" Binding="{Binding FECHA_INICIO}"/>
+                    <materialDesign:DataGridTextColumn Header="FECHA TERMINO" Binding="{Binding FECHA_TERMINO}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Rectangle Margin="31,-253,393,0" Height="202" Stroke="#FF00A0EC"/>
+            <Label Content="Precio" Margin="43,-419,411,0" Height="27" />
+            <TextBox x:Name="txt_precio" materialDesign:HintAssist.Hint="Ingrese un precio" Margin="43,-358,411,0" Height="32" />
+            <Label Content="Fecha Inicio" Margin="43,-295,411,0" Height="29"/>
+            <DatePicker x:Name="dp_fec_ini" Margin="43,-230,411,0" Height="32" />
+            <Label Content="Fecha Termino" Margin="43,-170,411,0" Height="27" />
+            <DatePicker x:Name="dp_fec_term" Margin="43,-109,411,0" Height="32" />
+        </StackPanel>
+        <StackPanel Margin="480,402,118,68" RenderTransformOrigin="0.5,0.5">
+            <Rectangle Height="200" Stroke="#FF00A0EC" />
+            <TextBox x:Name="txt_id_prod_asig" materialDesign:HintAssist.Hint="ID Producto" Margin="10,-302,150,0" Height="32" />
+            <Button x:Name="btn_registrar_prec" Content="Registrar" Margin="10,-211,10,0" Height="32" Background="#FF28A745" BorderBrush="{x:Null}" Foreground="White" FontSize="18" FontWeight="Bold" Click="btn_registrar_prec_Click" />
+            <Button x:Name="btn_editar_prec" Content="Editar" Margin="10,-127,10,0" Height="32" Background="#FFFFC107" BorderBrush="{x:Null}" Foreground="White" FontSize="18" FontWeight="Bold" Click="btn_editar_prec_Click" />
+            <Button x:Name="btn_eliminar_prec"  Content="Eliminar" Margin="10,-49,10,0" Height="32" Foreground="#FFFBFBFB" BorderBrush="{x:Null}" Background="#FFDC3545" FontSize="18" FontWeight="Bold" Click="btn_eliminar_prec_Click" />
+            <Button x:Name="btn_refrescar" Height="32" Margin="222,-300,14,0" BorderBrush="{x:Null}" Background="#FF17A2B8" Foreground="White" Click="btn_refrescar_Click" >
+                <materialDesign:PackIcon Kind="Update"/>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </UserControl>

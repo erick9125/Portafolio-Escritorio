@@ -27,7 +27,7 @@ namespace Portafolio_Escritorio.Views
     public partial class UserControlNuevoCliente : UserControl
     {
         [Obsolete]
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= 1234; USER ID= ERICK;");
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= yuyito; USER ID= SGYBD_V6;");
         public UserControlNuevoCliente()
         {
             InitializeComponent();

@@ -11,7 +11,7 @@
             <Rectangle Height="90" Fill="#FF0071CA" />
             <Label Margin="221,-94,175,1" HorizontalAlignment="Center" FontSize="36" Height="66" Foreground="#FFFBFBFB" Width="394">Nuevo Código de barra</Label>
         </StackPanel>
-        <StackPanel VirtualizingPanel.IsVirtualizing="True"  Margin="702,146,69,43" RenderTransformOrigin="0.5,0.5">
+        <StackPanel VirtualizingPanel.IsVirtualizing="True"  Margin="702,146,69,33" RenderTransformOrigin="0.5,0.5">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,11 +20,23 @@
                     <TranslateTransform X="0.828"/>
                 </TransformGroup>
             </StackPanel.RenderTransform>
-            <ComboBox x:Name="cb_tipo_prod" Height="32" Margin="15,292,10,0" Loaded="cb_tipo_prod_Loaded" SelectionChanged="cb_tipo_prod_SelectionChanged" />
-            <ListBox x:Name="cb_id_marca" Height="218" Margin="15,-316,10,0" Loaded="ListBox_Loaded" SelectionChanged="cb_id_marca_SelectionChanged_1" />
-            <ComboBox x:Name="cb_fecha_v" Margin="15,14,10,0" Height="32" />
-            <ComboBox x:Name="cb_proveedor" Margin="15,-689,10,0" Height="32" Loaded="cb_proveedor_Loaded" SelectionChanged="cb_proveedor_SelectionChanged" />
+            <ComboBox x:Name="cb_tipo_prod" Height="33" Margin="15,185,10,0" Loaded="cb_tipo_prod_Loaded" SelectionChanged="cb_tipo_prod_SelectionChanged" />
+            <ListBox x:Name="cb_id_marca" Height="111" Margin="15,-204,10,0" Loaded="ListBox_Loaded" SelectionChanged="cb_id_marca_SelectionChanged_1" />
+            <ComboBox x:Name="cb_proveedor" Margin="14,-378,10,0" Height="32" Loaded="cb_proveedor_Loaded" SelectionChanged="cb_proveedor_SelectionChanged" />
             <Button x:Name="btn_correlativo" Height="32" Margin="15,12,10,0" Content="Correlativo" BorderBrush="{x:Null}" Foreground="White" Background="#FF007BFF" FontSize="16" FontWeight="Bold" Click="Button_Click" />
+            <ListBox x:Name="lb_productos" Height="102" Margin="15,25,10,0" Loaded="lb_productos_Loaded" SelectionChanged="lb_productos_SelectionChanged" />
+            <TextBox x:Name="txt_id_produ_cb" Height="33" Margin="15,12,10,0" />
+            <Separator Height="17" Margin="15,-311,10,0" Background="#FF0071CA"/>
+            <Rectangle Height="477" RenderTransformOrigin="0.5,0.5" Margin="0,-429,0,0" Stroke="#FF0071CA" >
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
         </StackPanel>
         <StackPanel Margin="91,146,253,25">
             <Rectangle Margin="10,6,10,0" Height="476" Stroke="#FF0071CA"/>

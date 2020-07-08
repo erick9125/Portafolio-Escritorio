@@ -29,7 +29,7 @@ namespace Portafolio_Escritorio.Views
     /// </summary>
     public partial class UserControlReporteProveedores : UserControl
     {
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= 1234; USER ID= ERICK;");
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= yuyito; USER ID= SGYBD_V6;");
         public UserControlReporteProveedores()
         {
             InitializeComponent();

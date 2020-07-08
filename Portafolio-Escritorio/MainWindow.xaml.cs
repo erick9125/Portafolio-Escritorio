@@ -31,7 +31,7 @@ namespace Portafolio_Escritorio
         }
 
         [Obsolete]
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= 1234; USER ID= ERICK;");
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= yuyito; USER ID= SGYBD_V6;");
 
         [Obsolete]
         private void Btn_ingresar_Click(object sender, RoutedEventArgs e)

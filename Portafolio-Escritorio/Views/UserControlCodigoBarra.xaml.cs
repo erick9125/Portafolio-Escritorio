@@ -36,7 +36,7 @@ namespace Portafolio_Escritorio.Views
     public partial class UserControlCodigoBarra : UserControl
     {
         [Obsolete]
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= 1234; USER ID= ERICK;");
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= yuyito; USER ID= SGYBD_V6;");
         public UserControlCodigoBarra()
         {
             InitializeComponent();
@@ -126,8 +126,9 @@ namespace Portafolio_Escritorio.Views
                 OracleCommand comando = new OracleCommand("insertarCodigo", conexion);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("p_codigo_b", OracleType.VarChar).Value = barra;
-                comando.Parameters.Add("p_id_m", OracleType.VarChar).Value = txt_id_marca.Text;
-                comando.Parameters.Add("p_id_prod_t", OracleType.VarChar).Value = txt_tipo_produc.Text;
+                comando.Parameters.Add("p_id_m", OracleType.Number).Value = txt_id_marca.Text;
+                comando.Parameters.Add("p_id_prod_t", OracleType.Number).Value = txt_tipo_produc.Text;
+                comando.Parameters.Add("p_id_prod", OracleType.Number).Value = txt_id_produ_cb.Text;
                 var param = comando.Parameters.Add("p_foto_c", OracleType.Blob);
 
                 param.Direction = ParameterDirection.Input;
@@ -155,6 +156,7 @@ namespace Portafolio_Escritorio.Views
             txt_tipo_produc.Text = "";
             txt_fecha_v.Text = "";
             txt_correlativo.Text = "";
+            txt_id_produ_cb.Text = "";
         }
 
        
@@ -237,6 +239,31 @@ namespace Portafolio_Escritorio.Views
             txt_correlativo.Text = Convert.ToString(cant + 1);
             conexion.Close();
 
+        }
+
+
+        private void lb_productos_Loaded(object sender, RoutedEventArgs e)
+        {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("select ID_PRODU,DESCRIPCION, FECHA_VENCIMIENTO  from PRODUCTO order by DESCRIPCION asc", conexion);
+            comando.CommandType = System.Data.CommandType.Text;
+
+            OracleDataAdapter oda = new OracleDataAdapter(comando);
+
+            DataTable dt = new DataTable();
+            oda.Fill(dt);
+            lb_productos.ItemsSource = dt.AsDataView();
+            lb_productos.DisplayMemberPath = "DESCRIPCION";
+            lb_productos.SelectedValuePath = "ID_PRODU";
+            conexion.Close();
+        }
+
+        private void lb_productos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string valor = ((System.Data.DataRowView)lb_productos.SelectedItem).Row.ItemArray[0].ToString();
+            txt_id_produ_cb.Text = valor;
+            string fecha = ((System.Data.DataRowView)lb_productos.SelectedItem).Row.ItemArray[2].ToString();
+            txt_fecha_v.Text = fecha;
         }
     }
 }

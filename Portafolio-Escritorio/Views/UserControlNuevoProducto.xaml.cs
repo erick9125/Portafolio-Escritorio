@@ -25,7 +25,7 @@ namespace Portafolio_Escritorio.Views
     public partial class UserControlNuevoProducto : UserControl
     {
         [Obsolete]
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= 1234; USER ID= ERICK;");
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= yuyito; USER ID= SGYBD_V6;");
         public UserControlNuevoProducto()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace Portafolio_Escritorio.Views
             conexion.Close();
         }
 
-        private void cb_prod_barra_Loaded(object sender, RoutedEventArgs e)
+       /* private void cb_prod_barra_Loaded(object sender, RoutedEventArgs e)
         {
             conexion.Open();
             OracleCommand comando = new OracleCommand("select ID_CODIGO,CODIGO_BARRA from CODIGO_BARRA order by CODIGO_BARRA asc", conexion);
@@ -64,8 +64,7 @@ namespace Portafolio_Escritorio.Views
             cb_prod_barra.SelectedValuePath = "ID_TIPO";
             conexion.Close();
         }
-
-       
+        */      
 
 
         private void btn_editar_prod_Click(object sender, RoutedEventArgs e)
@@ -79,7 +78,6 @@ namespace Portafolio_Escritorio.Views
                 comando.Parameters.Add("desPro", OracleType.VarChar).Value = txt_prod_descrip.Text;
                 comando.Parameters.Add("tipPro", OracleType.VarChar).Value = txt_prod_id_tip.Text;
                 comando.Parameters.Add("sto", OracleType.Number).Value = txt_prod_stock.Text;
-                comando.Parameters.Add("cbPro", OracleType.VarChar).Value = cb_prod_barra.Text;
                 comando.Parameters.Add("marPro", OracleType.VarChar).Value = txt_prod_id_mar.Text;
                 comando.Parameters.Add("fvPro", OracleType.DateTime).Value = dp_prod_ven.SelectedDate;
                 comando.ExecuteNonQuery();
@@ -152,7 +150,6 @@ namespace Portafolio_Escritorio.Views
                 comando.Parameters.Add("p_descripcion", OracleType.VarChar).Value = txt_prod_descrip.Text;
                 comando.Parameters.Add("p_id_tipo", OracleType.VarChar).Value = txt_prod_id_tip.Text;
                 comando.Parameters.Add("p_stock", OracleType.Number).Value = txt_prod_stock.Text;
-                comando.Parameters.Add("p_codigo", OracleType.Char).Value = cb_prod_barra.Text;
                 comando.Parameters.Add("p_id_marca", OracleType.VarChar).Value = txt_prod_id_mar.Text;
                 comando.Parameters.Add("p_fecha_v", OracleType.DateTime).Value = dp_prod_ven.SelectedDate;
                 comando.ExecuteNonQuery();
@@ -180,6 +177,8 @@ namespace Portafolio_Escritorio.Views
             txt_prod_id_mar.Text = "";
             txt_prod_id_tip.Text = "";
             txt_prod_stock.Text = "";
+            dp_prod_ven.Text = "";
+            
         }
 
         private void dg_productos_Loaded(object sender, RoutedEventArgs e)
@@ -210,6 +209,9 @@ namespace Portafolio_Escritorio.Views
             adaptador.Fill(tabla);
             dg_productos.ItemsSource = tabla.DefaultView;
             conexion.Close();
+            btn_registrar_prod.IsEnabled = true;
+            
+
         }
 
         private void dg_productos_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -222,9 +224,8 @@ namespace Portafolio_Escritorio.Views
                 txt_prod_descrip.Text = dr.Row.ItemArray[1].ToString();
                 txt_prod_id_tip.Text = dr.Row.ItemArray[2].ToString();
                 txt_prod_stock.Text = dr.Row.ItemArray[3].ToString();
-                cb_prod_barra.Text = dr.Row.ItemArray[4].ToString();
-                txt_prod_id_mar.Text = dr.Row.ItemArray[5].ToString();
-                dp_prod_ven.Text = dr.Row.ItemArray[6].ToString();
+                txt_prod_id_mar.Text = dr.Row.ItemArray[4].ToString();
+                dp_prod_ven.Text = dr.Row.ItemArray[5].ToString();
 
                 btn_registrar_prod.IsEnabled = false;
                 btn_editar_prod.IsEnabled = true;

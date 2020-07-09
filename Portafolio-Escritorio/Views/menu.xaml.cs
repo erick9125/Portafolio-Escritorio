@@ -47,9 +47,8 @@ namespace Portafolio_Escritorio.Views
 
 
             var menuEstadisticas = new List<SubItem>();
-            menuEstadisticas.Add(new SubItem("Estadistica Ventas", new UserControlEstadisticaVenta()));
-            menuEstadisticas.Add(new SubItem("Estadistica Pedidos", new UserControlEstadisticaPedido()));
-            menuEstadisticas.Add(new SubItem("Estadistica Pagos", new UserControlEstadisticaPago()));
+            menuEstadisticas.Add(new SubItem("Estadistica Stock", new UserControlEstadisticaStock()));
+            menuEstadisticas.Add(new SubItem("Estadistica Deudas", new UserControlEstadisticaDeuda()));
             var item4 = new ItemMenu("Estadisticas", menuEstadisticas, PackIconKind.ChartLine);
 
             var menuDeuda = new List<SubItem>();

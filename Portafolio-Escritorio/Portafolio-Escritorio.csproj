@@ -138,14 +138,11 @@
     <Compile Include="Views\UserControlCodigoBarra.xaml.cs">
       <DependentUpon>UserControlCodigoBarra.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControlEstadisticaPago.xaml.cs">
-      <DependentUpon>UserControlEstadisticaPago.xaml</DependentUpon>
+    <Compile Include="Views\UserControlEstadisticaDeuda.xaml.cs">
+      <DependentUpon>UserControlEstadisticaDeuda.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControlEstadisticaPedido.xaml.cs">
-      <DependentUpon>UserControlEstadisticaPedido.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControlEstadisticaVenta.xaml.cs">
-      <DependentUpon>UserControlEstadisticaVenta.xaml</DependentUpon>
+    <Compile Include="Views\UserControlEstadisticaStock.xaml.cs">
+      <DependentUpon>UserControlEstadisticaStock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControlEstadoDeuda.xaml.cs">
       <DependentUpon>UserControlEstadoDeuda.xaml</DependentUpon>
@@ -217,15 +214,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControlEstadisticaPago.xaml">
+    <Page Include="Views\UserControlEstadisticaDeuda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControlEstadisticaPedido.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UserControlEstadisticaVenta.xaml">
+    <Page Include="Views\UserControlEstadisticaStock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

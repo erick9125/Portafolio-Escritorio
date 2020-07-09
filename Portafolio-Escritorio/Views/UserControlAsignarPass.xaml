@@ -27,13 +27,22 @@
                     <materialDesign:DataGridTextColumn Header="RUT" Binding="{Binding RUT}"/>
                     <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
                     <materialDesign:DataGridTextColumn Header="CORREO" Binding="{Binding MAIL}"/>
-                    <materialDesign:DataGridTextColumn Header="ESTADO" Binding="{Binding ESTADO}"/>
+                    <materialDesign:DataGridTextColumn Header="CONTRASEÑA" Binding="{Binding PASSWORD}"/>
+                    
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBox x:Name="txt_id_pass" Height="36" materialDesign:HintAssist.Hint="ID" Margin="45,16,629,0" />
-            <TextBox x:Name="txt_nueva_pass" Height="36" materialDesign:HintAssist.Hint="Ingrese la contraseña" Margin="285,-36,207,0" />
-            <TextBox x:Name="txt_estado_pass" Height="36" materialDesign:HintAssist.Hint="Estado" Margin="150,-36,494,0" />
-            <Button x:Name="btn_guardar_pass" Content="Guardar" Margin="588,-34,38,0" Height="36" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontWeight="Bold" Background="#FF28A745" Click="btn_guardar_pass_Click" />
+            <TextBox x:Name="txt_id_pass" Height="36" materialDesign:HintAssist.Hint="ID" Margin="45,16,623,0" />
+            <TextBox x:Name="txt_nueva_pass" Height="36" materialDesign:HintAssist.Hint="Ingrese la contraseña" Margin="173,-36,370,0" />
+
+            <Button x:Name="btn_guardar_pass"  Margin="428,-34,256,0" Height="36" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontWeight="Bold" Background="#FF28A745" Click="btn_guardar_pass_Click" >
+                <materialDesign:PackIcon Kind="ContentSave"/>
+            </Button>
+            <Button x:Name="btn_edit_pass" Height="36" Margin="544,-36,139,0" BorderBrush="{x:Null}" Foreground="White" Background="#FFFFC107" Click="btn_edit_pass_Click" >
+                <materialDesign:PackIcon Kind="Edit"/>
+            </Button>
+            <Button x:Name="btn_actualizar" Height="36" Margin="657,-38,38,0" BorderBrush="{x:Null}" Foreground="White" Background="#FF17A2B8" Click="Button_Click">
+                <materialDesign:PackIcon Kind="Refresh"/>
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>

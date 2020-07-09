@@ -25,6 +25,8 @@
                     <materialDesign:DataGridTextColumn Header="RUT" Binding="{Binding RUT}"/>
                     <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
                     <materialDesign:DataGridTextColumn Header="CORREO" Binding="{Binding MAIL}"/>
+                    <materialDesign:DataGridTextColumn Header="FECHA DEUDA" Binding="{Binding FECHA_DEUDA}"/>
+                    <materialDesign:DataGridTextColumn Header="MONTO" Binding="{Binding MONTO_DEUDA}"/>
                     
                 </DataGrid.Columns>
             </DataGrid>

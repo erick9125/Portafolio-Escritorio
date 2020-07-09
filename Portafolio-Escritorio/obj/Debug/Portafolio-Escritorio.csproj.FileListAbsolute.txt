@@ -37,9 +37,6 @@ C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritor
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\BarcodeStandard.dll
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\System.Drawing.Common.dll
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlCodigoBarra.g.cs
-C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaPago.g.cs
-C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaPedido.g.cs
-C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaVenta.g.cs
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadoDeuda.g.cs
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlNuevoProducto.g.cs
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlRecepcionarPedido.g.cs
@@ -48,9 +45,6 @@ C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritor
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlReporteStock.g.cs
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlReporteVentas.g.cs
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlCodigoBarra.baml
-C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaPago.baml
-C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaPedido.baml
-C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaVenta.baml
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadoDeuda.baml
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlNuevoProducto.baml
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlRecepcionarPedido.baml
@@ -89,3 +83,7 @@ C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritor
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.Pdf.Base.xml
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.PdfViewer.WPF.xml
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\bin\Debug\Syncfusion.Shared.WPF.xml
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaDeuda.g.cs
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaStock.g.cs
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaDeuda.baml
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaStock.baml

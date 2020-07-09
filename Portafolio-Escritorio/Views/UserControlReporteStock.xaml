@@ -24,6 +24,7 @@
                     <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PRODU}" />
                     <materialDesign:DataGridTextColumn Header="PRODUCTO" Binding="{Binding DESCRIPCION}"/>
                     <materialDesign:DataGridTextColumn Header="CANTIDAD DISPONIBLE" Binding="{Binding STOCK}"/>
+                    <materialDesign:DataGridTextColumn Header="FECHA VENCIMIENTO" Binding="{Binding FECHA_VENCIMIENTO}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

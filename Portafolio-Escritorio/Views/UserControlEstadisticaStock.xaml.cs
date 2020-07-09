@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Portafolio_Escritorio.Views
 {
     /// <summary>
-    /// Lógica de interacción para UserControlEstadisticaVenta.xaml
+    /// Lógica de interacción para UserControlEstadisticaStock.xaml
     /// </summary>
-    public partial class UserControlEstadisticaVenta : UserControl
+    public partial class UserControlEstadisticaStock : UserControl
     {
-        public UserControlEstadisticaVenta()
+        public UserControlEstadisticaStock()
         {
             InitializeComponent();
         }

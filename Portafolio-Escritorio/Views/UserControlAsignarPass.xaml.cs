@@ -33,7 +33,7 @@ namespace Portafolio_Escritorio.Views
         private void dgv_pass_Loaded(object sender, RoutedEventArgs e)
         {
             conexion.Open();
-            OracleCommand comando = new OracleCommand("seleccionarPersonas", conexion);
+            OracleCommand comando = new OracleCommand("SeleccionarPersonaUsuario", conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
             comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
@@ -56,7 +56,6 @@ namespace Portafolio_Escritorio.Views
                     comando.CommandType = System.Data.CommandType.StoredProcedure;
                     comando.Parameters.Add("p_id", OracleType.VarChar).Value = txt_id_pass.Text;
                     comando.Parameters.Add("p_pass", OracleType.VarChar).Value = txt_nueva_pass.Text;
-                    comando.Parameters.Add("p_estado", OracleType.VarChar).Value = txt_estado_pass.Text;
                     comando.ExecuteNonQuery();
                     SweetAlert.Show("Operación Realizada", "La nueva contraseña fue asignada con exito!", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
                     this.resetAll();
@@ -81,7 +80,7 @@ namespace Portafolio_Escritorio.Views
             txt_id_pass.Text = "";
             txt_nueva_pass.Text = "";
             txt_buscar_pass.Text = "";
-            txt_estado_pass.Text = "";
+            
 
         }
 
@@ -92,7 +91,19 @@ namespace Portafolio_Escritorio.Views
             if (dr != null)
             {
                 txt_id_pass.Text = dr.Row.ItemArray[0].ToString();
-                txt_estado_pass.Text = dr.Row.ItemArray[4].ToString();
+                txt_nueva_pass.Text = dr.Row.ItemArray[4].ToString();
+                
+                if(txt_nueva_pass.Text =="")
+                {
+                    btn_edit_pass.IsEnabled = false;
+                    btn_guardar_pass.IsEnabled = true;
+                } 
+                else
+                {
+                    btn_edit_pass.IsEnabled = true;
+                    btn_guardar_pass.IsEnabled = false;
+                }
+
 
             }
         }
@@ -120,6 +131,45 @@ namespace Portafolio_Escritorio.Views
             {
                 SweetAlert.Show("Error al buscar", "Hubo un problema al buscar el cliente", SweetAlertButton.YesNo, SweetAlertImage.INFORMATION);
             }
+            conexion.Close();
+        }
+
+        private void btn_edit_pass_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                conexion.Open();
+                OracleCommand comando = new OracleCommand("actualizarPass", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idPer", OracleType.Number).Value = txt_id_pass.Text;
+                comando.Parameters.Add("passCh", OracleType.VarChar).Value = txt_nueva_pass.Text;
+               
+
+                comando.ExecuteNonQuery();
+                SweetAlert.Show("Operación Realizada", "La contraseña fue cambiada con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+                this.resetAll();
+            }
+            catch (Exception)
+            {
+                SweetAlert.Show("Error", "Error al modificar la contraseña del usuario seleccionado", SweetAlertButton.OK, SweetAlertImage.ERROR);
+            }
+
+            conexion.Close();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("SeleccionarPersonaUsuario", conexion);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            dgv_pass.ItemsSource = tabla.DefaultView;
             conexion.Close();
         }
     }

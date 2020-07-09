@@ -13,18 +13,33 @@
             <Label Content="Reporte Ventas" Margin="266,-135,202,0" Height="61" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Width="316" Foreground="White"/>
         </StackPanel>
         <StackPanel Margin="111,213,55,145">
-            <DataGrid Height="311" />
+            <DataGrid x:Name="dg_ventas" AutoGenerateColumns="False" Height="311" Loaded="dg_ventas_Loaded" >
+                <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF0071CA" />
+                    <Setter Property="Foreground" Value="white" />
+                </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_VENTA}" />
+                    <materialDesign:DataGridTextColumn Header="MONTO PAGO" Binding="{Binding MONTO_PAGO}"/>
+                    <materialDesign:DataGridTextColumn Header="VUELTO" Binding="{Binding MONTO_VUELTO}"/>
+                    <materialDesign:DataGridTextColumn Header="TOTAL" Binding="{Binding MONTO_TOTAL}"/>
+                    <materialDesign:DataGridTextColumn Header="FECHA DE VENTA" Binding="{Binding FECHA_VENTA}"/>
+                    <materialDesign:DataGridTextColumn Header="MEDIO DE PAGO" Binding="{Binding DESCRIPCION}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
         <StackPanel Margin="111,531,55,29">
             <Rectangle Height="88" Stroke="Black" Margin="0,2,0,0" />
             <Label Content="EXPORTAR A :" Margin="10,-97,624,0" Height="32" FontSize="20"/>
-            <Button x:Name="btn_word_ventas"  Foreground="White" Background="#FF007BFF" Margin="294,-97,347,0" Height="50" FontSize="16" FontWeight="Bold" >
+            <Button x:Name="btn_word_ventas"  Foreground="White" Background="#FF007BFF" Margin="294,-97,347,0" Height="50" FontSize="16" FontWeight="Bold" Click="btn_word_ventas_Click" >
                 <materialDesign:PackIcon Kind="FileWord" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />
             </Button>
-            <Button x:Name="btn_excel_ventas"  Foreground="White" BorderBrush="{x:Null}" Background="#FF28A745" Margin="447,-97,193,0" Height="50" FontSize="16" FontWeight="Bold" >
+            <Button x:Name="btn_excel_ventas"  Foreground="White" BorderBrush="{x:Null}" Background="#FF28A745" Margin="447,-97,193,0" Height="50" FontSize="16" FontWeight="Bold" Click="btn_excel_ventas_Click" >
                 <materialDesign:PackIcon Kind="FileExcel" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />
             </Button>
-            <Button x:Name="btn_pdf_ventas"  BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545" Margin="603,-97,38,0" Height="52" FontSize="16" FontWeight="Bold">
+            <Button x:Name="btn_pdf_ventas"  BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545" Margin="603,-97,38,0" Height="52" FontSize="16" FontWeight="Bold" Click="btn_pdf_ventas_Click">
                 <materialDesign:PackIcon Kind="FilePdf" VerticalAlignment="Center" Foreground="White" Width="30" Height="30" />
             </Button>
         </StackPanel>

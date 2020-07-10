@@ -147,6 +147,9 @@
     <Compile Include="Views\UserControlEstadoDeuda.xaml.cs">
       <DependentUpon>UserControlEstadoDeuda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControlMarcayFamilia.xaml.cs">
+      <DependentUpon>UserControlMarcayFamilia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControlNuevoCliente.xaml.cs">
       <DependentUpon>UserControlNuevoCliente.xaml</DependentUpon>
     </Compile>
@@ -223,6 +226,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControlEstadoDeuda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlMarcayFamilia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

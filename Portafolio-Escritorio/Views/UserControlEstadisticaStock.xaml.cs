@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SweetAlertSharp;
+using SweetAlertSharp.Enums;
+using System.Data.OracleClient;
+using System.Data;
 
 namespace Portafolio_Escritorio.Views
 {
@@ -20,9 +24,16 @@ namespace Portafolio_Escritorio.Views
     /// </summary>
     public partial class UserControlEstadisticaStock : UserControl
     {
+        [Obsolete]
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe; PASSWORD= yuyito; USER ID= SGYBD_V6;");
         public UserControlEstadisticaStock()
         {
             InitializeComponent();
+        }
+
+        private void g_stock_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

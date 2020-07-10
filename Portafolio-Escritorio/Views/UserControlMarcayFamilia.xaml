@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="Portafolio_Escritorio.Views.UserControlMarcayFamilia"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
+             mc:Ignorable="d" 
+             Width="950" Height="670" Background="White">
+    <Grid>
+        <StackPanel Margin="77,27,92,540">
+            <Rectangle Height="102" Stroke="Black" Fill="#FF0071CA" />
+            <Label Content="Registrar Marca - Familia - Tipo Producto" Foreground="White" Margin="0,-83,0,0" HorizontalAlignment="Center" FontSize="36"/>
+        </StackPanel>
+        <StackPanel Margin="77,135,642,60">
+            <Rectangle Height="471" Stroke="#FF0071CA" />
+            <DataGrid x:Name="dg_marca" AutoGenerateColumns="False" Height="184" Margin="10,-695,10,0" Loaded="dg_marca_Loaded" SelectionChanged="dg_marca_SelectionChanged">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_MARCA}" />
+                    <materialDesign:DataGridTextColumn Header="DESCRIPCIÓN" Binding="{Binding DESCRIPCION}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="txt_marca" materialDesign:HintAssist.Hint="Descripción" Margin="10,-459,10,0" Height="29" />
+            <TextBox x:Name="txt_id_marca" materialDesign:HintAssist.Hint="ID Marca" Height="29" Margin="10,-369,10,0" IsEnabled="False" />
+            <Button x:Name="btn_regis_marca" Content="Registrar" Height="30" Margin="10,-274,106,0" BorderBrush="{x:Null}" Foreground="White" Background="#FF28A745" FontSize="18" FontWeight="Bold" Click="btn_regis_marca_Click" />
+            <Button x:Name="btn_edit_marca" Content="Editar" Height="29" Margin="10,-186,10,0" BorderBrush="{x:Null}" Foreground="White" Background="#FFFFC107" FontSize="18" FontWeight="Bold" Click="btn_edit_marca_Click" />
+            <Button x:Name="btn_elim_marca" Content="Eliminar" Height="29" Margin="10,-95,10,0" BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545" FontSize="18" FontWeight="Bold" Click="btn_elim_marca_Click" />
+            <Label Content="Marca" Margin="10,-908,0,0" HorizontalAlignment="Left" FontSize="18" Height="34" Width="62"/>
+            <Button x:Name="btn_actualizar_marca" Height="28" Margin="148,-275,10,0" BorderBrush="{x:Null}" Foreground="White" Background="#FF17A2B8" Click="btn_actualizar_marca_Click" >
+                <materialDesign:PackIcon Kind="Update"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="330,135,92,60">
+            <Rectangle Height="473" Stroke="#FF0071CA" />
+            <Button x:Name="btn_actualizar_familia" Height="29" Margin="134,-263,318,0" Background="#FF17A2B8" BorderBrush="{x:Null}" Foreground="White" Click="btn_actualizar_familia_Click">
+                <materialDesign:PackIcon Kind="Update"/>
+            </Button>
+            <TextBox x:Name="txt_id_fami_prod" materialDesign:HintAssist.Hint="ID Familia Producto" Height="28" Margin="10,-369,320,0" IsEnabled="False" />
+            <Label Content="Familia de producto" HorizontalAlignment="Left" Margin="10,-915,0,0" Height="32" FontSize="18" Width="177" />
+            <DataGrid x:Name="dg_familia_prod" AutoGenerateColumns="False" Height="185" Margin="10,-693,318,0" RenderTransformOrigin="0.5,0.5" Loaded="dg_familia_prod_Loaded" SelectionChanged="dg_familia_prod_SelectionChanged">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_FAMILIA}" />
+                    <materialDesign:DataGridTextColumn Header="DESCRIPCIÓN" Binding="{Binding DESCRIPCION}"/>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+            <TextBox x:Name="txt_fami_prod" materialDesign:HintAssist.Hint="Descripción" Margin="10,-454,320,0" Height="29" />
+            <Button x:Name="btn_regis_fami_prod" Content="Registrar" Height="30" Margin="10,-266,418,0" BorderBrush="{x:Null}" Foreground="White" Background="#FF28A745" FontSize="18" FontWeight="Bold" Click="btn_regis_fami_prod_Click" />
+            <Button x:Name="btn_edit_fami_prod" Content="Editar" Height="29" Margin="10,-183,320,0" BorderBrush="{x:Null}" Foreground="White" Background="#FFFFC107" FontSize="18" FontWeight="Bold" Click="btn_edit_fami_prod_Click" />
+            <Button x:Name="btn_elim_fami_prod" Content="Elimar" Height="29" Margin="10,-94,320,0" BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545" FontSize="18" FontWeight="Bold" Click="btn_elim_fami_prod_Click" />
+            <Separator Margin="0,-475,83,2" Height="20" RenderTransformOrigin="0.5,0.5" >
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90.182"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <Label Content="Tipo Producto" Height="34" Margin="235,-912,137,0" FontSize="18" />
+            <DataGrid x:Name="dg_tipo_prod" AutoGenerateColumns="False" Height="187" Margin="235,-692,10,0" Loaded="dg_tipo_prod_Loaded" SelectionChanged="dg_tipo_prod_SelectionChanged" >
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_TIPO}" />
+                    <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
+                    <materialDesign:DataGridTextColumn Header="DESCRIPCIÓN" Binding="{Binding DESCRIPCION}"/>
+                    <materialDesign:DataGridTextColumn Header="ID FAMILIA" Binding="{Binding FAMILIA_PRODUC_ID_FAMILIA}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="txt_nomb_tipo" materialDesign:HintAssist.Hint="Nombre Tipo Producto" Height="29" Margin="235,-453,10,0" />
+            <TextBox x:Name="txt_descrip_tipo" materialDesign:HintAssist.Hint="Descripción Tipo Producto" Height="29" Margin="235,-367,10,0" />
+            <TextBox x:Name="txt_id_tipo" materialDesign:HintAssist.Hint="ID Tipo Producto" Height="29" Margin="235,-267,172,0" IsEnabled="False" />
+            <TextBox x:Name="txt_id_fami" materialDesign:HintAssist.Hint="ID Familia Producto"  Height="29" Margin="381,-267,10,0" IsEnabled="False"/>
+            <Button x:Name="btn_regis_tipo" Content="Registrar" Height="29" Margin="235,-181,172,0" BorderBrush="{x:Null}" Foreground="White" Background="#FF28A745" FontSize="18" FontWeight="Bold" Click="btn_regis_tipo_Click"/>
+            <Button x:Name="btn_actualizar_tipo" Content="Actualizar" Height="29" Margin="381,-180,10,0" BorderBrush="{x:Null}" Foreground="White" Background="#FF17A2B8" FontSize="18" FontWeight="Bold" Click="btn_actualizar_tipo_Click"/>
+            <Button x:Name="btn_edit_tipo" Content="Editar" Height="29" Margin="235,-94,172,0" BorderBrush="{x:Null}" Foreground="White" Background="#FFFFC107" FontSize="18" FontWeight="Bold" Click="btn_edit_tipo_Click"/>
+            <Button x:Name="btn_elim_tipo" Content="Eliminar" Height="29" Margin="381,-95,10,0" BorderBrush="{x:Null}" Foreground="White" Background="#FFDC3545" FontSize="18" FontWeight="Bold" Click="btn_elim_tipo_Click" />
+        </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\App.xaml
-20101648796
+21183456276
 
-261288199507
+27995722139
 362037491138
-MainWindow.xaml;UserControlMenuItem.xaml;Views\manuales.xaml;Views\menu.xaml;Views\soporte.xaml;Views\UserControlAsignarPass.xaml;Views\UserControlAsignarPrecio.xaml;Views\UserControlCodigoBarra.xaml;Views\UserControlEstadisticaDeuda.xaml;Views\UserControlEstadisticaStock.xaml;Views\UserControlEstadoDeuda.xaml;Views\UserControlNuevoCliente.xaml;Views\UserControlNuevoProducto.xaml;Views\UserControlNuevoProveedor.xaml;Views\UserControlRecepcionarPedido.xaml;Views\UserControlReporteDeudas.xaml;Views\UserControlReporteProveedores.xaml;Views\UserControlReporteStock.xaml;Views\UserControlReporteVentas.xaml;Views\UserControlRoles.xaml;
+MainWindow.xaml;UserControlMenuItem.xaml;Views\manuales.xaml;Views\menu.xaml;Views\soporte.xaml;Views\UserControlAsignarPass.xaml;Views\UserControlAsignarPrecio.xaml;Views\UserControlCodigoBarra.xaml;Views\UserControlEstadisticaDeuda.xaml;Views\UserControlEstadisticaStock.xaml;Views\UserControlEstadoDeuda.xaml;Views\UserControlMarcayFamilia.xaml;Views\UserControlNuevoCliente.xaml;Views\UserControlNuevoProducto.xaml;Views\UserControlNuevoProveedor.xaml;Views\UserControlRecepcionarPedido.xaml;Views\UserControlReporteDeudas.xaml;Views\UserControlReporteProveedores.xaml;Views\UserControlReporteStock.xaml;Views\UserControlReporteVentas.xaml;Views\UserControlRoles.xaml;
 
 False
 

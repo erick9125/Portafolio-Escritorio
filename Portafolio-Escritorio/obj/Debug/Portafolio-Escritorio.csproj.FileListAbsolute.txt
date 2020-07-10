@@ -87,3 +87,5 @@ C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritor
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaStock.g.cs
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaDeuda.baml
 C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlEstadisticaStock.baml
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlMarcayFamilia.g.cs
+C:\Users\Emy&Tamy\Desktop\Proyectos\c#\Portafolio-Escritorio\Portafolio-Escritorio\obj\Debug\Views\UserControlMarcayFamilia.baml

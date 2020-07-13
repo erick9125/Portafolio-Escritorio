@@ -37,7 +37,7 @@
             <Label Content="Usuarios" HorizontalAlignment="Left" Margin="43,-918,0,0" VerticalAlignment="Top" FontSize="18"/>
             <Label Content="Proveedores" HorizontalAlignment="Left" Margin="32,-801,0,0" VerticalAlignment="Top" FontSize="18"/>
             <Label Content="Reportes" HorizontalAlignment="Left" Margin="46,-685,0,0" VerticalAlignment="Top" FontSize="18"/>
-            <Label Content="Estadisticas" HorizontalAlignment="Left" Margin="36,-571,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Content="Productos" HorizontalAlignment="Left" Margin="36,-571,0,0" VerticalAlignment="Top" FontSize="18"/>
             <Label Content="Deudas" HorizontalAlignment="Left" Margin="54,-454,0,0" VerticalAlignment="Top" FontSize="18"/>
             
             

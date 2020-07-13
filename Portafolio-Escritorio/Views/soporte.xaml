@@ -25,11 +25,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="481,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="215" Width="287" Foreground="#FFFBFBFB" FontSize="18"><Run Text="Tambien puedes contactar a nuestra mesa de ayuda mediante los siguientes números de atención"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
         <StackPanel Orientation="Horizontal" Margin="455,0,0,0">
             <materialDesign:PackIcon Kind="Phone" VerticalAlignment="Center" Foreground="White" Margin="25,88,0,0"/>
-            <Label Content="825XXXXXXX" Margin="26,253,0,158" Foreground="White" FontSize="18"></Label>
+            <Label Content="282552468" Margin="26,253,0,158" Foreground="White" FontSize="18"></Label>
         </StackPanel>
         <StackPanel Margin="481,293,104,118">
             <materialDesign:PackIcon Kind="Cellphone" Foreground="White" Margin="0,1,0,0"/>
-            <Label Content="+569 9XXXXXXX" Foreground="White" FontSize="18" Margin="30,-23,0,0" />
+            <Label Content="+569 95836984" Foreground="White" FontSize="18" Margin="30,-23,0,0" />
         </StackPanel>
         <StackPanel Margin="725,0,0,0">
             <Button x:Name="Btn_salir_Sop"  VerticalAlignment="Center" Margin="25,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"  Height="26" HorizontalAlignment="Center" Width="35" Click="Btn_salir_Sop_Click" >

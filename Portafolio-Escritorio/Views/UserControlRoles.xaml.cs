@@ -68,7 +68,7 @@ namespace Portafolio_Escritorio.Views
 
         private void btn_guardar_rol_Click(object sender, RoutedEventArgs e)
         {
-            if (txt_id_rol.Text != "" && txt_id_rol_user.Text != "") 
+            if (txt_id_rol.Text != "" && txt_id_rol_user.Text != "")
             {
                 try
                 {
@@ -93,7 +93,7 @@ namespace Portafolio_Escritorio.Views
             {
                 SweetAlert.Show("Error", "No pueden estar vacios los campos de texto antes de asignar un Rol", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
-           
+
         }
 
         private void dgvRoles_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -117,18 +117,52 @@ namespace Portafolio_Escritorio.Views
             txt_buscar_rol.Text = "";
             txt_id_rol.Text = "";
             txt_id_rol_user.Text = "";
-            
+
         }
 
         private void btn_editar_rol_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                conexion.Open();
+                OracleCommand comando = new OracleCommand("actualizarRolAsignado", conexion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idRUser", OracleType.VarChar).Value = txt_id_rol_user.Text;
+                comando.Parameters.Add("idRol", OracleType.VarChar).Value = txt_id_rol.Text;
+                
 
+                comando.ExecuteNonQuery();
+                SweetAlert.Show("Operación Realizada", "El rol asignado fue modificado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+                this.resetAll();
+            }
+            catch (Exception)
+            {
+                SweetAlert.Show("Error", "Error al modificar El rol asignado", SweetAlertButton.OK, SweetAlertImage.ERROR);
+            }
+
+            conexion.Close();
         }
 
-        private void btn_nuevo_rol_Click(object sender, RoutedEventArgs e)
+
+            private void btn_nuevo_rol_Click(object sender, RoutedEventArgs e)
         {
             Views.NuevoRol rol = new NuevoRol();
             rol.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            conexion.Open();
+            OracleCommand comando = new OracleCommand("seleccionarPersonasRol", conexion);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            dgvRoles.ItemsSource = tabla.DefaultView;
+            conexion.Close();
         }
     }
 }

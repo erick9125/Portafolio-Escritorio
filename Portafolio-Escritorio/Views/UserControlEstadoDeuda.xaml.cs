@@ -95,10 +95,11 @@ namespace Portafolio_Escritorio.Views
             try
             {
                 cliente.Send(mmsg);
+                SweetAlert.Show("Operación Realizada", "Notificación enviada con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al Enviar Correo");
+                SweetAlert.Show("Error", "Ocurrio un problema al enviar la notificación", SweetAlertButton.OK, SweetAlertImage.ERROR);
             }
 
         }
@@ -113,5 +114,7 @@ namespace Portafolio_Escritorio.Views
 
             }
         }
+
+        
     }
 }

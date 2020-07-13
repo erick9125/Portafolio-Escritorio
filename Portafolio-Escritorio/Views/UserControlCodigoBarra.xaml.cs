@@ -83,7 +83,7 @@ namespace Portafolio_Escritorio.Views
             //Creaamos la fuente de imagen desde la memoria
             MemoryStream ms = new MemoryStream();
             img.Save(ms, ImageFormat.Bmp);//guarda la imagen en memoria
-            img.Save("C:/Users/Emy&Tamy/Desktop/cb/"+barra+".jpg");
+            img.Save("C:/cb/"+barra+".jpg");
             //my buffer byte
             byte[] buffer = ms.GetBuffer();
             //Crea un nuevo MemoryStream que tenga el contenido del búfer
@@ -115,7 +115,7 @@ namespace Portafolio_Escritorio.Views
         {
             try
             {
-                String SourceLoc = "C:/Users/Emy&Tamy/Desktop/cb/" + barra + ".jpg";
+                String SourceLoc = "C:/cb/" + barra + ".jpg";
                 FileStream fs = new FileStream(SourceLoc, FileMode.Open, FileAccess.Read);
                 byte[] ImageData = new byte[fs.Length];
                 fs.Read(ImageData, 0, System.Convert.ToInt32(fs.Length));
@@ -233,7 +233,7 @@ namespace Portafolio_Escritorio.Views
             //numero correlativo
             int cant = 0;
             conexion.Open();
-            OracleCommand comando = new OracleCommand("SELECT max(substr(codigo_barra,-18,3))  from CODIGO_BARRA", conexion);
+            OracleCommand comando = new OracleCommand("SELECT max(substr(codigo_barra,-20,3))  from CODIGO_BARRA", conexion);
 
             cant = Convert.ToInt32(comando.ExecuteScalar());
             txt_correlativo.Text = Convert.ToString(cant + 1);
@@ -245,7 +245,7 @@ namespace Portafolio_Escritorio.Views
         private void lb_productos_Loaded(object sender, RoutedEventArgs e)
         {
             conexion.Open();
-            OracleCommand comando = new OracleCommand("select ID_PRODU,DESCRIPCION, FECHA_VENCIMIENTO  from PRODUCTO order by DESCRIPCION asc", conexion);
+            OracleCommand comando = new OracleCommand("select ID_PRODU,DESCRIPCION, TO_CHAR(FECHA_VENCIMIENTO,'DDMMYYYY')  from PRODUCTO order by DESCRIPCION asc", conexion);
             comando.CommandType = System.Data.CommandType.Text;
 
             OracleDataAdapter oda = new OracleDataAdapter(comando);

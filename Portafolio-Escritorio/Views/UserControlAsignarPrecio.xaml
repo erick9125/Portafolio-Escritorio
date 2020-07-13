@@ -25,8 +25,8 @@
                     <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PRODU}" />
                     <materialDesign:DataGridTextColumn Header="DESCRIPCIÓN" Binding="{Binding DESCRIPCION}"/>
                     <materialDesign:DataGridTextColumn Header="PRECIO" Binding="{Binding PRECIO}"/>
-                    <materialDesign:DataGridTextColumn Header="FECHA INICIO" Binding="{Binding FECHA_INICIO}"/>
-                    <materialDesign:DataGridTextColumn Header="FECHA TERMINO" Binding="{Binding FECHA_TERMINO}"/>
+                    <materialDesign:DataGridTextColumn Header="FECHA INICIO"  Binding="{Binding FECHA_INICIO, StringFormat='dd-MM-yyyy'}"/>
+                    <materialDesign:DataGridTextColumn Header="FECHA TERMINO" Binding="{Binding FECHA_TERMINO , StringFormat='dd-MM-yyyy'}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Rectangle Margin="31,-253,393,0" Height="202" Stroke="#FF00A0EC"/>
@@ -39,13 +39,14 @@
         </StackPanel>
         <StackPanel Margin="480,402,118,68" RenderTransformOrigin="0.5,0.5">
             <Rectangle Height="200" Stroke="#FF00A0EC" />
-            <TextBox x:Name="txt_id_prod_asig" materialDesign:HintAssist.Hint="ID Producto" Margin="10,-302,150,0" Height="32" />
+            <TextBox x:Name="txt_id_prod_asig" materialDesign:HintAssist.Hint="ID Producto" Margin="10,-302,181,0" Height="32" />
             <Button x:Name="btn_registrar_prec" Content="Registrar" Margin="10,-211,10,0" Height="32" Background="#FF28A745" BorderBrush="{x:Null}" Foreground="White" FontSize="18" FontWeight="Bold" Click="btn_registrar_prec_Click" />
-            <Button x:Name="btn_editar_prec" Content="Editar" Margin="10,-127,10,0" Height="32" Background="#FFFFC107" BorderBrush="{x:Null}" Foreground="White" FontSize="18" FontWeight="Bold" Click="btn_editar_prec_Click" />
-            <Button x:Name="btn_eliminar_prec"  Content="Eliminar" Margin="10,-49,10,0" Height="32" Foreground="#FFFBFBFB" BorderBrush="{x:Null}" Background="#FFDC3545" FontSize="18" FontWeight="Bold" Click="btn_eliminar_prec_Click" />
-            <Button x:Name="btn_refrescar" Height="32" Margin="222,-300,14,0" BorderBrush="{x:Null}" Background="#FF17A2B8" Foreground="White" Click="btn_refrescar_Click" >
+            <Button x:Name="btn_editar_prec" Content="Editar" Margin="10,-127,181,0" Height="32" Background="#FFFFC107" BorderBrush="{x:Null}" Foreground="White" FontSize="18" FontWeight="Bold" Click="btn_editar_prec_Click" />
+            <Button x:Name="btn_eliminar_prec"  Content="Eliminar" Margin="184,-128,10,0" Height="32" Foreground="#FFFBFBFB" BorderBrush="{x:Null}" Background="#FFDC3545" FontSize="18" FontWeight="Bold" Click="btn_eliminar_prec_Click" />
+            <Button x:Name="btn_refrescar" Height="32" Margin="184,-300,14,0" BorderBrush="{x:Null}" Background="#FF17A2B8" Foreground="White" Click="btn_refrescar_Click" >
                 <materialDesign:PackIcon Kind="Update"/>
             </Button>
+            <Button x:Name="btn_nuevo_medio_p" Height="32" Content="Nuevo Medio de pago" Margin="10,-46,10,0" BorderBrush="{x:Null}" Foreground="White" FontSize="18" FontWeight="Bold" Background="#FF007BFF" Click="btn_nuevo_medio_p_Click" />
         </StackPanel>
 
     </Grid>

@@ -1,0 +1,40 @@
+﻿<Window x:Class="Portafolio_Escritorio.Views.NuevoMedioPago"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Portafolio_Escritorio.Views"
+        mc:Ignorable="d"
+        Title="NuevoMedioPago" Height="385" Width="475" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FFCEEFFF">
+    <Grid>
+        <StackPanel Margin="32,10,35,306">
+            <Rectangle Height="69" Fill="#FF014DAD" />
+            <Label Content="Registrar nuevo medio de pago" Foreground="White" HorizontalAlignment="Center" Margin="67,-67,53,0" Height="40" FontSize="20" Width="288"/>
+        </StackPanel>
+        <StackPanel Margin="32,84,35,10">
+            <DataGrid x:Name="dg_medio_pago" AutoGenerateColumns="False" Height="134" Margin="32,0,35,0" Loaded="dg_medio_pago_Loaded" SelectionChanged="dg_medio_pago_SelectionChanged">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF0071CA" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding ID_PAGO}" />
+                    <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding DESCRIPCION}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="txt_nuevo_mediop" Margin="32,11,35,0" Height="25" />
+            <TextBox x:Name="txt_id_mediop" Margin="32,10,275,0" Height="25" IsEnabled="False" />
+            <Button x:Name="btn_registrar_pago" Content="Registrar" Height="25" Margin="151,-26,157,0" FontSize="14" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FF2AA53D" Click="btn_registrar_pago_Click" />
+            <Button x:Name="btn_actualizar_pago" Content="Actualizar" Height="25" Margin="273,-24,35,0" Foreground="White" BorderBrush="{x:Null}" FontSize="14" FontWeight="Bold" Background="#FF05A4A8" Click="btn_actualizar_pago_Click"/>
+            <Button x:Name="btn_edit_mediop" Content="Edit" Height="25" Foreground="White" BorderBrush="{x:Null}" Margin="32,9,0,0" Background="#FFFFBF04" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Width="161" Click="btn_edit_mediop_Click"  />
+            <Button x:Name="btn_eliminar_mediop" Content="Eliminar" Height="25" Foreground="White" BorderBrush="{x:Null}" Background="#FFDC3644" Margin="213,-23,35,0" FontSize="14" FontWeight="Bold" Click="btn_eliminar_mediop_Click" />
+            <Button x:Name="btn_volver_mediop" Height="25" Foreground="White" BorderBrush="{x:Null}" Background="#FF017AFD" Margin="32,9,35,0" Click="btn_volver_mediop_Click">
+                <materialDesign:PackIcon Kind="ExitToApp"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

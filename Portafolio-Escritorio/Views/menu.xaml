@@ -22,12 +22,11 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
                         <StackPanel Width="150">
-                            <Button x:Name="btn_herramienta" Content="Herramientas"/>
-                            <Button x:Name="btn_cuenta" Content="Cuenta"/>
-                            <Button x:Name="btn_ayuda" Content="Ayuda"/>
+                            <Button x:Name="btn_manuales" Content="Manuales" Click="btn_manuales_Click"/>
+                            <Button x:Name="btn_ayuda" Content="Ayuda" Click="btn_ayuda_Click"/>
                             <Button x:Name="btn_minimizar" Content="Minimizar" Click="btn_minimizar_Click" />
                             <Separator/>
-                            <Button x:Name="btn_logout" Content="Logout" Click="btn_logout_Click"  />
+                            <Button x:Name="btn_logout" Content="Cerrar Sesión" Click="btn_logout_Click"  />
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </StackPanel>

@@ -33,7 +33,7 @@ namespace Portafolio_Escritorio.Views
         private void dgvRoles_Loaded(object sender, RoutedEventArgs e)
         {
             conexion.Open();
-            OracleCommand comando = new OracleCommand("seleccionarPersonas", conexion);
+            OracleCommand comando = new OracleCommand("seleccionarPersonasRol", conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
             comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
@@ -75,15 +75,16 @@ namespace Portafolio_Escritorio.Views
                     conexion.Open();
                     OracleCommand comando = new OracleCommand("insertarRol", conexion);
                     comando.CommandType = System.Data.CommandType.StoredProcedure;
-                    comando.Parameters.Add("p_id", OracleType.VarChar).Value = txt_id_rol_user.Text;
-                    comando.Parameters.Add("p_idRol", OracleType.VarChar).Value = txt_id_rol.Text;
+                    comando.Parameters.Add("p_id", OracleType.Number).Value = txt_id_rol_user.Text;
+                    comando.Parameters.Add("p_idRol", OracleType.Number).Value = txt_id_rol.Text;
                     comando.ExecuteNonQuery();
                     SweetAlert.Show("Operación Realizada", "Se ha asignado el Rol al usuario seleccionado con exito!", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
                     this.resetAll();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     SweetAlert.Show("Error", "Error al asignar el Rol", SweetAlertButton.OK, SweetAlertImage.ERROR);
+                    MessageBox.Show(ex.ToString());
                 }
 
                 conexion.Close();
@@ -117,6 +118,17 @@ namespace Portafolio_Escritorio.Views
             txt_id_rol.Text = "";
             txt_id_rol_user.Text = "";
             
+        }
+
+        private void btn_editar_rol_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_nuevo_rol_Click(object sender, RoutedEventArgs e)
+        {
+            Views.NuevoRol rol = new NuevoRol();
+            rol.Show();
         }
     }
 }

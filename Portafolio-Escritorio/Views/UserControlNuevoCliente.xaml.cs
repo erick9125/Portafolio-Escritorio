@@ -103,14 +103,15 @@ namespace Portafolio_Escritorio.Views
             conexion.Open();
             OracleCommand comando = new OracleCommand("eliminarCliente", conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.Add("idCli", OracleType.VarChar).Value = txt_id.Text;
+            comando.Parameters.Add("idCli", OracleType.Number).Value = txt_id.Text;
             comando.ExecuteNonQuery();
                 SweetAlert.Show("Operación Realizada", "El cliente fue eliminado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
                 this.resetAll();
             }
-            catch(Exception)
+            catch(Exception ex)
             {
                 SweetAlert.Show("Error", "No fue posible eliminar el cliente", SweetAlertButton.OK, SweetAlertImage.ERROR);
+                MessageBox.Show(ex.ToString());
             }
             conexion.Close();
 

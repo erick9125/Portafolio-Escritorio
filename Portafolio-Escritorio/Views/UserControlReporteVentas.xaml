@@ -25,7 +25,7 @@
                     <materialDesign:DataGridTextColumn Header="MONTO PAGO" Binding="{Binding MONTO_PAGO}"/>
                     <materialDesign:DataGridTextColumn Header="VUELTO" Binding="{Binding MONTO_VUELTO}"/>
                     <materialDesign:DataGridTextColumn Header="TOTAL" Binding="{Binding MONTO_TOTAL}"/>
-                    <materialDesign:DataGridTextColumn Header="FECHA DE VENTA" Binding="{Binding FECHA_VENTA}"/>
+                    <materialDesign:DataGridTextColumn Header="FECHA DE VENTA" Binding="{Binding FECHA_VENTA , StringFormat='dd-MM-yyyy'}"/>
                     <materialDesign:DataGridTextColumn Header="MEDIO DE PAGO" Binding="{Binding DESCRIPCION}"/>
                 </DataGrid.Columns>
             </DataGrid>

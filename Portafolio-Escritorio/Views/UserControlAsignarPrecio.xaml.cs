@@ -164,5 +164,11 @@ namespace Portafolio_Escritorio.Views
 
             
         }
+
+        private void btn_nuevo_medio_p_Click(object sender, RoutedEventArgs e)
+        {
+            Views.NuevoMedioPago pago = new NuevoMedioPago();
+            pago.Show();
+        }
     }
 }

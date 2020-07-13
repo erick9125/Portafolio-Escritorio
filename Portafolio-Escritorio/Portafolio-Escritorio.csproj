@@ -120,11 +120,29 @@
     <Compile Include="UserControlMenuItem.xaml.cs">
       <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMenuItem2.xaml.cs">
+      <DependentUpon>UserControlMenuItem2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMenuItem3.xaml.cs">
+      <DependentUpon>UserControlMenuItem3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\manuales.xaml.cs">
       <DependentUpon>manuales.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\menu.xaml.cs">
       <DependentUpon>menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\menu2.xaml.cs">
+      <DependentUpon>menu2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\menu3.xaml.cs">
+      <DependentUpon>menu3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NuevoMedioPago.xaml.cs">
+      <DependentUpon>NuevoMedioPago.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NuevoRol.xaml.cs">
+      <DependentUpon>NuevoRol.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\soporte.xaml.cs">
       <DependentUpon>soporte.xaml</DependentUpon>
@@ -137,12 +155,6 @@
     </Compile>
     <Compile Include="Views\UserControlCodigoBarra.xaml.cs">
       <DependentUpon>UserControlCodigoBarra.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControlEstadisticaDeuda.xaml.cs">
-      <DependentUpon>UserControlEstadisticaDeuda.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControlEstadisticaStock.xaml.cs">
-      <DependentUpon>UserControlEstadisticaStock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControlEstadoDeuda.xaml.cs">
       <DependentUpon>UserControlEstadoDeuda.xaml</DependentUpon>
@@ -193,6 +205,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlMenuItem2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlMenuItem3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\manuales.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -200,6 +220,22 @@
     <Page Include="Views\menu.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\menu2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\menu3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NuevoMedioPago.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NuevoRol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\soporte.xaml">
       <SubType>Designer</SubType>
@@ -214,14 +250,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControlCodigoBarra.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UserControlEstadisticaDeuda.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UserControlEstadisticaStock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

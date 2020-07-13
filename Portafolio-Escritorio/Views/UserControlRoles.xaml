@@ -28,13 +28,15 @@
                     <materialDesign:DataGridTextColumn Header="RUT" Binding="{Binding RUT}"/>
                     <materialDesign:DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}"/>
                     <materialDesign:DataGridTextColumn Header="CORREO" Binding="{Binding MAIL}"/>
-                    <materialDesign:DataGridTextColumn Header="ESTADO" Binding="{Binding ESTADO}"/>
+                    <materialDesign:DataGridTextColumn Header="ROL" Binding="{Binding ID_ASIGNADO}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <ComboBox x:Name="cb_roles" HorizontalAlignment="Left" Margin="549,-402,0,0" VerticalAlignment="Top" Width="316" Height="29" Loaded="cb_roles_Loaded" SelectionChanged="cb_roles_SelectionChanged"/>
-            <Button x:Name="btn_guardar_rol" Content="Guardar" HorizontalAlignment="Left" Margin="585,19,0,-7" VerticalAlignment="Top" Width="280" Height="38" Background="#FF28A745" Foreground="White" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="btn_guardar_rol_Click"/>
-            <TextBox x:Name="txt_id_rol" materialDesign:HintAssist.Hint="Ingresa un ID de Rol" Height="34" Margin="354,-29,386,0" />
-            <TextBox x:Name="txt_id_rol_user" materialDesign:HintAssist.Hint="Ingresa un ID" Height="34" Margin="112,-33,623,0" />
+            <Button x:Name="btn_guardar_rol" Content="Guardar" HorizontalAlignment="Left" Margin="341,19,0,-7" VerticalAlignment="Top" Width="159" Height="38" Background="#FF28A745" Foreground="White" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="btn_guardar_rol_Click"/>
+            <TextBox x:Name="txt_id_rol" materialDesign:HintAssist.Hint="Ingresa un ID de Rol" Height="34" Margin="226,-29,634,0" />
+            <TextBox x:Name="txt_id_rol_user" materialDesign:HintAssist.Hint="Ingresa un ID" Height="34" Margin="112,-33,749,0" />
+            <Button x:Name="btn_editar_rol" Content="Editar" Height="38" Margin="522,-37,268,0" BorderBrush="{x:Null}" Foreground="White" Background="#FFFFC107" FontSize="20" FontWeight="Bold" Click="btn_editar_rol_Click"/>
+            <Button x:Name="btn_nuevo_rol" Height="38" Content="Nuevo Rol" BorderBrush="{x:Null}" Foreground="White" Background="#FF007BFF" FontSize="20" FontWeight="Bold" Margin="706,-37,85,0" Click="btn_nuevo_rol_Click"/>
         </StackPanel>
 
 

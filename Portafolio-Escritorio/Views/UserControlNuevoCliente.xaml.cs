@@ -48,29 +48,29 @@ namespace Portafolio_Escritorio.Views
             conexion.Close();
         }
 
-        private void btn_nuevo_cli_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btn_nuevo_cli_Click(object sender, RoutedEventArgs e)
+        //{
             
-            try
-            {
-                conexion.Open();
-                OracleCommand comando = new OracleCommand("insertarCliente", conexion);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("p_rut", OracleType.VarChar).Value = txt_rut_cli.Text;
-                comando.Parameters.Add("p_nombre", OracleType.VarChar).Value = txt_nombre_cli.Text;
-                comando.Parameters.Add("p_mail", OracleType.VarChar).Value = txt_correo_cli.Text;
-                comando.Parameters.Add("p_estado", OracleType.Char).Value = txt_estado_cli.Text;
-                comando.ExecuteNonQuery();
-                SweetAlert.Show("Operación Realizada", "El cliente fue registrado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
-                this.resetAll();
-            }
-            catch(Exception)
-            {
-                SweetAlert.Show("Error", "Error al registrar cliente" , SweetAlertButton.OK, SweetAlertImage.ERROR);
-            }
+        //    try
+        //    {
+        //        conexion.Open();
+        //        OracleCommand comando = new OracleCommand("insertarCliente", conexion);
+        //        comando.CommandType = System.Data.CommandType.StoredProcedure;
+        //        comando.Parameters.Add("p_rut", OracleType.VarChar).Value = txt_rut_cli.Text;
+        //        comando.Parameters.Add("p_nombre", OracleType.VarChar).Value = txt_nombre_cli.Text;
+        //        comando.Parameters.Add("p_mail", OracleType.VarChar).Value = txt_correo_cli.Text;
+        //        comando.Parameters.Add("p_estado", OracleType.Char).Value = txt_estado_cli.Text;
+        //        comando.ExecuteNonQuery();
+        //        SweetAlert.Show("Operación Realizada", "El cliente fue registrado con exito", SweetAlertButton.OK, SweetAlertImage.SUCCESS);
+        //        this.resetAll();
+        //    }
+        //    catch(Exception)
+        //    {
+        //        SweetAlert.Show("Error", "Error al registrar cliente" , SweetAlertButton.OK, SweetAlertImage.ERROR);
+        //    }
 
-            conexion.Close();
-        }
+        //    conexion.Close();
+        //}
 
         private void btn_editar_cli_Click(object sender, RoutedEventArgs e)
         {
@@ -165,7 +165,7 @@ namespace Portafolio_Escritorio.Views
             adaptador.Fill(tabla);
             dgNuevoCliente.ItemsSource = tabla.DefaultView;
             conexion.Close();
-            btn_nuevo_cli.IsEnabled = true;
+            //btn_nuevo_cli.IsEnabled = true;
         }
 
         private void dgNuevoCliente_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -180,7 +180,7 @@ namespace Portafolio_Escritorio.Views
                 txt_correo_cli.Text = dr.Row.ItemArray[3].ToString();
                 txt_estado_cli.Text = dr.Row.ItemArray[4].ToString();
              
-                btn_nuevo_cli.IsEnabled = false;
+                //btn_nuevo_cli.IsEnabled = false;
                 btn_eliminar_cli.IsEnabled = true;
                 btn_editar_cli.IsEnabled = true;
 

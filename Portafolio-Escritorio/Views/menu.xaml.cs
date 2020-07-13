@@ -27,7 +27,7 @@ namespace Portafolio_Escritorio.Views
             InitializeComponent();
 
             var menuUsuarios = new List<SubItem>();
-            menuUsuarios.Add(new SubItem("Nuevo Cliente", new UserControlNuevoCliente()));
+            menuUsuarios.Add(new SubItem("Datos de usuario", new UserControlNuevoCliente()));
             menuUsuarios.Add(new SubItem("Roles de usuario", new UserControlRoles()));
             menuUsuarios.Add(new SubItem("Asignar contraseña", new UserControlAsignarPass()));
             var item6 = new ItemMenu("Usuarios", menuUsuarios, PackIconKind.Register);
